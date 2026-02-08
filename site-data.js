@@ -30,9 +30,731 @@ const SITE_DATA = {
                 ],
                 "heroSlides_id": 1,
                 "heroImage": "./images/gallery/20251023_01.jpg"
-            }
-        ]
-    },
+        },
+        {
+            "id": 2,
+            "title": "Work 2024.07.31",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20240731.jpg",
+            "productionDate": "2024.07.31",
+            "productionTime": "",
+            "tags": ["一枚絵","人外","Cute"]
+        },
+        {
+            "id": 3,
+            "title": "Work 2024.08.01",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20240801むー.jpg",
+            "productionDate": "2024.08.01",
+            "productionTime": "",
+            "tags": ["立ち絵","Cute"]
+        },
+        {
+            "id": 4,
+            "title": "Work 2024.08.12",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20240812.jpg",
+            "productionDate": "2024.08.12",
+            "productionTime": "",
+            "tags": ["一枚絵","Cute","人外"]
+        },
+        {
+            "id": 5,
+            "title": "Work 2024.09.13",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20240913.jpg",
+            "productionDate": "2024.09.13",
+            "productionTime": "",
+            "tags": ["一枚絵"]
+        },
+        {
+            "id": 6,
+            "title": "Work 2024.10.07",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241007.jpg",
+            "productionDate": "2024.10.07",
+            "productionTime": "",
+            "tags": ["一枚絵","依頼"]
+        },
+        {
+            "id": 7,
+            "title": "Work 2024.10.30",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241030.jpg",
+            "productionDate": "2024.10.30",
+            "productionTime": "",
+            "tags": ["一枚絵","依頼"]
+        },
+        {
+            "id": 8,
+            "title": "Work 2024.10.31",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241031.jpg",
+            "productionDate": "2024.10.31",
+            "productionTime": "",
+            "tags": ["一枚絵"]
+        },
+        {
+            "id": 9,
+            "title": "Work 2024.11.13",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241113.jpg",
+            "productionDate": "2024.11.13",
+            "productionTime": "",
+            "tags": ["立ち絵"]
+        },
+        {
+            "id": 10,
+            "title": "Work 2024.11.15",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241115.jpg",
+            "productionDate": "2024.11.15",
+            "productionTime": "",
+            "tags": ["立ち絵","デフォルメ","人外"]
+        },
+        {
+            "id": 11,
+            "title": "Work 2024.11.20",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241120.jpg",
+            "productionDate": "2024.11.20",
+            "productionTime": "",
+            "tags": ["一枚絵","人外","依頼"]
+        },
+        {
+            "id": 12,
+            "title": "Work 2024.12.04",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241204_01.jpg",
+            "productionDate": "2024.12.04",
+            "productionTime": "",
+            "tags": ["挿絵","ダーク","依頼"],
+            "images": [
+                "./images/gallery/20241204_01.jpg",
+                "./images/gallery/20241204_02.jpg",
+                "./images/gallery/20241204_03.jpg",
+                "./images/gallery/20241204_04.jpg"
+            ]
+        },
+        {
+            "id": 13,
+            "title": "Work 2024.12.05",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241205.jpg",
+            "productionDate": "2024.12.05",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","依頼"]
+        },
+        {
+            "id": 14,
+            "title": "Work 2024.12.17",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20241217.jpg",
+            "productionDate": "2024.12.17",
+            "productionTime": "",
+            "tags": ["一枚絵","Cute","人外"]
+        },
+        {
+            "id": 15,
+            "title": "Work 2025.01.01",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250101.jpg",
+            "productionDate": "2025.01.01",
+            "productionTime": "",
+            "tags": ["一枚絵"]
+        },
+        {
+            "id": 16,
+            "title": "Work 2025.01.11",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250111.jpg",
+            "productionDate": "2025.01.11",
+            "productionTime": "",
+            "tags": ["コップちゃん"]
+        },
+        {
+            "id": 17,
+            "title": "Work 2025.02.01",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250201.jpg",
+            "productionDate": "2025.02.01",
+            "productionTime": "",
+            "tags": ["一枚絵","二次創作"]
+        },
+        {
+            "id": 18,
+            "title": "Work 2025.02.28",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250228 .jpg",
+            "productionDate": "2025.02.28",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"]
+        },
+        {
+            "id": 19,
+            "title": "Work 2025.03.12",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250312_01.jpg",
+            "productionDate": "2025.03.12",
+            "productionTime": "",
+            "tags": ["立ち絵","キャラクターデザイン","人外"],
+            "images": [
+                "./images/gallery/20250312_01.jpg",
+                "./images/gallery/20250312_02.jpg"
+            ]
+        },
+        {
+            "id": 20,
+            "title": "Work 2025.03.28",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250328_01.jpg",
+            "productionDate": "2025.03.28",
+            "productionTime": "",
+            "tags": ["立ち絵","ダーク","キャラクターデザイン"],
+            "images": [
+                "./images/gallery/20250328_01.jpg",
+                "./images/gallery/20250328_02.jpg"
+            ]
+        },
+        {
+            "id": 21,
+            "title": "Work 2025.03.29",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250329.jpg",
+            "productionDate": "2025.03.29",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"]
+        },
+        {
+            "id": 22,
+            "title": "Work 2025.04.11",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250411.jpg",
+            "productionDate": "2025.04.11",
+            "productionTime": "",
+            "tags": ["MVイラスト","ダーク"]
+        },
+        {
+            "id": 23,
+            "title": "Work 2025.04.16",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250416.jpg",
+            "productionDate": "2025.04.16",
+            "productionTime": "",
+            "tags": ["コップちゃん","LIVE2D"]
+        },
+        {
+            "id": 24,
+            "title": "Work 2025.04.17",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250417_01.jpg",
+            "productionDate": "2025.04.17",
+            "productionTime": "",
+            "tags": ["一枚絵"],
+            "images": [
+                "./images/gallery/20250417_01.jpg",
+                "./images/gallery/20250417_2.jpg"
+            ]
+        },
+        {
+            "id": 25,
+            "title": "Work 2025.04.23",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250423.jpg",
+            "productionDate": "2025.04.23",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"]
+        },
+        {
+            "id": 26,
+            "title": "Work 2025.04.25",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250425.jpg",
+            "productionDate": "2025.04.25",
+            "productionTime": "",
+            "tags": ["コップちゃん"]
+        },
+        {
+            "id": 29,
+            "title": "Work 2025.06.12",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250612.jpg",
+            "productionDate": "2025.06.12",
+            "productionTime": "",
+            "tags": ["MVイラスト","ダーク","人外","依頼"]
+        },
+        {
+            "id": 30,
+            "title": "Work 2025.06.21",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250621.jpg",
+            "productionDate": "2025.06.21",
+            "productionTime": "",
+            "tags": ["アイコン"]
+        },
+        {
+            "id": 31,
+            "title": "Work 2025.06.23",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250623.jpg",
+            "productionDate": "2025.06.23",
+            "productionTime": "",
+            "tags": ["コップちゃん"]
+        },
+        {
+            "id": 32,
+            "title": "Work 2025.06.24",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250624_01.jpg",
+            "productionDate": "2025.06.24",
+            "productionTime": "",
+            "tags": ["一枚絵"],
+            "images": [
+                "./images/gallery/20250624_01.jpg",
+                "./images/gallery/20250624_02.jpg"
+            ]
+        },
+        {
+            "id": 33,
+            "title": "Work 2025.07.02",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250702.jpg",
+            "productionDate": "2025.07.02",
+            "productionTime": "",
+            "tags": ["挿絵","人外"]
+        },
+        {
+            "id": 34,
+            "title": "Work 2025.07.03",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250703.jpg",
+            "productionDate": "2025.07.03",
+            "productionTime": "",
+            "tags": ["立ち絵","デフォルメ","人外"]
+        },
+        {
+            "id": 35,
+            "title": "Work 2025.07.11",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250711.jpg",
+            "productionDate": "2025.07.11",
+            "productionTime": "",
+            "tags": ["一枚絵","Cute","ダーク"]
+        },
+        {
+            "id": 36,
+            "title": "Work 2025.07.14",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250714.jpg",
+            "productionDate": "2025.07.14",
+            "productionTime": "",
+            "tags": ["立ち絵","デフォルメ","人外"]
+        },
+        {
+            "id": 37,
+            "title": "Work 2025.07.16",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250716_01.jpg",
+            "productionDate": "2025.07.16",
+            "productionTime": "",
+            "tags": ["一枚絵","Cute","人外"],
+            "images": [
+                "./images/gallery/20250716_01.jpg",
+                "./images/gallery/20250716_02.jpg"
+            ]
+        },
+        {
+            "id": 38,
+            "title": "Work 2025.07.18",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250718_01.jpg",
+            "productionDate": "2025.07.18",
+            "productionTime": "",
+            "tags": ["一枚絵","人外"],
+            "images": [
+                "./images/gallery/20250718_01.jpg",
+                "./images/gallery/20250718_02.jpg"
+            ]
+        },
+        {
+            "id": 39,
+            "title": "Work 2025.08.17",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250817_01.jpg",
+            "productionDate": "2025.08.17",
+            "productionTime": "",
+            "tags": ["立ち絵","デフォルメ","人外"],
+            "images": [
+                "./images/gallery/20250817_01.jpg",
+                "./images/gallery/20250817_02.jpg"
+            ]
+        },
+        {
+            "id": 40,
+            "title": "Work 2025.09.02",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250902.jpg",
+            "productionDate": "2025.09.02",
+            "productionTime": "",
+            "tags": ["コップちゃん"]
+        },
+        {
+            "id": 41,
+            "title": "Work 2025.09.03",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250903_01.jpg",
+            "productionDate": "2025.09.03",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"],
+            "images": [
+                "./images/gallery/20250903_01.jpg",
+                "./images/gallery/20250903_02.jpg"
+            ]
+        },
+        {
+            "id": 42,
+            "title": "Work 2025.09.05",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250905.jpg",
+            "productionDate": "2025.09.05",
+            "productionTime": "",
+            "tags": ["一枚絵"]
+        },
+        {
+            "id": 43,
+            "title": "Work 2025.09.17",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20250917_01.jpg",
+            "productionDate": "2025.09.17",
+            "productionTime": "",
+            "tags": ["立ち絵","人外"],
+            "images": [
+                "./images/gallery/20250917_01.jpg",
+                "./images/gallery/20250917_02.jpg"
+            ]
+        },
+        {
+            "id": 45,
+            "title": "Work 2025.10.03",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251003.jpg",
+            "productionDate": "2025.10.03",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"]
+        },
+        {
+            "id": 46,
+            "title": "Work 2025.10.07",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251007.jpg",
+            "productionDate": "2025.10.07",
+            "productionTime": "",
+            "tags": ["MVイラスト","依頼"]
+        },
+        {
+            "id": 47,
+            "title": "Work 2025.10.12",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251012.jpg",
+            "productionDate": "2025.10.12",
+            "productionTime": "",
+            "tags": ["一枚絵","依頼"]
+        },
+        {
+            "id": 48,
+            "title": "Work 2025.10.13",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251013_01.jpg",
+            "productionDate": "2025.10.13",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外","依頼"],
+            "images": [
+                "./images/gallery/20251013_01.jpg",
+                "./images/gallery/20251013_02.jpg"
+            ]
+        },
+        {
+            "id": 49,
+            "title": "Work 2025.10.17",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251017.jpg",
+            "productionDate": "2025.10.17",
+            "productionTime": "",
+            "tags": ["一枚絵","人外","依頼"]
+        },
+        {
+            "id": 50,
+            "title": "Work 2025.10.18",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251018.jpg",
+            "productionDate": "2025.10.18",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク","人外"]
+        },
+        {
+            "id": 51,
+            "title": "Work 2025.10.23",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251023_01.jpg",
+            "productionDate": "2025.10.23",
+            "productionTime": "",
+            "tags": ["コップちゃん","一枚絵"],
+            "images": [
+                "./images/gallery/20251023_01.jpg",
+                "./images/gallery/20251023_02.jpg",
+                "./images/gallery/20251023_03.jpg"
+            ],
+            "heroSlides_id": 1,
+            "heroImage": "./images/gallery/20251023_01.jpg"
+        },
+        {
+            "id": 52,
+            "title": "Work 2025.10.26",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251026.jpg",
+            "productionDate": "2025.10.26",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク"]
+        },
+        {
+            "id": 53,
+            "title": "Work 2025.10.30",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251030.jpg",
+            "productionDate": "2025.10.30",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク"]
+        },
+        {
+            "id": 54,
+            "title": "Work 2025.11.04",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251104.jpg",
+            "productionDate": "2025.11.04",
+            "productionTime": "",
+            "tags": ["一枚絵","人外"]
+        },
+        {
+            "id": 55,
+            "title": "Work 2025.11.15",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251115_01.jpg",
+            "productionDate": "2025.11.15",
+            "productionTime": "",
+            "tags": ["立ち絵"],
+            "images": [
+                "./images/gallery/20251115_01.jpg",
+                "./images/gallery/20251115_02.jpg"
+            ]
+        },
+        {
+            "id": 56,
+            "title": "Work 2025.11.18",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251118.jpg",
+            "productionDate": "2025.11.18",
+            "productionTime": "",
+            "tags": ["一枚絵","Cute","人外"]
+        },
+        {
+            "id": 57,
+            "title": "Work 2025.12.02",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251202.jpg",
+            "productionDate": "2025.12.02",
+            "productionTime": "",
+            "tags": ["一枚絵","ダーク"]
+        },
+        {
+            "id": 58,
+            "title": "Work 2025.12.04",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251204_01.jpg",
+            "productionDate": "2025.12.04",
+            "productionTime": "",
+            "tags": ["人外"],
+            "images": [
+                "./images/gallery/20251204_01.jpg",
+                "./images/gallery/20251204_02.jpg"
+            ]
+        },
+        {
+            "id": 59,
+            "title": "Work 2025.12.10",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251210.jpg",
+            "productionDate": "2025.12.10",
+            "productionTime": "",
+            "tags": ["立ち絵"]
+        },
+        {
+            "id": 60,
+            "title": "Work 2025.12.18",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251218_01.jpg",
+            "productionDate": "2025.12.18",
+            "productionTime": "",
+            "tags": ["一枚絵","デフォルメ"],
+            "images": [
+                "./images/gallery/20251218_01.jpg",
+                "./images/gallery/20251218_02.jpg"
+            ]
+        },
+        {
+            "id": 61,
+            "title": "Work 2025.12.22",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251222_01.jpg",
+            "productionDate": "2025.12.22",
+            "productionTime": "",
+            "tags": ["一枚絵","人外"],
+            "images": [
+                "./images/gallery/20251222_01.jpg",
+                "./images/gallery/20251222_02.jpg"
+            ]
+        },
+        {
+            "id": 62,
+            "title": "Work 2025.12.26",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251226.jpg",
+            "productionDate": "2025.12.26",
+            "productionTime": "",
+            "tags": ["コップちゃん"]
+        },
+        {
+            "id": 63,
+            "title": "Work 2025.12.30",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20251230.jpg",
+            "productionDate": "2025.12.30",
+            "productionTime": "",
+            "tags": ["一枚絵","難しい背景","人外"]
+        },
+        {
+            "id": 64,
+            "title": "Work 2026.01.15",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20260115_01.png",
+            "productionDate": "2026.01.15",
+            "productionTime": "",
+            "tags": ["依頼","立ち絵","人外"],
+            "images": [
+                "./images/gallery/20260115_01.png",
+                "./images/gallery/20260115_02.jpg"
+
+            ]
+        },
+        {
+            "id": 65,
+            "title": "Work 2026.01.22",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20260122_01.jpg",
+            "productionDate": "2026.01.22",
+            "productionTime": "",
+            "tags": ["依頼","立ち絵"],
+            "images": [
+                "./images/gallery/20260122_01.jpg",
+                "./images/gallery/20260122_02.jpg"
+            ]
+        },
+        {
+            "id": 66,
+            "title": "Work 2026.01.24",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20260124.jpg",
+            "productionDate": "2026.01.24",
+            "productionTime": "",
+            "tags": ["依頼","MVイラスト","難しい背景","人外"]
+        },
+        {
+            "id": 67,
+            "title": "Work 2026.01.25",
+            "category": "Gallery",
+            "details": "",
+            "image": "./images/gallery/20260125_01.jpg",
+            "productionDate": "2026.01.25",
+            "productionTime": "",
+            "tags": ["依頼","ダーク","一枚絵"],
+            "images": [
+                "./images/gallery/20260125_01.jpg",
+                "./images/gallery/20260125_02.jpg"
+            ]
+        },
+        {
+            "id": 68,
+            "title": "Work 2026.01.31",
+            "category": "Commission",
+            "details": "",
+            "image": "./images/gallery/20260131.jpg",
+            "productionDate": "2026.01.31",
+            "productionTime": "",
+            "tags": ["依頼","ダーク","一枚絵","人外"]
+        }
+    ]
+},
 
     // --- 依頼・料金データ ---
     commission: {
@@ -542,3 +1264,4 @@ const SITE_DATA = {
         }
     ]
 };
+
