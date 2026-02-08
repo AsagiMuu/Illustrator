@@ -39,7 +39,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20240731.jpg",
                 "productionDate": "2024.07.31",
                 "productionTime": "",
-                "tags": ["一枚絵","人外","Cute"]
+                "tags": ["一枚絵", "人外", "Cute"]
             },
             {
                 "id": 3,
@@ -49,7 +49,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20240801むー.jpg",
                 "productionDate": "2024.08.01",
                 "productionTime": "",
-                "tags": ["立ち絵","Cute"]
+                "tags": ["立ち絵", "Cute"]
             },
             {
                 "id": 4,
@@ -59,7 +59,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20240812.jpg",
                 "productionDate": "2024.08.12",
                 "productionTime": "",
-                "tags": ["一枚絵","Cute","人外"]
+                "tags": ["一枚絵", "Cute", "人外"]
             },
             {
                 "id": 5,
@@ -79,7 +79,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241007.jpg",
                 "productionDate": "2024.10.07",
                 "productionTime": "",
-                "tags": ["一枚絵","依頼"]
+                "tags": ["一枚絵", "依頼"]
             },
             {
                 "id": 7,
@@ -89,7 +89,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241030.jpg",
                 "productionDate": "2024.10.30",
                 "productionTime": "",
-                "tags": ["一枚絵","依頼"]
+                "tags": ["一枚絵", "依頼"]
             },
             {
                 "id": 8,
@@ -119,7 +119,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241115.jpg",
                 "productionDate": "2024.11.15",
                 "productionTime": "",
-                "tags": ["立ち絵","デフォルメ","人外"]
+                "tags": ["立ち絵", "デフォルメ", "人外"]
             },
             {
                 "id": 11,
@@ -129,7 +129,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241120.jpg",
                 "productionDate": "2024.11.20",
                 "productionTime": "",
-                "tags": ["一枚絵","人外","依頼"]
+                "tags": ["一枚絵", "人外", "依頼"]
             },
             {
                 "id": 12,
@@ -139,7 +139,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241204_01.jpg",
                 "productionDate": "2024.12.04",
                 "productionTime": "",
-                "tags": ["挿絵","ダーク","依頼"],
+                "tags": ["挿絵", "ダーク", "依頼"],
                 "images": [
                     "./images/gallery/20241204_01.jpg",
                     "./images/gallery/20241204_02.jpg",
@@ -155,7 +155,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241205.jpg",
                 "productionDate": "2024.12.05",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","依頼"]
+                "tags": ["一枚絵", "ダーク", "依頼"]
             },
             {
                 "id": 14,
@@ -165,7 +165,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20241217.jpg",
                 "productionDate": "2024.12.17",
                 "productionTime": "",
-                "tags": ["一枚絵","Cute","人外"]
+                "tags": ["一枚絵", "Cute", "人外"]
             },
             {
                 "id": 15,
@@ -195,7 +195,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250201.jpg",
                 "productionDate": "2025.02.01",
                 "productionTime": "",
-                "tags": ["一枚絵","二次創作"]
+                "tags": ["一枚絵", "二次創作"]
             },
             {
                 "id": 18,
@@ -205,7 +205,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250228 .jpg",
                 "productionDate": "2025.02.28",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"]
+                "tags": ["一枚絵", "ダーク", "人外"]
             },
             {
                 "id": 19,
@@ -215,7 +215,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250312_01.jpg",
                 "productionDate": "2025.03.12",
                 "productionTime": "",
-                "tags": ["立ち絵","キャラクターデザイン","人外"],
+                "tags": ["立ち絵", "キャラクターデザイン", "人外"],
                 "images": [
                     "./images/gallery/20250312_01.jpg",
                     "./images/gallery/20250312_02.jpg"
@@ -229,7 +229,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250328_01.jpg",
                 "productionDate": "2025.03.28",
                 "productionTime": "",
-                "tags": ["立ち絵","ダーク","キャラクターデザイン"],
+                "tags": ["立ち絵", "ダーク", "キャラクターデザイン"],
                 "images": [
                     "./images/gallery/20250328_01.jpg",
                     "./images/gallery/20250328_02.jpg"
@@ -243,7 +243,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250329.jpg",
                 "productionDate": "2025.03.29",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"]
+                "tags": ["一枚絵", "ダーク", "人外"]
             },
             {
                 "id": 22,
@@ -253,7 +253,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250411.jpg",
                 "productionDate": "2025.04.11",
                 "productionTime": "",
-                "tags": ["MVイラスト","ダーク"]
+                "tags": ["MVイラスト", "ダーク"]
             },
             {
                 "id": 23,
@@ -263,7 +263,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250416.jpg",
                 "productionDate": "2025.04.16",
                 "productionTime": "",
-                "tags": ["コップちゃん","LIVE2D"]
+                "tags": ["コップちゃん", "LIVE2D"]
             },
             {
                 "id": 24,
@@ -287,7 +287,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250423.jpg",
                 "productionDate": "2025.04.23",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"]
+                "tags": ["一枚絵", "ダーク", "人外"]
             },
             {
                 "id": 26,
@@ -307,7 +307,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250612.jpg",
                 "productionDate": "2025.06.12",
                 "productionTime": "",
-                "tags": ["MVイラスト","ダーク","人外","依頼"]
+                "tags": ["MVイラスト", "ダーク", "人外", "依頼"]
             },
             {
                 "id": 30,
@@ -351,7 +351,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250702.jpg",
                 "productionDate": "2025.07.02",
                 "productionTime": "",
-                "tags": ["挿絵","人外"]
+                "tags": ["挿絵", "人外"]
             },
             {
                 "id": 34,
@@ -361,7 +361,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250703.jpg",
                 "productionDate": "2025.07.03",
                 "productionTime": "",
-                "tags": ["立ち絵","デフォルメ","人外"]
+                "tags": ["立ち絵", "デフォルメ", "人外"]
             },
             {
                 "id": 35,
@@ -371,7 +371,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250711.jpg",
                 "productionDate": "2025.07.11",
                 "productionTime": "",
-                "tags": ["一枚絵","Cute","ダーク"]
+                "tags": ["一枚絵", "Cute", "ダーク"]
             },
             {
                 "id": 36,
@@ -381,7 +381,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250714.jpg",
                 "productionDate": "2025.07.14",
                 "productionTime": "",
-                "tags": ["立ち絵","デフォルメ","人外"]
+                "tags": ["立ち絵", "デフォルメ", "人外"]
             },
             {
                 "id": 37,
@@ -391,7 +391,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250716_01.jpg",
                 "productionDate": "2025.07.16",
                 "productionTime": "",
-                "tags": ["一枚絵","Cute","人外"],
+                "tags": ["一枚絵", "Cute", "人外"],
                 "images": [
                     "./images/gallery/20250716_01.jpg",
                     "./images/gallery/20250716_02.jpg"
@@ -405,7 +405,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250718_01.jpg",
                 "productionDate": "2025.07.18",
                 "productionTime": "",
-                "tags": ["一枚絵","人外"],
+                "tags": ["一枚絵", "人外"],
                 "images": [
                     "./images/gallery/20250718_01.jpg",
                     "./images/gallery/20250718_02.jpg"
@@ -419,7 +419,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250817_01.jpg",
                 "productionDate": "2025.08.17",
                 "productionTime": "",
-                "tags": ["立ち絵","デフォルメ","人外"],
+                "tags": ["立ち絵", "デフォルメ", "人外"],
                 "images": [
                     "./images/gallery/20250817_01.jpg",
                     "./images/gallery/20250817_02.jpg"
@@ -443,7 +443,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250903_01.jpg",
                 "productionDate": "2025.09.03",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"],
+                "tags": ["一枚絵", "ダーク", "人外"],
                 "images": [
                     "./images/gallery/20250903_01.jpg",
                     "./images/gallery/20250903_02.jpg"
@@ -467,7 +467,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20250917_01.jpg",
                 "productionDate": "2025.09.17",
                 "productionTime": "",
-                "tags": ["立ち絵","人外"],
+                "tags": ["立ち絵", "人外"],
                 "images": [
                     "./images/gallery/20250917_01.jpg",
                     "./images/gallery/20250917_02.jpg"
@@ -481,7 +481,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251003.jpg",
                 "productionDate": "2025.10.03",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"]
+                "tags": ["一枚絵", "ダーク", "人外"]
             },
             {
                 "id": 46,
@@ -491,7 +491,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251007.jpg",
                 "productionDate": "2025.10.07",
                 "productionTime": "",
-                "tags": ["MVイラスト","依頼"]
+                "tags": ["MVイラスト", "依頼"]
             },
             {
                 "id": 47,
@@ -501,7 +501,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251012.jpg",
                 "productionDate": "2025.10.12",
                 "productionTime": "",
-                "tags": ["一枚絵","依頼"]
+                "tags": ["一枚絵", "依頼"]
             },
             {
                 "id": 48,
@@ -511,7 +511,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251013_01.jpg",
                 "productionDate": "2025.10.13",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外","依頼"],
+                "tags": ["一枚絵", "ダーク", "人外", "依頼"],
                 "images": [
                     "./images/gallery/20251013_01.jpg",
                     "./images/gallery/20251013_02.jpg"
@@ -525,7 +525,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251017.jpg",
                 "productionDate": "2025.10.17",
                 "productionTime": "",
-                "tags": ["一枚絵","人外","依頼"]
+                "tags": ["一枚絵", "人外", "依頼"]
             },
             {
                 "id": 50,
@@ -535,7 +535,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251018.jpg",
                 "productionDate": "2025.10.18",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク","人外"]
+                "tags": ["一枚絵", "ダーク", "人外"]
             },
             {
                 "id": 51,
@@ -545,7 +545,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251023_01.jpg",
                 "productionDate": "2025.10.23",
                 "productionTime": "",
-                "tags": ["コップちゃん","一枚絵"],
+                "tags": ["コップちゃん", "一枚絵"],
                 "images": [
                     "./images/gallery/20251023_01.jpg",
                     "./images/gallery/20251023_02.jpg",
@@ -562,7 +562,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251026.jpg",
                 "productionDate": "2025.10.26",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク"]
+                "tags": ["一枚絵", "ダーク"]
             },
             {
                 "id": 53,
@@ -572,7 +572,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251030.jpg",
                 "productionDate": "2025.10.30",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク"]
+                "tags": ["一枚絵", "ダーク"]
             },
             {
                 "id": 54,
@@ -582,7 +582,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251104.jpg",
                 "productionDate": "2025.11.04",
                 "productionTime": "",
-                "tags": ["一枚絵","人外"]
+                "tags": ["一枚絵", "人外"]
             },
             {
                 "id": 55,
@@ -606,7 +606,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251118.jpg",
                 "productionDate": "2025.11.18",
                 "productionTime": "",
-                "tags": ["一枚絵","Cute","人外"]
+                "tags": ["一枚絵", "Cute", "人外"]
             },
             {
                 "id": 57,
@@ -616,7 +616,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251202.jpg",
                 "productionDate": "2025.12.02",
                 "productionTime": "",
-                "tags": ["一枚絵","ダーク"]
+                "tags": ["一枚絵", "ダーク"]
             },
             {
                 "id": 58,
@@ -650,7 +650,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251218_01.jpg",
                 "productionDate": "2025.12.18",
                 "productionTime": "",
-                "tags": ["一枚絵","デフォルメ"],
+                "tags": ["一枚絵", "デフォルメ"],
                 "images": [
                     "./images/gallery/20251218_01.jpg",
                     "./images/gallery/20251218_02.jpg"
@@ -664,7 +664,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251222_01.jpg",
                 "productionDate": "2025.12.22",
                 "productionTime": "",
-                "tags": ["一枚絵","人外"],
+                "tags": ["一枚絵", "人外"],
                 "images": [
                     "./images/gallery/20251222_01.jpg",
                     "./images/gallery/20251222_02.jpg"
@@ -688,7 +688,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20251230.jpg",
                 "productionDate": "2025.12.30",
                 "productionTime": "",
-                "tags": ["一枚絵","難しい背景","人外"]
+                "tags": ["一枚絵", "難しい背景", "人外"]
             },
             {
                 "id": 64,
@@ -698,11 +698,11 @@ const SITE_DATA = {
                 "image": "./images/gallery/20260115_01.png",
                 "productionDate": "2026.01.15",
                 "productionTime": "",
-                "tags": ["依頼","立ち絵","人外"],
+                "tags": ["依頼", "立ち絵", "人外"],
                 "images": [
                     "./images/gallery/20260115_01.png",
                     "./images/gallery/20260115_02.jpg"
-    
+
                 ]
             },
             {
@@ -713,7 +713,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20260122_01.jpg",
                 "productionDate": "2026.01.22",
                 "productionTime": "",
-                "tags": ["依頼","立ち絵"],
+                "tags": ["依頼", "立ち絵"],
                 "images": [
                     "./images/gallery/20260122_01.jpg",
                     "./images/gallery/20260122_02.jpg"
@@ -727,7 +727,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20260124.jpg",
                 "productionDate": "2026.01.24",
                 "productionTime": "",
-                "tags": ["依頼","MVイラスト","難しい背景","人外"]
+                "tags": ["依頼", "MVイラスト", "難しい背景", "人外"]
             },
             {
                 "id": 67,
@@ -737,7 +737,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20260125_01.jpg",
                 "productionDate": "2026.01.25",
                 "productionTime": "",
-                "tags": ["依頼","ダーク","一枚絵"],
+                "tags": ["依頼", "ダーク", "一枚絵"],
                 "images": [
                     "./images/gallery/20260125_01.jpg",
                     "./images/gallery/20260125_02.jpg"
@@ -751,7 +751,7 @@ const SITE_DATA = {
                 "image": "./images/gallery/20260131.jpg",
                 "productionDate": "2026.01.31",
                 "productionTime": "",
-                "tags": ["依頼","ダーク","一枚絵","人外"]
+                "tags": ["依頼", "ダーク", "一枚絵", "人外"]
             }
         ]
     },
@@ -1264,5 +1264,3 @@ const SITE_DATA = {
         }
     ]
 };
-
-
