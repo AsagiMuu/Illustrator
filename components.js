@@ -119,15 +119,30 @@ function highlightActiveNav() {
         link.classList.add('hover:text-gray-800');
     });
 
-    const currentPath = window.location.pathname.split("/").pop();
+    const pathname = window.location.pathname;
+    const currentPath = pathname.split("/").pop() || 'index.html';
     let activeLink = null;
 
+    // Special handling for commission-related pages
+    const commissionPages = ['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'];
+
     if (currentPath === 'index.html' || currentPath === '') {
-        activeLink = document.querySelector('a.nav-link[href^="index.html"]');
-    } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
-        activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+        activeLink = document.querySelector('#desktop-nav a.nav-link[href^="index.html"]');
+    } else if (commissionPages.some(page => currentPath.includes(page))) {
+        activeLink = document.querySelector('#desktop-nav a.nav-link[href="pricing.html"]');
     } else {
+        // Try exact match first
         activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+
+        // Try starts with if no exact match
+        if (!activeLink) {
+            navLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                if (href && currentPath.startsWith(href.split('?')[0])) {
+                    activeLink = link;
+                }
+            });
+        }
     }
 
     if (activeLink) {
