@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="お問い合わせ - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/contact.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="ご依頼以外のお問い合わせはこちらから。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">個人様向け料金プラン</a>
+                            <a href="pricing-corporate.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">企業様向け依頼プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- CONTACT VIEW -->
+    <main id="view-contact"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+        <div class="max-w-3xl mx-auto mb-8">
+            <a id="back-to-home-link" href="index.html"
+                class="group inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>トップページに戻る</span>
+            </a>
+        </div>
+
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+            <div class="p-8 md:p-12">
+                <h2 class="text-3xl font-bold text-center mb-4 text-gray-800">お問い合わせ</h2>
+                <p class="text-center text-gray-500 text-sm mb-10">
+                    ご依頼以外のご相談やご質問など、お気軽にお問い合わせください。<br>
+                    ※ご依頼に関するお問い合わせは<a href="pricing.html"
+                        class="text-[#BE4B35] underline hover:no-underline">こちら</a>からお願いいたします。
+                </p>
+
+                <form id="contact-form" action="https://formspree.io/f/mdazdgqo" method="POST" class="space-y-8">
+                    <input type="hidden" name="_subject" value="ポートフォリオサイトからのお問い合わせ">
+                    <input type="hidden" name="_language" value="ja">
+
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">お名前 <span
+                                class="text-[#BE4B35]">*</span></label>
+                        <input type="text" id="name" name="name" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">メールアドレス <span
+                                class="text-[#BE4B35]">*</span></label>
+                        <input type="email" id="email" name="email" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors">
+                    </div>
+
+                    <!-- Subject -->
+                    <div>
+                        <label for="subject" class="block text-sm font-bold text-gray-700 mb-2">件名 <span
+                                class="text-[#BE4B35]">*</span></label>
+                        <input type="text" id="subject" name="subject" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors">
+                    </div>
+
+                    <!-- Message -->
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-gray-700 mb-2">お問い合わせ内容 <span
+                                class="text-[#BE4B35]">*</span></label>
+                        <textarea id="message" name="message" rows="6" required
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="pt-4 text-center">
+                        <button type="submit" id="submit-btn"
+                            class="inline-block px-12 py-4 bg-[#BE4B35] text-white rounded-full font-bold tracking-widest hover:bg-red-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                            送信する
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js --> class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em]
+    uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            async function initializeSite() {
+                try {
+                    const data = await loadCommonData();
+
+                    const contactLink = document.querySelector('a.nav-link[href="contact.html"]');
+                    if (contactLink) {
+                        contactLink.classList.add('active-nav-item');
+                        contactLink.classList.remove('hover:text-gray-800');
+                    }
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-contact').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = document.getElementById('submit-btn');
+                    const originalBtnText = submitBtn.innerText;
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = '送信中...';
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+                    try {
+                        const formData = new FormData(form);
+                        const response = await fetch(form.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            window.location.href = 'thanks.html';
+                        } else {
+                            const data = await response.json();
+                            let errorMessage = "送信に失敗しました。";
+                            if (data.errors && data.errors.length > 0) {
+                                errorMessage = data.errors.map(error => error.message).join(", ");
+                            }
+                            alert(errorMessage);
+                            resetButton();
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert("送信エラーが発生しました。ネットワーク接続を確認して再度お試しください。");
+                        resetButton();
+                    }
+
+                    function resetButton() {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

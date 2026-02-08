@@ -1,0 +1,205 @@
+:root {
+    --bg-base: #F7F7F9;
+    --bg-card: #ffffff;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --accent: #BE4B35;
+    --border: #e5e5ea;
+}
+body {
+    font-family: 'Zen Maru Gothic', sans-serif;
+    background-color: var(--bg-base);
+    color: var(--text-main);
+    scroll-behavior: smooth;
+}
+.font-serif {
+    font-family: 'Playfair Display', 'Zen Maru Gothic', serif;
+}
+
+/* 画面表示の制御 */
+.page-view { display: none; }
+.page-view.active { display: block; }
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+#slider-inner {
+    display: flex;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 500%;
+    height: 100%;
+}
+.slide {
+    width: 20%;
+    height: 100%;
+    flex-shrink: 0;
+    position: relative;
+}
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--text-main);
+    transition: width 0.3s;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+.active-nav-item {
+    color: var(--accent);
+}
+.active-nav-item::after {
+    width: 100%;
+    background-color: var(--accent);
+}
+
+/* Status Table Styles */
+.status-table th {
+    background-color: #ededed;
+    color: #333;
+    font-weight: bold;
+}
+.status-table td, .status-table th {
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    text-align: center;
+}
+.status-x { color: #BE4B35; font-weight: bold; font-size: 1.2rem; }
+.status-delta { color: #F59E0B; font-weight: bold; font-size: 1.1rem; }
+.status-circle { color: #10B981; font-weight: bold; font-size: 1.2rem; }
+
+.check-icon {
+    color: var(--accent);
+}
+/* Custom scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    height: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.plan-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.plan-active {
+    transform: scale(1.05) translateY(-1rem);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+    border-width: 3px;
+}
+.plan-inactive {
+    transform: scale(1);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    border-width: 1px;
+}
+
+#mobile-menu { transition: transform 0.3s ease-in-out; }
+
+.section-card {
+    background: var(--bg-card);
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+    padding: 0;
+}
+.dot.active {
+    background-color: var(--accent);
+    transform: scale(1.3);
+    border-color: white;
+}
+
+.img-placeholder {
+    background: linear-gradient(45deg, #e5e5ea, #f2f2f7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Othersボタンのアニメーション */
+.others-card:hover .arrow-icon {
+    transform: translateX(8px);
+}
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Service Cards */
+.service-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    text-align: center;
+    border: 1px solid var(--border);
+    height: 100%;
+}
+
+/* Modal image container */
+#modal-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+    height: 80vh;
+    padding: 20px;
+}
+#modal-main-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.modal-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: all 0.2s;
+    border: 2px solid transparent;
+}
+.modal-thumbnail:hover, .modal-thumbnail.active {
+    opacity: 1;
+}
+.modal-thumbnail.active {
+    border-color: #BE4B35;
+    transform: scale(1.05);
+}

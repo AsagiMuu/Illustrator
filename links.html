@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>リンク - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="リンク - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/links.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="SNSやコミッションサイトへのリンク一覧です。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">個人様向け料金プラン</a>
+                            <a href="pricing-corporate.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">企業様向け依頼プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- LINKS VIEW -->
+    <main id="view-links"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+        <div class="max-w-4xl mx-auto mb-8">
+            <a id="back-to-home-link" href="index.html"
+                class="group inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>トップページに戻る</span>
+            </a>
+        </div>
+
+        <!-- SNS -->
+        <div
+            class="max-w-4xl mx-auto bg-white rounded-[40px] p-8 md:p-10 shadow-sm border border-gray-100 text-center mb-8">
+            <h3 class="text-3xl text-gray-800 font-medium mb-4">SNS</h3>
+            <div class="flex justify-center gap-6 md:gap-10 flex-wrap">
+                <!-- X -->
+                <a href="https://x.com/AsagiMuu" target="_blank" rel="noopener noreferrer"
+                    class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-black bg-white shadow-sm">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">X(Twitter)</span>
+                </a>
+                <!-- Instagram -->
+                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"
+                    class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] shadow-sm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">Instagram</span>
+                </a>
+                <!-- pixiv -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#0096FA] bg-white shadow-sm">
+                        <i class="fa-brands fa-pixiv"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">pixiv</span>
+                </a>
+                <!-- YouTube -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#FF0000] bg-white shadow-sm">
+                        <i class="fa-brands fa-youtube"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">YouTube</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Work -->
+        <div
+            class="max-w-4xl mx-auto bg-white rounded-[40px] p-8 md:p-10 shadow-sm border border-gray-100 text-center mb-8">
+            <h3 class="text-3xl text-gray-800 font-medium mb-4">Work</h3>
+            <div class="flex justify-center gap-6 md:gap-10 flex-wrap">
+                <!-- Skeb -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#303841] bg-white shadow-sm">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">Skeb</span>
+                </a>
+                <!-- coconala -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-xl font-bold text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#00A090] bg-white shadow-sm">
+                        ココナラ
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">coconala</span>
+                </a>
+                <!-- SKIMA -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-5xl font-bold text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#FF5C5C] bg-white shadow-sm">
+                        S
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">SKIMA</span>
+                </a>
+                <!-- Lancers -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-5xl font-bold text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#0084D0] bg-white shadow-sm">
+                        L
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">ランサーズ</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- SHOP -->
+        <div
+            class="max-w-4xl mx-auto bg-white rounded-[40px] p-8 md:p-10 shadow-sm border border-gray-100 text-center mb-8">
+            <h3 class="text-3xl text-gray-800 font-medium mb-4">SHOP</h3>
+            <div class="flex justify-center gap-6 md:gap-10 flex-wrap">
+                <!-- BOOTH -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#FC4D50] bg-white shadow-sm">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">BOOTH</span>
+                </a>
+                <!-- LINE Stamp -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#06C755] bg-white shadow-sm">
+                        <i class="fa-brands fa-line"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">LINEスタンプ</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Other -->
+        <div class="max-w-4xl mx-auto bg-white rounded-[40px] p-8 md:p-10 shadow-sm border border-gray-100 text-center">
+            <h3 class="text-3xl text-gray-800 font-medium mb-4">その他</h3>
+            <div class="flex justify-center gap-6 md:gap-10 flex-wrap">
+                <!-- Marshmallow -->
+                <a href="#" target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center w-28">
+                    <div
+                        class="w-28 h-28 border border-gray-400 rounded-2xl flex items-center justify-center text-6xl text-gray-800 transition-all duration-300 group-hover:scale-110 group-hover:border-transparent group-hover:text-white group-hover:bg-[#E8969C] bg-white shadow-sm">
+                        <i class="fa-regular fa-square"></i>
+                    </div>
+                    <span class="mt-2 text-xs text-gray-500 tracking-wider">マシュマロ</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js --> class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em]
+    uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let siteConfig = {};
+
+            async function initializeSite() {
+                try {
+                    siteConfig = await loadCommonData();
+
+                    const linksLink = document.querySelector('a.nav-link[href="links.html"]');
+                    if (linksLink) {
+                        linksLink.classList.add('active-nav-item');
+                        linksLink.classList.remove('hover:text-gray-800');
+                    }
+
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-links').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+        });
+    </script>
+</body>
+
+</html>

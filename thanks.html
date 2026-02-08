@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送信完了 - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="送信完了 - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/thanks.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="お問い合わせありがとうございます。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップへ戻る</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- THANKS VIEW -->
+    <main id="view-thanks" class="pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen flex items-center justify-center opacity-0 transition-opacity duration-500">
+        <div class="bg-white p-8 md:p-16 rounded-[32px] shadow-sm border border-gray-100 max-w-lg w-full text-center">
+            <div class="w-24 h-24 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-8">
+                <i class="fa-solid fa-check text-4xl text-green-500"></i>
+            </div>
+            
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">送信完了</h2>
+            
+            <div class="text-gray-600 space-y-4 mb-12 leading-relaxed text-sm">
+                <p>お問い合わせありがとうございます。</p>
+                <p>
+                    ご入力いただいた内容は正常に送信されました。<br>
+                    内容を確認次第、担当者よりご連絡させていただきます。
+                </p>
+                <p class="text-xs text-gray-400 mt-4">
+                    ※数日経過しても返信がない場合は、<br>お手数ですが再度ご連絡をお願いいたします。
+                </p>
+            </div>
+
+            <a href="index.html" class="inline-block px-10 py-4 bg-gray-800 text-white rounded-full font-bold tracking-widest hover:bg-[#BE4B35] transition-all duration-300 shadow-lg hover:-translate-y-1">
+                トップページに戻る
+            </a>
+        </div>
+    </main>
+
+    <footer class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em] uppercase border-t border-gray-50 bg-white">
+        &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Disable image save
+        document.addEventListener('contextmenu', e => {
+            if (e.target.tagName === 'IMG') e.preventDefault();
+        });
+        document.addEventListener('dragstart', e => {
+            if (e.target.tagName === 'IMG') e.preventDefault();
+        });
+
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        const openMenu = () => mobileMenu.classList.remove('translate-x-full');
+        const closeMenu = () => mobileMenu.classList.add('translate-x-full');
+        if (menuBtn) menuBtn.addEventListener('click', openMenu);
+        if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+        mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Load Logo
+        async function loadLogo() {
+            try {
+                if (typeof SITE_DATA !== 'undefined' && SITE_DATA.portfolio) {
+                    const data = SITE_DATA.portfolio;
+                    const logoImage = document.getElementById('logo-image');
+                    if (logoImage && data.logo) logoImage.src = data.logo;
+                }
+            } catch (error) {
+                console.error("Logo load failed:", error);
+            } finally {
+                document.getElementById('view-thanks').classList.remove('opacity-0');
+            }
+        }
+        loadLogo();
+    });
+    </script>
+</body>
+</html>

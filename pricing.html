@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人様向け料金プラン - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="個人様向け料金プラン - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/pricing.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="イラスト制作の料金プランと詳細比較表です。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">個人様向け料金プラン</a>
+                            <a href="pricing-corporate.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">企業様向け依頼プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- PRICING VIEW -->
+    <main id="view-pricing"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+        <div class="mb-8 flex justify-between items-center">
+            <a id="back-to-home-link" href="index.html"
+                class="group inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>トップページに戻る</span>
+            </a>
+        </div>
+
+        <!-- Commission Status Section -->
+        <div class="mb-16 bg-white py-12 rounded-xl shadow-sm -mx-4 md:mx-0">
+            <div class="max-w-4xl mx-auto px-0 md:px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-1">受付状況</h3>
+                    <p class="text-gray-500 text-sm">製作スケジュールの予約制です</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full status-table text-sm border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="w-1/4">納品日</th>
+                                <th class="w-1/6">納品可否</th>
+                                <th class="w-1/4">募集状況</th>
+                                <th>対応可能内容</th>
+                            </tr>
+                        </thead>
+                        <tbody id="status-table-body">
+                            <!-- Status rows will be injected here by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Meter -->
+        <div id="progress-meter" class="mb-16 max-w-3xl mx-auto">
+            <div class="flex items-start">
+                <div class="progress-step flex-1 text-center">
+                    <div
+                        class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                        1</div>
+                    <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">料金プランの選択</p>
+                </div>
+                <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 transition-colors duration-300"></div>
+                <div class="progress-step flex-1 text-center">
+                    <div
+                        class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                        2</div>
+                    <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">依頼の流れ</p>
+                </div>
+                <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 transition-colors duration-300"></div>
+                <div class="progress-step flex-1 text-center">
+                    <div
+                        class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                        3</div>
+                    <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">利用規約</p>
+                </div>
+                <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 transition-colors duration-300"></div>
+                <div class="progress-step flex-1 text-center">
+                    <div
+                        class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                        4</div>
+                    <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">応募フォーム</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <div class="text-center">
+                <h2 class="text-base text-[#BE4B35] font-semibold tracking-wide uppercase mb-4">Price Plan</h2>
+                <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 mb-4">
+                    <div class="hidden md:block"></div>
+                    <p class="text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        個人様向け料金プラン
+                    </p>
+                    <div class="flex justify-center md:justify-start">
+                        <a href="pricing-corporate.html"
+                            class="group inline-flex items-center px-5 py-2 bg-white border-2 border-[#BE4B35] text-[#BE4B35] rounded-full text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:text-white hover:shadow-lg hover:-translate-y-1 shadow-sm">
+                            <span>企業様向けプランはこちら</span>
+                            <i
+                                class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+                    ご予算や用途に合わせて3つのプランからお選びいただけます。<br>
+                    <span class="text-sm text-gray-400">※表示価格は1キャラ分の料金です</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- Pricing Cards Section -->
+        <div id="pricing-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start relative mb-16">
+            <!-- Pricing cards will be injected here -->
+        </div>
+
+        <!-- Detailed Comparison Table -->
+        <div class="bg-white py-12 rounded-2xl shadow-sm -mx-4 md:mx-0">
+            <div class="max-w-7xl mx-auto px-0 md:px-4 sm:px-6 lg:px-8">
+                <h3 id="comparison-section" class="text-2xl font-bold text-gray-900 mb-8 text-center scroll-mt-32">詳細比較表
+                </h3>
+                <div class="overflow-x-auto custom-scrollbar pb-4">
+                    <table id="pricing-comparison-table"
+                        class="min-w-full divide-y divide-gray-200 border border-gray-200">
+                        <!-- Table content will be injected here -->
+                    </table>
+                </div>
+                <div class="mt-8 bg-gray-100 p-6 rounded-lg border border-gray-200">
+                    <ul id="pricing-footnotes" class="text-sm text-gray-600 space-y-2"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+    class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em] uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Reset flow page state when visiting pricing page
+            sessionStorage.removeItem('workflow_scroll_pos');
+            sessionStorage.removeItem('workflow_checkbox_checked');
+
+            // Reset terms page state
+            Object.keys(sessionStorage).forEach(key => {
+                if (key.startsWith('terms_scroll_pos_') || key.startsWith('terms_checked_')) {
+                    sessionStorage.removeItem(key);
+                }
+            });
+
+            // Scroll to progress meter if returning from flow, terms, or form pages
+            if (document.referrer && (document.referrer.includes('workflow.html') || document.referrer.includes('terms.html') || document.referrer.includes('form.html'))) {
+                setTimeout(() => {
+                    const meter = document.getElementById('progress-meter');
+                    if (meter) {
+                        const headerOffset = 100; // ヘッダーの高さ + 余白
+                        const elementPosition = meter.getBoundingClientRect().top + window.pageYOffset;
+                        const offsetPosition = elementPosition - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                }, 100);
+            }
+
+            let siteConfig = {};
+            let commissionStatus = [];
+
+            const plans = {};
+
+            function activatePlan(activePlanId) {
+                if (!plans[activePlanId]) return;
+                Object.keys(plans).forEach(planId => {
+                    const plan = plans[planId];
+                    const isActive = planId === activePlanId;
+                    plan.el.classList.toggle('plan-active', isActive);
+                    plan.el.classList.toggle('plan-inactive', !isActive);
+                    // 常にプランの枠線カラーを表示します。アクティブ状態はCSSのborder-widthで制御されます。
+                    plan.el.classList.remove('border-gray-100');
+
+                    // 上枠線の制御: アクティブかつバッジがある場合は上枠線を消す
+                    plan.el.classList.remove('border-t-0');
+                    if (isActive && plan.hasBadge) {
+                        plan.el.classList.add('border-t-0');
+                    }
+
+                    plan.el.classList.add(plan.colors.border);
+                    if (plan.badge) {
+                        plan.badge.classList.toggle('opacity-100', isActive);
+                        plan.badge.classList.toggle('opacity-0', !isActive);
+                    }
+                    plan.title.classList.toggle('text-2xl', isActive);
+                    plan.title.classList.toggle('font-bold', isActive);
+                    plan.title.classList.toggle('text-xl', !isActive);
+                    plan.title.classList.toggle('font-semibold', !isActive);
+                    const isPremium = planId === 'premium';
+                    const isBasic = planId === 'basic';
+                    plan.title.classList.toggle(plan.colors.text, isActive || isPremium || isBasic);
+                    plan.title.classList.toggle('text-gray-500', !isActive && !isPremium && !isBasic);
+                    plan.price.classList.toggle('text-5xl', isActive);
+                    plan.price.classList.toggle('text-4xl', !isActive);
+                    plan.button.classList.remove('py-4', 'shadow-lg', 'text-white', plan.colors.bg, plan.colors.hoverBg, 'py-3', 'border-2', 'border-gray-300', 'text-gray-500', plan.colors.hoverText, 'hover:border-transparent');
+                    if (isActive) {
+                        plan.button.classList.add('py-4', 'shadow-lg', 'text-white', plan.colors.bg, plan.colors.hoverBg);
+                    } else {
+                        plan.button.classList.add('py-3', 'border-2', 'border-gray-300', 'text-gray-500', plan.colors.hoverBg, plan.colors.hoverText, 'hover:border-transparent');
+                    }
+                });
+
+                // 進捗メーターの色を更新
+                const activePlan = plans[activePlanId];
+                if (activePlan) {
+                    const meterColors = {
+                        gray: 'bg-gray-500',
+                        blue: 'bg-blue-600',
+                        yellow: 'bg-amber-500'
+                    };
+                    const activeColorClass = meterColors[activePlan.colorName] || 'bg-[#BE4B35]';
+                    const bgClassesToRemove = ['bg-[#BE4B35]', 'bg-gray-500', 'bg-blue-600', 'bg-amber-500'];
+
+                    // アクティブなステップ（円）とコネクタの色を更新
+                    const activeElements = document.querySelectorAll('.progress-step .progress-circle:not(.bg-gray-200), .progress-connector:not(.bg-gray-200)');
+                    activeElements.forEach(el => {
+                        bgClassesToRemove.forEach(c => el.classList.remove(c));
+                        el.classList.add(activeColorClass);
+                    });
+                }
+            }
+            window.activatePlan = activatePlan;
+
+            function renderPricing() {
+                const pricingData = siteConfig.pricing;
+                if (!pricingData) return;
+                const cardsContainer = document.getElementById('pricing-cards-container');
+                if (cardsContainer) {
+                    const colorClasses = {
+                        gray: { text: 'text-gray-600', border: 'border-gray-400', bg: 'bg-gray-400', hoverBg: 'hover:bg-gray-500', hoverText: 'hover:text-white' },
+                        blue: { text: 'text-blue-600', border: 'border-blue-600', bg: 'bg-blue-600', hoverBg: 'hover:bg-blue-700', hoverText: 'hover:text-white' },
+                        yellow: { text: 'text-amber-600', border: 'border-amber-500', bg: 'bg-amber-500', hoverBg: 'hover:bg-amber-600', hoverText: 'hover:text-white' }
+                    };
+
+                    cardsContainer.innerHTML = pricingData.plans.map((plan, index) => {
+                        const orderClass = index === 0 ? 'order-1 md:order-1' : (index === 1 ? 'order-2 md:order-2' : 'order-3');
+                        const planColor = colorClasses[plan.color] || colorClasses.gray;
+                        return `
+                        <div id="plan-${plan.id}" class="plan-card bg-white rounded-2xl relative ${orderClass} transition-all duration-300" onmouseenter="activatePlan('${plan.id}')">
+                            <div id="badge-${plan.id}" class="plan-badge ${planColor.bg} text-white text-xs font-bold uppercase tracking-wider py-1 absolute top-[-2px] left-[-2px] right-[-2px] text-center transition-opacity duration-300 rounded-t-[14px]">
+                                ${plan.badge}
+                            </div>
+                            <div class="p-8 pt-10">
+                                <h3 id="plan-title-${plan.id}" class="text-center mb-2 transition-all duration-300">${plan.name}</h3>
+                                <div class="text-center mb-4">
+                                    <span class="price-span font-bold text-gray-900 transition-all duration-300">${plan.price}</span>
+                                </div>
+                                <p class="text-sm text-gray-600 text-center mb-4 min-h-[40px]">${plan.description}</p>
+                                <ul class="space-y-2 text-sm mb-2">
+                                    ${plan.features.map(f => `<li class="flex items-start"><i class="fa-solid fa-check check-icon mt-1 mr-3 text-green-500"></i><span>${f}</span></li>`).join('')}
+                                </ul>
+                                <div class="text-left mb-3 pl-6">
+                                    <a href="#comparison-section" onclick="event.preventDefault(); document.getElementById('comparison-section').scrollIntoView({behavior: 'smooth'});" class="text-gray-500 hover:text-gray-800 text-xs underline transition-colors">詳細はこちら</a>
+                                </div>
+                                <ul class="space-y-2 text-sm mb-8">
+                                    <li class="pt-0"><div class="border-t border-gray-200"></div></li>
+                                    <li class="!mt-4 text-xs font-bold text-gray-500 tracking-wider">主な制作工程</li>
+                                    ${(pricingData.processFeatures[plan.id] || []).map(p => `<li class="!mt-2 flex items-start"><i class="fa-solid fa-chevron-right text-gray-400 mt-1 mr-3 text-[10px]"></i><span class="text-xs text-gray-600">${p.replace(/\((.*?)\)/g, '<span class="text-gray-400">($1)</span>')}</span></li>`).join('')}
+                                </ul>
+                                <a id="plan-button-${plan.id}" href="workflow.html?plan=${encodeURIComponent(plan.name)}" class="block w-full px-6 text-center rounded-lg font-bold transition-all">
+                                    このプランで相談する
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    }).join('');
+                    pricingData.plans.forEach(planData => {
+                        const planEl = document.getElementById(`plan-${planData.id}`);
+                        plans[planData.id] = {
+                            el: planEl,
+                            badge: document.getElementById(`badge-${planData.id}`),
+                            title: document.getElementById(`plan-title-${planData.id}`),
+                            price: planEl.querySelector('.price-span'),
+                            button: document.getElementById(`plan-button-${planData.id}`),
+                            colors: colorClasses[planData.color] || colorClasses.gray,
+                            colorName: planData.color, // 色情報を保存
+                            hasBadge: !!planData.badge
+                        };
+                    });
+
+                    // URLパラメータからプランIDを取得してアクティブ化
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const planParam = urlParams.get('plan');
+
+                    if (planParam && plans[planParam]) {
+                        activatePlan(planParam);
+                    } else {
+                        // Mobile default override: Light Plan
+                        if (window.innerWidth < 768) {
+                            activatePlan('light');
+                        } else {
+                            const defaultPlan = pricingData.plans.find(p => p.default);
+                            if (defaultPlan) activatePlan(defaultPlan.id);
+                            else if (pricingData.plans.length > 0) activatePlan(pricingData.plans[0].id);
+                        }
+                    }
+
+                    // Mobile Scroll Observer for highlighting
+                    if (window.innerWidth < 768) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const planId = entry.target.id.replace('plan-', '');
+                                    activatePlan(planId);
+                                }
+                            });
+                        }, {
+                            root: null,
+                            rootMargin: '-40% 0px -40% 0px',
+                            threshold: 0
+                        });
+
+                        Object.values(plans).forEach(plan => {
+                            if (plan.el) observer.observe(plan.el);
+                        });
+                    }
+                }
+                const table = document.getElementById('pricing-comparison-table');
+                if (table) {
+                    const colorClasses = { gray: { text: 'text-gray-500', bg: 'bg-gray-50', border: 'border-gray-100' }, blue: { text: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-100' }, yellow: { text: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-100' } };
+                    // Header: px-1 py-1 on mobile, px-6 py-4 on desktop
+                    // Column Widths: w-auto on mobile (1st col), w-[28%] on mobile (plans), w-1/6 & w-1/4 on desktop
+                    const theadHTML = `<thead class="bg-gray-50"><tr><th scope="col" class="px-1 py-1 md:px-6 md:py-4 text-left text-[8px] md:text-sm font-bold text-gray-500 uppercase tracking-wider w-auto md:w-1/6 sticky left-0 bg-gray-50 z-10 border-r border-gray-200">プラン</th>${pricingData.plans.map(p => { const planColor = colorClasses[p.color] || colorClasses.gray; const isHighlighted = p.default || p.id === 'premium'; return `<th scope="col" class="px-1 py-1 md:px-6 md:py-4 text-center text-[8px] md:text-sm font-bold ${isHighlighted ? planColor.text : 'text-gray-500'} uppercase tracking-wider w-[28%] md:w-1/4 ${isHighlighted ? planColor.border + ' border-x' : ''}">${p.name}</th>`; }).join('')}</tr></thead>`;
+
+                    const tbodyHTML = pricingData.comparison.map(cat => {
+                        // Category Row: px-1 py-1 on mobile
+                        const categoryRow = `<tr class="bg-gray-50"><td colspan="${1 + pricingData.plans.length}" class="px-1 py-1 md:px-6 md:py-2 text-center text-[8px] md:text-xs font-bold text-gray-600 tracking-widest">${cat.category}</td></tr>`;
+                        const itemRows = cat.items.map(item => {
+                            let nameContent = item.name;
+                            // 行の見出しがオブジェクト形式の場合の処理
+                            if (typeof item.name === 'object' && item.name !== null) {
+                                nameContent = item.name.label || '';
+                                if (item.name.faq) {
+                                    nameContent += ` <a href="faq.html?q=${encodeURIComponent(item.name.faq)}" class="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-gray-300 text-white text-[9px] hover:bg-[#BE4B35] transition-colors ml-1 align-middle transform -translate-y-0.5" title="詳細"><i class="fa-solid fa-question"></i></a>`;
+                                }
+                            }
+
+                            // Row Header: px-1 py-2 leading-tight on mobile
+                            return `<tr><td class="px-1 py-2 md:px-6 md:py-4 whitespace-nowrap font-bold text-gray-900 sticky left-0 bg-white border-r border-gray-200 align-top text-[8px] md:text-sm leading-tight md:leading-normal">${nameContent}</td>${item.values.map((val, index) => {
+                                const plan = pricingData.plans[index];
+                                const isHighlighted = plan.default || plan.id === 'premium';
+                                const planColor = colorClasses[plan.color] || colorClasses.gray;
+                                const valueColor = planColor.text;
+
+                                let content = val;
+                                // データがオブジェクト形式（詳細データ）の場合の処理
+                                if (typeof val === 'object' && val !== null) {
+                                    content = val.label || '';
+                                    if (val.faq) content += ` <a href="faq.html?q=${encodeURIComponent(val.faq)}" class="inline-flex items-center justify-center w-3.5 h-3.5 rounded-full bg-gray-300 text-white text-[9px] hover:bg-[#BE4B35] transition-colors ml-1 align-middle transform -translate-y-0.5" title="詳細"><i class="fa-solid fa-question"></i></a>`;
+                                    if (val.price) content += `<br>${val.price}`;
+                                }
+
+                                // Value Cells: px-0.5 py-1 leading-tight on mobile
+                                return `<td class="px-0.5 py-1 md:px-6 md:py-4 text-center text-[8px] md:text-xs leading-tight md:leading-normal ${valueColor} ${isHighlighted ? planColor.border + ' border-x' : ''}">${content}</td>`;
+                            }).join('')}</tr>`;
+                        }).join('');
+                        return categoryRow + itemRows;
+                    }).join('');
+                    table.innerHTML = theadHTML + `<tbody class="bg-white divide-y divide-gray-200 text-[8px] md:text-sm">${tbodyHTML}</tbody>`;
+                }
+
+                // Render Footnotes
+                const footnotesContainer = document.getElementById('pricing-footnotes');
+                if (footnotesContainer && pricingData.footnotes) {
+                    footnotesContainer.innerHTML = pricingData.footnotes.map(note => `<li>${note}</li>`).join('');
+                }
+            }
+
+            function setupProgressMeter() {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const connectors = Array.from(document.querySelectorAll('.progress-connector'));
+
+                const activeIndex = 0; // Always step 1 (index 0) for pricing page
+
+                steps.forEach((step, i) => {
+                    if (i <= activeIndex) {
+                        const circle = step.querySelector('.progress-circle');
+                        const text = step.querySelector('p');
+                        // ステップをアクティブ化
+                        circle.classList.remove('bg-gray-200', 'text-gray-500');
+                        circle.classList.add('bg-[#BE4B35]', 'text-white');
+                        text.classList.remove('text-gray-500');
+                        text.classList.add('text-gray-800', 'font-semibold');
+                    }
+                });
+
+                connectors.forEach((connector, i) => {
+                    if (i < activeIndex) {
+                        // コネクターをアクティブ化
+                        connector.classList.remove('bg-gray-200');
+                        connector.classList.add('bg-[#BE4B35]');
+                    }
+                });
+            }
+
+            function renderStatusTable() {
+                const tableBody = document.getElementById('status-table-body');
+                if (!tableBody) return;
+
+                if (!commissionStatus || commissionStatus.length === 0) {
+                    tableBody.innerHTML = `<tr><td colspan="4" class="text-center text-gray-500 py-8">現在、受付状況の情報はありません。</td></tr>`;
+                    return;
+                }
+
+                const statusMap = {
+                    close: { symbol: '×', class: 'status-x' },
+                    limited: { symbol: '△', class: 'status-delta' },
+                    open: { symbol: '○', class: 'status-circle' }
+                };
+
+                tableBody.innerHTML = commissionStatus.map(item => {
+                    const statusInfo = statusMap[item.status] || { symbol: '-', class: '' };
+                    return `
+                    <tr>
+                        <td>${item.month}</td>
+                        <td class="${statusInfo.class}">${statusInfo.symbol}</td>
+                        <td>${item.description}</td>
+                        <td>${item.details}</td>
+                    </tr>
+                `;
+                }).join('');
+            }
+
+            async function initializeSite() {
+                try {
+                    siteConfig = await loadCommonData();
+                    commissionStatus = siteConfig.commissionStatus || [];
+
+                    // --- Navigation Highlighting ---
+                    const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-item');
+                        link.classList.add('hover:text-gray-800');
+                    });
+                    const currentPath = window.location.pathname.split("/").pop();
+                    let activeLink = null;
+                    if (currentPath === 'index.html' || currentPath === '') {
+                        activeLink = document.querySelector('a.nav-link[href^="index.html"]');
+                    } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
+                        activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+                    } else {
+                        activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+                    }
+                    if (activeLink) {
+                        const mainLink = activeLink.closest('.relative.group')?.querySelector('a.nav-link') || activeLink;
+                        mainLink.classList.add('active-nav-item');
+                        mainLink.classList.remove('hover:text-gray-800');
+                    }
+                    // --- End Navigation Highlighting ---
+
+                    // Handle back link
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const isReturned = urlParams.has('returned');
+                    const backLink = document.getElementById('back-to-home-link');
+                    const backLinkText = backLink ? backLink.querySelector('span') : null;
+
+                    if (document.referrer && document.referrer.includes('pricing-corporate.html') && !isReturned) {
+                        if (backLink) backLink.href = 'pricing-corporate.html?returned=1';
+                        if (backLinkText) backLinkText.textContent = '企業様向けプランに戻る';
+                    } else {
+                        const fromSection = urlParams.get('from');
+                        if (backLink && fromSection) {
+                            backLink.href = `index.html?scroll=${fromSection}`;
+                        }
+                    }
+
+                    setupProgressMeter();
+                    renderStatusTable();
+                    renderPricing(); // setupProgressMeterの後に呼ぶことで、activatePlanでの色上書きを有効にする
+
+                    // FAQから戻ってきた場合のスクロール位置復元
+                    const savedScroll = sessionStorage.getItem('pricing_faq_return_pos');
+                    if (savedScroll) {
+                        setTimeout(() => {
+                            window.scrollTo({ top: parseInt(savedScroll), behavior: 'smooth' });
+                            sessionStorage.removeItem('pricing_faq_return_pos');
+                        }, 100);
+                    }
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-pricing').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+
+            // FAQへのリンククリック時にスクロール位置を保存
+            document.addEventListener('click', (e) => {
+                const link = e.target.closest('a');
+                if (link && link.getAttribute('href') && link.getAttribute('href').includes('faq.html')) {
+                    sessionStorage.setItem('pricing_faq_return_pos', window.scrollY);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

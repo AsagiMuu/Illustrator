@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="プロフィール - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/about.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="イラストレーター 浅葱 無雨のプロフィール詳細です。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+
+    <!-- ABOUT VIEW -->
+    <main id="view-about"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+        <div class="mb-16">
+            <a id="back-to-home-link" href="index.html"
+                class="group inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>トップページに戻る</span>
+            </a>
+        </div>
+
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            <div class="md:col-span-5">
+                <div class="aspect-square rounded-[40px] overflow-hidden shadow-lg border border-gray-100">
+                    <img id="about-image" class="w-full h-full object-cover" alt="Artist AsagiMuu">
+                </div>
+            </div>
+            <div class="md:col-span-7 pt-4 px-4 md:px-8">
+                <span class="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">About the
+                    Artist</span>
+                <h3 class="text-3xl font-bold mb-6 flex items-baseline">
+                    浅葱 無雨 <span class="text-sm font-normal text-gray-400 ml-3">AsagiMuu</span>
+                </h3>
+                <p class="text-gray-500 text-sm leading-[2] mb-12 max-w-lg">
+                    フリーランスのイラストレーターとして活動中。シックな色合いや空気感のあるイラストが得意です。男性・獣人・老人・モンスターなど幅広い作風に対応できます。キャラクターの呼吸が聞こえるような、温度のある表現を大切にしています。
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-1 h-4 bg-[#BE4B35] rounded-full"></div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-gray-700">History</h4>
+                        </div>
+                        <ul class="text-[11px] text-gray-400 space-y-3 font-medium">
+                            <li>企業・個人様ご依頼多数</li>
+                            <li>MVイラストレーション</li>
+                            <li>キャラクターデザイン</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="w-1 h-4 bg-[#BE4B35] rounded-full"></div>
+                            <h4 class="text-xs font-bold uppercase tracking-widest text-gray-700">Environment</h4>
+                        </div>
+                        <div class="space-y-3">
+                            <p class="text-[11px] text-gray-400 font-medium">OS: Windows / iPad</p>
+                            <p class="text-[11px] text-gray-400 font-medium">Soft: Procreate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fan Art Section -->
+        <div
+            class="max-w-4xl mx-auto mt-24 bg-white rounded-[40px] p-8 md:p-12 text-center border border-gray-100 shadow-sm">
+            <span class="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">Fan Art</span>
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">ファンアートについて</h3>
+            <p class="text-gray-500 text-sm leading-relaxed mb-8">
+                ファンアートの制作・投稿はいつでも大歓迎です。<br>
+                頂いたファンアートは、活動に使用させていただく場合がございます。<br>
+                ぜひハッシュタグをつけて投稿してください！
+            </p>
+
+            <div class="flex justify-center gap-4">
+                <a href="https://x.com/hashtag/AsagiMuuArt" target="_blank"
+                    class="group inline-flex items-center px-6 py-3 bg-gray-50 text-gray-600 rounded-full text-xs font-bold tracking-widest hover:bg-[#BE4B35] hover:text-white transition-all duration-300">
+                    <i class="fa-brands fa-x-twitter mr-2"></i>
+                    #AsagiMuuArt
+                </a>
+            </div>
+        </div>
+
+        <!-- Cup-chan Section -->
+        <div class="max-w-6xl mx-auto mt-24 px-6">
+            <div class="text-center mb-12">
+                <span class="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">Original
+                    Character</span>
+                <h3 class="text-2xl font-bold text-gray-800">コップちゃんとコーヒー豆くん
+                </h3>
+            </div>
+            <div id="cup-chan-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Images injected here -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black/60 z-[100] hidden overflow-y-auto backdrop-blur-md">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <button id="close-modal-bg" class="fixed inset-0 w-full h-full cursor-default"></button>
+            <div
+                class="relative max-w-7xl w-full flex flex-col md:flex-row gap-8 items-center bg-white p-8 md:p-12 rounded-[40px] shadow-2xl overflow-hidden z-10">
+                <button id="close-modal-btn"
+                    class="absolute top-6 right-8 text-gray-400 text-4xl hover:text-[#BE4B35] z-10 transition">&times;</button>
+                <div class="w-full md:w-3/5" id="modal-img-wrapper">
+                    <div id="modal-img-container"></div>
+                </div>
+                <div class="w-full md:w-2/5 flex flex-col justify-center text-left">
+                    <div class="flex items-baseline gap-3 mb-2">
+                        <h4 id="modal-title" class="text-2xl font-bold"></h4>
+                        <span id="modal-counter" class="text-gray-400 text-lg font-bold"></span>
+                    </div>
+                    <p id="modal-category" class="text-[#BE4B35] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">
+                    </p>
+                    <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+                    <div class="flex gap-8 mb-6 text-xs">
+                        <div>
+                            <span class="text-gray-400 block mb-1 tracking-widest">制作日</span>
+                            <span id="modal-date" class="font-bold text-gray-700 font-serif"></span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block mb-1 tracking-widest">制作期間</span>
+                            <span id="modal-time" class="font-bold text-gray-700 font-serif"></span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-500 space-y-4">
+                        <p id="modal-details" class="leading-relaxed"></p>
+                    </div>
+                    <div id="modal-thumbnails" class="flex flex-wrap gap-3 mt-8"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let siteConfig = {};
+            let works = [];
+
+            const imageModal = document.getElementById('image-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const closeModalBg = document.getElementById('close-modal-bg');
+
+            function openModal(w) {
+                const container = document.getElementById('modal-img-container');
+                const thumbnailsContainer = document.getElementById('modal-thumbnails');
+                container.innerHTML = '';
+                thumbnailsContainer.innerHTML = '';
+
+                const imagesToShow = (w.images && w.images.length > 0) ? w.images : [w.image];
+                const counter = document.getElementById('modal-counter');
+
+                if (imagesToShow.length > 1) {
+                    counter.innerText = `1/${imagesToShow.length}`;
+                    counter.style.display = 'inline';
+                } else {
+                    counter.style.display = 'none';
+                }
+
+                const mainImg = document.createElement('img');
+                mainImg.id = 'modal-main-img';
+                mainImg.src = imagesToShow[0];
+                mainImg.alt = w.title;
+                container.appendChild(mainImg);
+
+                imagesToShow.forEach((src, index) => {
+                    if (imagesToShow.length > 1) {
+                        const thumb = document.createElement('img');
+                        thumb.src = src;
+                        thumb.className = `modal-thumbnail ${index === 0 ? 'active' : ''}`;
+                        thumb.onclick = () => {
+                            mainImg.src = src;
+                            counter.innerText = `${index + 1}/${imagesToShow.length}`;
+                            document.querySelectorAll('.modal-thumbnail').forEach(t => t.classList.remove('active'));
+                            thumb.classList.add('active');
+                        };
+                        thumbnailsContainer.appendChild(thumb);
+                    }
+                });
+
+                document.getElementById('modal-title').innerText = w.title;
+                document.getElementById('modal-category').innerText = w.category;
+
+                const tagsContainer = document.getElementById('modal-tags');
+                if (tagsContainer) {
+                    tagsContainer.innerHTML = '';
+                    if (w.tags && Array.isArray(w.tags)) {
+                        w.tags.forEach(tag => {
+                            const span = document.createElement('span');
+                            span.className = 'text-[10px] px-3 py-1 bg-gray-100 text-gray-500 rounded-full';
+                            span.innerText = tag;
+                            tagsContainer.appendChild(span);
+                        });
+                    }
+                }
+
+                document.getElementById('modal-date').innerText = w.productionDate || '-';
+                document.getElementById('modal-time').innerText = w.productionTime || '-';
+                document.getElementById('modal-details').innerText = w.details;
+
+                imageModal.classList.remove('hidden');
+            }
+
+            const closeModal = () => {
+                imageModal.classList.add('hidden');
+            };
+
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+            if (closeModalBg) closeModalBg.addEventListener('click', closeModal);
+
+            async function initializeSite() {
+                try {
+                    const data = await loadCommonData();
+                    siteConfig = data;
+                    works = data.works || [];
+
+                    const aboutImage = document.getElementById('about-image');
+                    if (aboutImage) aboutImage.src = siteConfig.aboutImage;
+
+                    // プロフィール情報の反映
+                    if (siteConfig.profile) {
+                        // Description
+                        const descP = document.querySelector('.md\\:col-span-7 > p');
+                        if (descP) descP.textContent = siteConfig.profile.description;
+
+                        // History & Environment
+                        const headings = document.querySelectorAll('.md\\:col-span-7 h4');
+                        headings.forEach(h => {
+                            const container = h.parentElement.nextElementSibling;
+                            if (!container) return;
+
+                            if (h.textContent.includes('History') && siteConfig.profile.history) {
+                                container.innerHTML = siteConfig.profile.history.map(item => `<li>${item}</li>`).join('');
+                            } else if (h.textContent.includes('Environment') && siteConfig.profile.environment) {
+                                container.innerHTML = siteConfig.profile.environment.map(item => `<p class="text-[11px] text-gray-400 font-medium">${item}</p>`).join('');
+                            }
+                        });
+                    }
+
+                    const aboutLink = document.querySelector('a.nav-link[href="about.html"]');
+                    if (aboutLink) {
+                        aboutLink.classList.add('active-nav-item');
+                        aboutLink.classList.remove('hover:text-gray-800');
+                    }
+
+                    // コップちゃんギャラリーのレンダリング
+                    const cupChanGrid = document.getElementById('cup-chan-grid');
+                    if (cupChanGrid) {
+                        const cupChanWorks = works.filter(w => w.tags && (w.tags.includes('コップちゃん') || w.tags.includes('コーヒー豆くん')));
+                        // 日付の新しい順にソート
+                        cupChanWorks.sort((a, b) => (b.productionDate || '').localeCompare(a.productionDate || ''));
+
+                        cupChanWorks.forEach(w => {
+                            const div = document.createElement('div');
+                            div.className = 'aspect-square bg-gray-50 rounded-2xl overflow-hidden cursor-pointer hover:opacity-90 transition shadow-sm border border-gray-100 group relative';
+                            div.innerHTML = `<img src="${w.image}" class="w-full h-full object-cover transition duration-700 group-hover:scale-105" alt="${w.title}">`;
+                            div.addEventListener('click', () => openModal(w));
+                            cupChanGrid.appendChild(div);
+                        });
+                    }
+
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-about').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+        });
+    </script>
+</body>
+
+</html>

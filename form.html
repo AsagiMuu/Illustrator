@@ -1,0 +1,1535 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>応募フォーム - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html#top" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">料金プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html#top">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- FORM VIEW -->
+    <main id="view-form"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+        <!-- Progress Meter -->
+        <div id="progress-meter"
+            class="mb-16 max-w-7xl mx-auto relative flex flex-col md:flex-row items-center justify-center">
+            <a href="terms.html"
+                class="group md:absolute md:left-0 md:top-0 mb-8 md:mb-0 inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>利用規約に戻る</span>
+            </a>
+            <div class="w-full max-w-3xl">
+                <div class="flex items-start">
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            1</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">料金プランの選択</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden"></div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            2</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">依頼の流れ</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden"></div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            3</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">利用規約</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                        <div class="progress-bar absolute top-0 left-0 h-full w-0"></div>
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            4</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">応募フォーム</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Wrapper for Sidebar -->
+        <div class="relative max-w-3xl mx-auto">
+
+            <!-- Form Content -->
+            <div id="form-container"
+                class="max-w-3xl mx-auto w-full bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden -mx-6 md:mx-0">
+                <div class="p-8 md:p-12">
+                    <h2 class="text-3xl font-bold text-center mb-4 text-gray-800"><span id="plan-title-span"
+                            class="block text-lg mb-2 font-medium"></span>応募フォーム</h2>
+                    <p class="text-center text-gray-500 text-sm mb-10">以下のフォームに必要事項をご記入の上、送信してください。</p>
+
+                    <form id="contact-form" action="https://formspree.io/f/mdazdgqo" method="POST" class="space-y-10">
+                        <!-- Formspree設定: 件名と言語 -->
+                        <input type="hidden" name="_subject" value="ポートフォリオサイトからの新規お問い合わせ">
+                        <input type="hidden" name="_language" value="ja">
+
+                        <!-- Customer Info Section -->
+                        <div id="form-section-customer" class="space-y-10">
+                            <!-- Plan -->
+                            <div>
+                                <label for="plan" class="block text-sm font-bold text-gray-700 mb-2">ご希望のプラン <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <select id="plan" name="plan"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                                    <optgroup label="個人様向け">
+                                        <option value="basic">ベーシックプラン</option>
+                                        <option value="light">ライトプラン</option>
+                                        <option value="premium">プレミアムプラン</option>
+                                        <option value="other">その他・相談したい</option>
+                                    </optgroup>
+                                    <optgroup label="企業様向け">
+                                        <option value="business">ビジネスプラン</option>
+                                        <option value="enterprise">エンタープライズ</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <!-- Corporate Fields -->
+                            <div id="corporate-fields" class="hidden space-y-10">
+                                <div>
+                                    <label for="company_name" class="block text-sm font-bold text-gray-700 mb-1">貴社名
+                                        <span class="text-[#BE4B35] form-accent-text">*</span></label>
+                                    <input type="text" id="company_name" name="company_name"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                                </div>
+                                <div>
+                                    <label for="department"
+                                        class="block text-sm font-bold text-gray-700 mb-1">部署名</label>
+                                    <input type="text" id="department" name="department"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                                </div>
+                            </div>
+
+                            <!-- Name -->
+                            <div>
+                                <label for="name" class="block text-sm font-bold text-gray-700 mb-1">お名前 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <p class="text-xs text-gray-500 mb-2">※連絡手段で使用するアカウント名と同じものを入力してください。</p>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-bold text-gray-700 mb-2">メールアドレス <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+
+                            <!-- Contact Method -->
+                            <div id="personal-contact-method">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">連絡方法 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <div class="flex flex-wrap gap-4 mb-3">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="contact_method" value="Email" checked
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">Email</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="contact_method" value="X(Twitter)"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">X (旧Twitter) DM</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="contact_method" value="Discord"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">Discord</span>
+                                    </label>
+                                </div>
+                                <!-- User ID (Hidden by default) -->
+                                <div id="user-id-field" class="hidden">
+                                    <label for="user_id" class="block text-xs font-bold text-gray-500 mb-1">ユーザーID (X
+                                        または Discord)</label>
+                                    <input type="text" id="user_id" name="user_id" placeholder="@username or user#1234"
+                                        class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Request Section -->
+                        <div id="form-section-request" class="space-y-10">
+                            <!-- Usage -->
+                            <div id="personal-usage">
+                                <label for="usage" class="block text-sm font-bold text-gray-700 mb-2">具体的な使用用途 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <input type="text" id="usage" name="usage" placeholder="例：SNSアイコン、動画用イラストなど" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+
+                            <!-- Request Count -->
+                            <div>
+                                <label for="request_count" class="block text-sm font-bold text-gray-700 mb-2">イラストの依頼枚数
+                                    <span class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <input type="number" id="request_count" name="request_count" min="1" max="8" value="1"
+                                    required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+
+                            <!-- Request Details Wrapper (Tabs + Content) -->
+                            <div id="request-details-wrapper">
+                                <!-- Tabs Container -->
+                                <div id="request-tabs-container"
+                                    class="flex items-end justify-start relative z-10 -mb-[1px] gap-1">
+                                    <!-- Tab 1 (Initial) -->
+                                    <button type="button"
+                                        class="tab-button relative w-[calc((100%-1rem)/5)] min-w-0 h-[35px] z-20 group focus:outline-none"
+                                        onclick="switchTab(0)">
+                                        <div
+                                            class="tab-bg absolute inset-0 bg-gray-50 border-t border-l border-r border-gray-200 rounded-t-lg [transform:perspective(40px)_rotateX(10deg)] origin-bottom transition-colors">
+                                        </div>
+                                        <div
+                                            class="tab-cover-line absolute bottom-[-1px] left-0 right-0 h-[2px] bg-gray-50 z-30">
+                                        </div>
+                                        <div
+                                            class="detail-header-label relative z-40 flex items-center justify-center h-full text-gray-800 font-bold text-xs sm:text-sm tracking-widest pt-1 px-2">
+                                            <span class="tab-label-text">1枚目</span>
+                                        </div>
+                                    </button>
+                                </div>
+
+                                <!-- Contents Container -->
+                                <div id="request-contents-container"
+                                    class="bg-gray-50 rounded-b-2xl border border-gray-200 p-6 md:p-8 relative z-0 shadow-sm">
+                                    <!-- Section 1 (Initial) -->
+                                    <div class="request-detail-section space-y-8">
+                                        <div class="flex items-center justify-between border-b border-gray-200 pb-4">
+                                            <h3 class="font-bold text-gray-800 text-xl">ご依頼詳細 (1枚目)</h3>
+                                            <button type="button"
+                                                class="delete-section-btn border border-gray-300 bg-white text-gray-500 hover:bg-gray-50 hover:text-[#BE4B35] hover:border-[#BE4B35] text-xs font-bold px-3 py-1 rounded transition-colors hidden"
+                                                title="このシートを削除">
+                                                削除
+                                            </button>
+                                        </div>
+                                        <!-- Personal/Commercial -->
+                                        <div id="personal-commercial-check">
+                                            <label class="block text-sm font-bold text-gray-700 mb-2">個人使用 / 商用利用 <span
+                                                    class="text-[#BE4B35] form-accent-text">*</span></label>
+                                            <div class="flex gap-6">
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="radio" name="commercial_use" value="Personal" checked
+                                                        class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-sm text-gray-600">個人使用</span>
+                                                </label>
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="radio" name="commercial_use" value="Commercial"
+                                                        class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-sm text-gray-600">商用利用</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Request Type -->
+                                        <div>
+                                            <label class="block text-sm font-bold text-gray-700 mb-2">ご依頼内容の種類 (複数選択可)
+                                                <span class="text-[#BE4B35] form-accent-text">*</span></label>
+                                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="一枚絵"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">一枚絵</span></label>
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="キャラクターデザイン"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">キャラクターデザイン</span></label>
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="立ち絵"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">立ち絵</span></label>
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="SDイラスト"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">SDイラスト</span></label>
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="MVイラスト"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">MVイラスト</span></label>
+                                                <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                        type="checkbox" name="request_type[]" value="その他"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                        class="text-sm text-gray-600">その他</span></label>
+                                            </div>
+                                        </div>
+
+                                        <!-- Details -->
+                                        <div id="personal-details">
+                                            <label for="details" class="block text-sm font-bold text-gray-700 mb-2">依頼内容
+                                                <span class="text-[#BE4B35] form-accent-text">*</span></label>
+                                            <textarea id="details" name="details" rows="6"
+                                                placeholder="キャラクターの特徴、構図、雰囲気、背景の有無など、可能な限り詳しくご記入ください。" required
+                                                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+                                        </div>
+
+                                        <!-- Corporate Project Details -->
+                                        <div id="corporate-details" class="hidden">
+                                            <label for="project_details"
+                                                class="block text-sm font-bold text-gray-700 mb-2">ご依頼内容詳細 <span
+                                                    class="text-[#BE4B35] form-accent-text">*</span></label>
+                                            <textarea id="project_details" name="project_details" rows="8"
+                                                placeholder="案件の概要、スケジュール、ご予算感、使用媒体などをご記入ください。"
+                                                class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+                                        </div>
+
+                                        <!-- Size / Resolution / Format -->
+                                        <div class="p-6 bg-white rounded-xl border border-gray-200 space-y-6">
+                                            <h3 class="font-bold text-gray-800 border-b border-gray-200 pb-2">サイズ・形式
+                                            </h3>
+
+                                            <!-- Color Mode -->
+                                            <div>
+                                                <label class="block text-xs font-bold text-gray-500 mb-2">カラーモード</label>
+                                                <div class="flex gap-6">
+                                                    <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                            type="radio" name="color_mode" value="RGB" checked
+                                                            class="text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                            class="text-sm text-gray-600">RGB (Web用)</span></label>
+                                                    <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                            type="radio" name="color_mode" value="CMYK"
+                                                            class="text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                            class="text-sm text-gray-600">CMYK (印刷用)</span></label>
+                                                </div>
+                                            </div>
+
+                                            <!-- Size -->
+                                            <div>
+                                                <label
+                                                    class="block text-xs font-bold text-gray-500 mb-2">キャンバスサイズ</label>
+                                                <div class="space-y-3">
+                                                    <!-- A4 -->
+                                                    <div class="flex items-center flex-wrap gap-4">
+                                                        <label
+                                                            class="flex items-center space-x-2 cursor-pointer min-w-[60px]">
+                                                            <input type="radio" name="canvas_size" value="A4"
+                                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                            <span class="text-sm text-gray-600">A4</span>
+                                                        </label>
+                                                        <div
+                                                            class="js-orientation-a4 hidden flex bg-white rounded-md border border-gray-200 p-1">
+                                                            <label
+                                                                class="cursor-pointer px-3 py-1 rounded hover:bg-gray-100"><input
+                                                                    type="radio" name="orientation_a4" value="Vertical"
+                                                                    checked class="sr-only peer"><span
+                                                                    class="text-xs text-gray-500 peer-checked:text-[#BE4B35] peer-checked:font-bold">縦</span></label>
+                                                            <label
+                                                                class="cursor-pointer px-3 py-1 rounded hover:bg-gray-100"><input
+                                                                    type="radio" name="orientation_a4"
+                                                                    value="Horizontal" class="sr-only peer"><span
+                                                                    class="text-xs text-gray-500 peer-checked:text-[#BE4B35] peer-checked:font-bold">横</span></label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- 4K -->
+                                                    <div class="flex items-center flex-wrap gap-4">
+                                                        <label
+                                                            class="flex items-center space-x-2 cursor-pointer min-w-[60px]">
+                                                            <input type="radio" name="canvas_size" value="4K"
+                                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                            <span class="text-sm text-gray-600">4K</span>
+                                                        </label>
+                                                        <div
+                                                            class="js-orientation-4k hidden flex bg-white rounded-md border border-gray-200 p-1">
+                                                            <label
+                                                                class="cursor-pointer px-3 py-1 rounded hover:bg-gray-100"><input
+                                                                    type="radio" name="orientation_4k" value="Vertical"
+                                                                    checked class="sr-only peer"><span
+                                                                    class="text-xs text-gray-500 peer-checked:text-[#BE4B35] peer-checked:font-bold">縦</span></label>
+                                                            <label
+                                                                class="cursor-pointer px-3 py-1 rounded hover:bg-gray-100"><input
+                                                                    type="radio" name="orientation_4k"
+                                                                    value="Horizontal" class="sr-only peer"><span
+                                                                    class="text-xs text-gray-500 peer-checked:text-[#BE4B35] peer-checked:font-bold">横</span></label>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Other -->
+                                                    <div class="flex items-center flex-wrap gap-4">
+                                                        <label
+                                                            class="flex items-center space-x-2 cursor-pointer min-w-[60px]">
+                                                            <input type="radio" name="canvas_size" value="Other"
+                                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                            <span class="text-sm text-gray-600">その他</span>
+                                                        </label>
+                                                        <input type="text" id="other_size" name="other_size"
+                                                            placeholder="例：1000x1000px"
+                                                            class="js-other-size hidden px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- File Format -->
+                                            <div>
+                                                <label class="block text-xs font-bold text-gray-500 mb-2">納品ファイル形式
+                                                    (複数選択可)</label>
+                                                <div class="flex flex-wrap items-center gap-x-6 gap-y-3">
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="checkbox" name="file_format[]" value="PSD"
+                                                            class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                        <span class="text-sm text-gray-600">PSD</span>
+                                                    </label>
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="checkbox" name="file_format[]" value="PNG" checked
+                                                            class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                        <span class="text-sm text-gray-600">PNG</span>
+                                                    </label>
+                                                    <div class="flex items-center gap-3">
+                                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                                            <input type="checkbox" name="file_format[]" value="Other"
+                                                                class="js-file-format-other-check rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                            <span class="text-sm text-gray-600">その他</span>
+                                                        </label>
+                                                        <input type="text" id="file_format_other"
+                                                            name="file_format_other"
+                                                            placeholder="例：JPEG, ClipStudio形式など"
+                                                            class="js-file-format-other-input hidden px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none w-full sm:w-auto">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- End of request-contents-container -->
+                            </div> <!-- End of request-details-wrapper -->
+                        </div>
+
+                        <!-- Additional Info Section -->
+                        <div id="form-section-additional" class="space-y-10">
+                            <!-- Reference URL -->
+                            <div>
+                                <label for="reference"
+                                    class="block text-sm font-bold text-gray-700 mb-2">参考資料URL</label>
+                                <input type="url" id="reference" name="reference"
+                                    placeholder="Google DriveやDropbox等のURLがあればご記入ください"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+
+                            <!-- Deadline -->
+                            <div>
+                                <label for="deadline" class="block text-sm font-bold text-gray-700 mb-2">納期 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <input type="date" id="deadline" name="deadline" required
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                            </div>
+                        </div>
+
+                        <!-- Legal Section -->
+                        <div id="form-section-legal" class="space-y-10">
+                            <!-- Payment -->
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">支払い方法 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <div class="flex gap-6">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="payment_method" value="BankTransfer" checked
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">銀行振込</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="payment_method" value="Paypal"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">Paypal</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Publication -->
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">実績公開の可否 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <div class="space-y-3">
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="radio" name="publication" value="Allow"
+                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                            <span class="text-sm text-gray-600">許可</span>
+                                        </label>
+                                        <div id="pub-date-container" class="hidden flex items-center gap-2">
+                                            <span class="text-xs text-gray-500">公開可能日:</span>
+                                            <input type="date" id="publication_date" name="publication_date"
+                                                class="px-2 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none">
+                                        </div>
+                                    </div>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="publication" value="Prohibit"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">禁止 <span
+                                                class="text-xs text-gray-400">※追加料金がかかります</span></span>
+                                    </label>
+                                    <div class="flex flex-wrap items-center gap-3">
+                                        <label class="flex items-center space-x-2 cursor-pointer">
+                                            <input type="radio" name="publication" value="Other"
+                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                            <span class="text-sm text-gray-600">その他</span>
+                                        </label>
+                                        <input type="text" id="publication_other" name="publication_other"
+                                            placeholder="詳細を入力"
+                                            class="hidden px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none w-full sm:w-auto">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Copyright -->
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">著作権譲渡を希望されますか？ <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <div class="flex gap-6">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="copyright_transfer" value="Yes"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">はい</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="copyright_transfer" value="No" checked
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">いいえ</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Remarks -->
+                        <div id="form-section-remarks">
+                            <label for="remarks" class="block text-sm font-bold text-gray-700 mb-2">備考・質問</label>
+                            <textarea id="remarks" name="remarks" rows="4" placeholder="その他、ご質問やご要望があればご記入ください。"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="pt-6 text-center">
+                            <button type="submit" id="submit-btn"
+                                class="inline-block px-12 py-4 bg-[#BE4B35] text-white rounded-full font-bold tracking-widest hover:bg-red-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 shadow-lg">
+                                送信する
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation -->
+            <div class="hidden xl:block absolute top-0 left-full ml-12 h-full">
+                <div id="form-nav" class="sticky top-32 w-56">
+                    <h3 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4">FORM NAVIGATION</h3>
+                    <ul id="form-nav-list" class="space-y-2">
+                        <!-- Injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </div> <!-- End of Form Wrapper -->
+        <div class="mt-12 mb-8 max-w-3xl mx-auto">
+            <a href="terms.html" id="back-btn"
+                class="group inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>利用規約に戻る</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+    class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em] uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Disable image save
+            document.addEventListener('contextmenu', e => {
+                if (e.target.tagName === 'IMG') e.preventDefault();
+            });
+            document.addEventListener('dragstart', e => {
+                if (e.target.tagName === 'IMG') e.preventDefault();
+            });
+
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const closeMenuBtn = document.getElementById('close-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            let siteConfig = {};
+            let formObserver;
+            let currentTheme = {
+                bg: 'bg-[#BE4B35]',
+                text: 'text-[#BE4B35]',
+                border: 'border-[#BE4B35]',
+                hoverBg: 'hover:bg-[#BE4B35]',
+                btnHover: 'hover:bg-red-700',
+                ring: 'focus:ring-[#BE4B35]',
+                focusBorder: 'focus:border-[#BE4B35]',
+                bgSoft: 'bg-[#BE4B35]/5'
+            };
+
+            const openMenu = () => mobileMenu.classList.remove('translate-x-full');
+            const closeMenu = () => mobileMenu.classList.add('translate-x-full');
+            if (menuBtn) menuBtn.addEventListener('click', openMenu);
+            if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            mobileMenuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+            function updateFormLinkState(link, isActive, theme) {
+                const stepSpan = link.querySelector('span:first-child');
+                const titleSpan = link.querySelector('span:last-child');
+
+                if (isActive) {
+                    link.classList.remove('border-gray-200');
+                    link.classList.add(theme.border, theme.bgSoft);
+                    stepSpan.classList.remove('text-gray-400');
+                    stepSpan.classList.add(theme.text);
+                    titleSpan.classList.remove('text-gray-600');
+                    titleSpan.classList.add(theme.text);
+                } else {
+                    link.classList.add('border-gray-200');
+                    link.classList.remove(theme.border, theme.bgSoft);
+                    stepSpan.classList.add('text-gray-400');
+                    stepSpan.classList.remove(theme.text);
+                    titleSpan.classList.add('text-gray-600');
+                    titleSpan.classList.remove(theme.text);
+                }
+            }
+
+            function setupFormScrollSpy(theme) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-30% 0px -50% 0px',
+                    threshold: 0
+                };
+
+                if (formObserver) formObserver.disconnect();
+
+                formObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            document.querySelectorAll('.form-nav-link').forEach(link => {
+                                const href = link.getAttribute('href').substring(1);
+                                updateFormLinkState(link, href === id, theme);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('[id^="form-section-"]').forEach(section => {
+                    formObserver.observe(section);
+                });
+            }
+
+            function setupFormToc(theme) {
+                const navList = document.getElementById('form-nav-list');
+                if (!navList) return;
+
+                const sections = [
+                    { id: 'form-section-customer', title: 'お客様情報' },
+                    { id: 'form-section-request', title: 'ご依頼内容' },
+                    { id: 'form-section-additional', title: '補足情報' },
+                    { id: 'form-section-legal', title: 'お支払い・権利' },
+                    { id: 'form-section-remarks', title: '備考・質問' }
+                ];
+
+                navList.innerHTML = '';
+
+                sections.forEach((section, index) => {
+                    const targetElement = document.getElementById(section.id);
+                    if (!targetElement) return;
+
+                    targetElement.classList.add('scroll-mt-32');
+
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                    <a href="#${section.id}" class="form-nav-link group flex flex-col border-l-2 border-gray-200 pl-4 py-2 hover:${theme.border} transition-colors duration-300">
+                        <span class="text-[10px] font-bold text-gray-400 group-hover:${theme.text} tracking-widest transition-colors duration-300">SECTION ${String(index + 1).padStart(2, '0')}</span>
+                        <span class="text-xs font-bold text-gray-600 group-hover:${theme.text} transition-colors duration-300">${section.title}</span>
+                    </a>
+                `;
+
+                    const link = li.querySelector('a');
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (formObserver) formObserver.disconnect();
+
+                        document.querySelectorAll('.form-nav-link').forEach(navLink => {
+                            updateFormLinkState(navLink, navLink === link, theme);
+                        });
+
+                        const target = document.getElementById(section.id);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+
+                        setTimeout(() => {
+                            if (formObserver) {
+                                document.querySelectorAll('[id^="form-section-"]').forEach(sec => formObserver.observe(sec));
+                            }
+                        }, 1000);
+                    });
+
+                    navList.appendChild(li);
+                });
+            }
+
+            function setupProgressMeter(theme) {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const connectors = Array.from(document.querySelectorAll('.progress-connector'));
+
+                // Steps 1, 2, 3 are completed
+                [0, 1, 2].forEach(i => {
+                    const circle = steps[i].querySelector('.progress-circle');
+                    const text = steps[i].querySelector('p');
+                    circle.classList.remove('bg-gray-200', 'text-gray-500');
+                    circle.classList.add(theme.bg, 'text-white');
+                    text.classList.remove('text-gray-500');
+                    text.classList.add('text-gray-800', 'font-semibold');
+                });
+
+                // Connectors 1 (0->1) and 2 (1->2) are completed
+                [0, 1].forEach(i => {
+                    connectors[i].classList.remove('bg-gray-200');
+                    connectors[i].classList.add(theme.bg);
+                });
+
+                // Check if coming from terms.html (forward navigation)
+                const isForwardNavigation = document.referrer.includes('terms.html');
+
+                if (!isForwardNavigation) {
+                    // Immediate update
+                    const connectorToAnimate = connectors[2];
+                    const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.classList.add(theme.bg);
+                        progressBar.style.width = '100%';
+                    }
+
+                    const currentStep = steps[3];
+                    const circle = currentStep.querySelector('.progress-circle');
+                    const text = currentStep.querySelector('p');
+                    circle.classList.remove('bg-gray-200', 'text-gray-500');
+                    circle.classList.add(theme.bg, 'text-white');
+                    text.classList.remove('text-gray-500');
+                    text.classList.add('text-gray-800', 'font-semibold');
+                } else {
+                    // Animate Connector 3 (2->3)
+                    setTimeout(() => {
+                        const connectorToAnimate = connectors[2];
+                        const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                        if (progressBar) {
+                            progressBar.classList.add(theme.bg);
+                            progressBar.style.width = '100%';
+                            progressBar.classList.add('transition-all', 'duration-1000', 'ease-out');
+                        }
+
+                        // Activate Step 4 (Form)
+                        setTimeout(() => {
+                            const currentStep = steps[3];
+                            const circle = currentStep.querySelector('.progress-circle');
+                            const text = currentStep.querySelector('p');
+                            circle.classList.remove('bg-gray-200', 'text-gray-500');
+                            circle.classList.add(theme.bg, 'text-white');
+                            text.classList.remove('text-gray-500');
+                            text.classList.add('text-gray-800', 'font-semibold');
+                        }, 1000);
+                    }, 300);
+                }
+            }
+
+            function setupProgressNavigation() {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || '');
+                const planQuery = planName ? `?plan=${encodeURIComponent(planName)}` : '';
+
+                // Step 1: Pricing
+                steps[0].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[0].addEventListener('click', () => window.location.href = 'pricing.html');
+
+                // Step 2: Flow
+                steps[1].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[1].addEventListener('click', () => window.location.href = `workflow.html${planQuery}`);
+
+                // Step 3: Terms
+                steps[2].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[2].addEventListener('click', () => window.location.href = `terms.html${planQuery}`);
+            }
+
+            async function initializeSite() {
+                try {
+                    let data = {};
+                    if (typeof SITE_DATA !== 'undefined') {
+                        Object.assign(data, SITE_DATA.portfolio || {});
+                        Object.assign(data, SITE_DATA.commission || {});
+                    }
+
+                    siteConfig = data;
+                    const logoImage = document.getElementById('logo-image');
+                    if (logoImage) logoImage.src = siteConfig.logo;
+
+                    // --- Navigation Highlighting ---
+                    const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-item');
+                        link.classList.add('hover:text-gray-800');
+                    });
+                    const currentPath = window.location.pathname.split("/").pop();
+                    let activeLink = null;
+                    if (currentPath === 'index.html' || currentPath === '') {
+                        activeLink = document.querySelector('a.nav-link[href^="index.html"]');
+                    } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
+                        activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+                    } else {
+                        // For other simple pages like about.html, links.html, etc.
+                        activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+                    }
+                    if (activeLink) {
+                        const mainLink = activeLink.closest('.relative.group')?.querySelector('a.nav-link') || activeLink;
+                        mainLink.classList.add('active-nav-item');
+                        mainLink.classList.remove('hover:text-gray-800');
+                    }
+                    // --- End Navigation Highlighting ---
+
+                    // --- Plan & Theme Logic ---
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const initialPlanName = decodeURIComponent(urlParams.get('plan') || '');
+                    const planSelect = document.getElementById('plan');
+
+                    function updateFormState(planIdentifier) {
+                        let plan = null;
+                        let isCorporate = false;
+
+                        // Find Plan Object
+                        if (siteConfig.pricing && siteConfig.pricing.plans) {
+                            plan = siteConfig.pricing.plans.find(p => p.name === planIdentifier || p.id === planIdentifier);
+                        }
+                        if (!plan && siteConfig.corporate && siteConfig.corporate.plans) {
+                            plan = siteConfig.corporate.plans.find(p => p.name === planIdentifier || p.id === planIdentifier);
+                            if (plan) isCorporate = true;
+                        }
+
+                        // Default Theme (Personal)
+                        let theme = { bg: 'bg-[#BE4B35]', text: 'text-[#BE4B35]', border: 'border-[#BE4B35]', hoverBg: 'hover:bg-[#BE4B35]', btnHover: 'hover:bg-red-700', ring: 'focus:ring-[#BE4B35]', focusBorder: 'focus:border-[#BE4B35]', bgSoft: 'bg-[#BE4B35]/5' };
+
+                        if (plan) {
+                            const colorThemes = {
+                                gray: { bg: 'bg-gray-500', text: 'text-gray-500', border: 'border-gray-500', hoverBg: 'hover:bg-gray-500', btnHover: 'hover:bg-gray-600', ring: 'focus:ring-gray-500', focusBorder: 'focus:border-gray-500', bgSoft: 'bg-gray-100' },
+                                blue: { bg: 'bg-blue-600', text: 'text-blue-600', border: 'border-blue-600', hoverBg: 'hover:bg-blue-600', btnHover: 'hover:bg-blue-700', ring: 'focus:ring-blue-600', focusBorder: 'focus:border-blue-600', bgSoft: 'bg-blue-50' },
+                                yellow: { bg: 'bg-amber-500', text: 'text-amber-500', border: 'border-amber-500', hoverBg: 'hover:bg-amber-500', btnHover: 'hover:bg-amber-600', ring: 'focus:ring-amber-500', focusBorder: 'focus:border-amber-500', bgSoft: 'bg-amber-50' }
+                            };
+                            if (colorThemes[plan.color]) {
+                                theme = colorThemes[plan.color];
+                            }
+                        }
+                        currentTheme = theme;
+
+                        // Update UI Title
+                        const planTitleSpan = document.getElementById('plan-title-span');
+                        if (planTitleSpan) {
+                            planTitleSpan.textContent = plan ? plan.name : '';
+                            planTitleSpan.className = `block text-lg mb-2 font-medium ${currentTheme.text}`;
+                        }
+
+                        // Update Select Option (if not already selected)
+                        if (planSelect && plan) {
+                            for (let i = 0; i < planSelect.options.length; i++) {
+                                if (planSelect.options[i].value === plan.id || planSelect.options[i].text.includes(plan.name)) {
+                                    planSelect.selectedIndex = i;
+                                    break;
+                                }
+                            }
+                        }
+
+                        // Toggle Fields
+                        if (isCorporate) {
+                            // Show Corporate Fields
+                            document.getElementById('corporate-fields').classList.remove('hidden');
+                            document.getElementById('company_name').required = true;
+
+                            // Hide Personal Fields
+                            document.getElementById('personal-contact-method').classList.add('hidden');
+                            document.querySelectorAll('input[name="contact_method"]').forEach(el => el.required = false);
+
+                            document.getElementById('personal-usage').classList.add('hidden');
+                            document.getElementById('usage').required = false;
+
+                            document.getElementById('personal-commercial-check').classList.add('hidden');
+
+                            document.getElementById('personal-details').classList.add('hidden');
+                            document.getElementById('details').required = false;
+
+                            // Show Corporate Details
+                            document.getElementById('corporate-details').classList.remove('hidden');
+                            document.getElementById('project_details').required = true;
+
+                            // Update Labels
+                            const nameLabel = document.querySelector('label[for="name"]');
+                            if (nameLabel) nameLabel.innerHTML = `ご担当者様名 <span class="text-[#BE4B35] form-accent-text">*</span>`;
+
+                            // Hide Progress Meter Content (Keep Back Button) for Corporate
+                            const meter = document.getElementById('progress-meter');
+                            if (meter) {
+                                const progressContent = meter.querySelector('.w-full.max-w-3xl');
+                                if (progressContent) progressContent.style.display = 'none';
+                            }
+
+                            // Update Back Button
+                            const backButtons = document.querySelectorAll('a[href*="terms.html"], a[href*="pricing-corporate.html"]');
+                            backButtons.forEach(btn => {
+                                btn.href = 'pricing-corporate.html';
+                                const span = btn.querySelector('span');
+                                if (span) span.textContent = 'プラン選択に戻る';
+                            });
+                        } else {
+                            // Show Personal Fields
+                            document.getElementById('corporate-fields').classList.add('hidden');
+                            document.getElementById('company_name').required = false;
+
+                            document.getElementById('personal-contact-method').classList.remove('hidden');
+                            document.querySelectorAll('input[name="contact_method"]').forEach(el => el.required = true);
+
+                            document.getElementById('personal-usage').classList.remove('hidden');
+                            document.getElementById('usage').required = true;
+
+                            document.getElementById('personal-commercial-check').classList.remove('hidden');
+
+                            document.getElementById('personal-details').classList.remove('hidden');
+                            document.getElementById('details').required = true;
+
+                            document.getElementById('corporate-details').classList.add('hidden');
+                            document.getElementById('project_details').required = false;
+
+                            const nameLabel = document.querySelector('label[for="name"]');
+                            if (nameLabel) nameLabel.innerHTML = `お名前 <span class="text-[#BE4B35] form-accent-text">*</span>`;
+
+                            // Show Progress Meter Content for Personal
+                            const meter = document.getElementById('progress-meter');
+                            if (meter) {
+                                const progressContent = meter.querySelector('.w-full.max-w-3xl');
+                                if (progressContent) progressContent.style.display = 'block';
+                            }
+
+                            const backButtons = document.querySelectorAll('a[href*="terms.html"], a[href*="pricing-corporate.html"]');
+                            backButtons.forEach(btn => {
+                                let targetUrl = 'terms.html';
+                                const params = [];
+                                if (planIdentifier) params.push(`plan=${encodeURIComponent(planIdentifier)}`);
+                                btn.href = `${targetUrl}?${params.join('&')}`;
+                                const span = btn.querySelector('span');
+                                if (span) span.textContent = '利用規約に戻る';
+                            });
+                        }
+
+                        // Apply Theme to UI
+                        setupProgressMeter(currentTheme);
+                        setupProgressNavigation();
+
+                        // Setup sidebar
+                        setupFormToc(currentTheme);
+                        setupFormScrollSpy(currentTheme);
+
+                        const formContainer = document.getElementById('form-container');
+                        if (formContainer) {
+                            formContainer.classList.remove('border-gray-100', 'border-[#BE4B35]', 'border-gray-500', 'border-blue-600', 'border-amber-500');
+                            formContainer.classList.add('border-2', currentTheme.border);
+                        }
+
+                        const submitBtn = document.getElementById('submit-btn');
+                        if (submitBtn) {
+                            // Reset classes first to avoid accumulation
+                            submitBtn.className = `inline-block px-12 py-4 text-white rounded-full font-bold tracking-widest transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 ${currentTheme.bg} ${currentTheme.btnHover}`;
+                        }
+
+                        const backButtons = document.querySelectorAll('a[href*="terms.html"], a[href*="pricing-corporate.html"]');
+                        backButtons.forEach(btn => {
+                            btn.classList.remove('hover:bg-[#BE4B35]', 'hover:bg-gray-500', 'hover:bg-blue-600', 'hover:bg-amber-500');
+                            btn.classList.add(currentTheme.hoverBg);
+                        });
+
+                        document.querySelectorAll('.form-accent-text').forEach(span => {
+                            span.className = `form-accent-text ${currentTheme.text}`;
+                        });
+
+                        const inputs = document.querySelectorAll('input:not([type="hidden"]), select, textarea');
+                        inputs.forEach(input => {
+                            // Reset focus classes
+                            input.classList.remove('focus:border-[#BE4B35]', 'focus:border-gray-500', 'focus:border-blue-600', 'focus:border-amber-500');
+                            input.classList.remove('focus:ring-[#BE4B35]', 'focus:ring-gray-500', 'focus:ring-blue-600', 'focus:ring-amber-500');
+
+                            input.classList.add(currentTheme.focusBorder);
+                            input.classList.add(currentTheme.ring);
+
+                            if (input.type === 'radio' || input.type === 'checkbox') {
+                                input.classList.remove('text-[#BE4B35]', 'text-gray-500', 'text-blue-600', 'text-amber-500');
+                                input.classList.add(currentTheme.text);
+                            }
+                        });
+                    }
+
+                    // Initialize
+                    if (initialPlanName) {
+                        updateFormState(initialPlanName);
+                        // URLパラメータがある場合は変更不可にする（既存仕様）
+                        if (planSelect) {
+                            planSelect.disabled = true;
+                            planSelect.classList.add('bg-gray-200', 'text-gray-500', 'cursor-not-allowed', 'appearance-none');
+                            planSelect.classList.remove('bg-gray-50');
+                            const hiddenInput = document.createElement('input');
+                            hiddenInput.type = 'hidden';
+                            hiddenInput.name = 'plan';
+                            hiddenInput.value = planSelect.value;
+                            planSelect.parentNode.appendChild(hiddenInput);
+                        }
+                    } else {
+                        // URLパラメータがない場合は、現在の選択値で初期化し、変更を監視
+                        if (planSelect) {
+                            updateFormState(planSelect.value);
+                            planSelect.addEventListener('change', function () {
+                                updateFormState(this.value);
+                            });
+                        }
+                    }
+
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-form').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+
+            // Disable mouse wheel on number inputs
+            const numberInputs = document.querySelectorAll('input[type="number"]');
+            numberInputs.forEach(input => {
+                input.addEventListener('wheel', (e) => {
+                    e.preventDefault();
+                }, { passive: false });
+            });
+
+            // --- Dynamic Form Fields Logic ---
+            // Contact Method
+            const contactMethodRadios = document.querySelectorAll('input[name="contact_method"]');
+            const userIdField = document.getElementById('user-id-field');
+            const userIdInput = document.getElementById('user_id');
+
+            contactMethodRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'Email') {
+                        userIdField.classList.add('hidden');
+                        userIdInput.required = false;
+                    } else {
+                        userIdField.classList.remove('hidden');
+                        userIdInput.required = true;
+                    }
+                });
+            });
+
+            // --- Tab Switching Logic ---
+            window.switchTab = function (index) {
+                // Update Tabs
+                const tabs = document.querySelectorAll('.tab-button');
+                tabs.forEach((btn, i) => {
+                    const bg = btn.querySelector('.tab-bg');
+                    const cover = btn.querySelector('.tab-cover-line');
+                    const label = btn.querySelector('.detail-header-label');
+
+                    if (i === index) {
+                        btn.classList.add('z-20'); btn.classList.remove('z-0');
+                        bg.classList.add('bg-gray-50', 'border-b-0'); bg.classList.remove('bg-gray-200', 'border-b');
+                        cover.classList.remove('hidden');
+                        label.classList.add('text-gray-800'); label.classList.remove('text-gray-500');
+                    } else {
+                        btn.classList.remove('z-20'); btn.classList.add('z-0');
+                        bg.classList.remove('bg-gray-50', 'border-b-0'); bg.classList.add('bg-gray-200', 'border-b');
+                        cover.classList.add('hidden');
+                        label.classList.remove('text-gray-800'); label.classList.add('text-gray-500');
+                    }
+                });
+
+                // Update Contents
+                const sections = document.querySelectorAll('.request-detail-section');
+                sections.forEach((section, i) => {
+                    if (i === index) {
+                        section.classList.remove('hidden');
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
+            };
+
+            // Auto-switch tab on validation error (hidden fields)
+            document.addEventListener('invalid', (function () {
+                return function (e) {
+                    const section = e.target.closest('.request-detail-section');
+                    if (section) {
+                        const allSections = Array.from(document.querySelectorAll('.request-detail-section'));
+                        const index = allSections.indexOf(section);
+                        if (index !== -1) {
+                            // If the invalid field is in a hidden tab, switch to it
+                            if (section.classList.contains('hidden')) {
+                                switchTab(index);
+                            }
+                        }
+                    }
+                };
+            })(), true);
+
+            // --- Dynamic Request Details Logic ---
+            function setupRequestDetailListeners(container) {
+                // Sizes
+                const sizeRadios = container.querySelectorAll('input[type="radio"][name*="canvas_size"]');
+                const orientationA4 = container.querySelector('.js-orientation-a4');
+                const orientation4K = container.querySelector('.js-orientation-4k');
+                const otherSizeInput = container.querySelector('.js-other-size');
+
+                sizeRadios.forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        if (orientationA4) orientationA4.classList.add('hidden');
+                        if (orientation4K) orientation4K.classList.add('hidden');
+                        if (otherSizeInput) {
+                            otherSizeInput.classList.add('hidden');
+                            otherSizeInput.required = false;
+                        }
+
+                        if (e.target.value === 'A4') {
+                            if (orientationA4) orientationA4.classList.remove('hidden');
+                        } else if (e.target.value === '4K') {
+                            if (orientation4K) orientation4K.classList.remove('hidden');
+                        } else if (e.target.value === 'Other') {
+                            if (otherSizeInput) {
+                                otherSizeInput.classList.remove('hidden');
+                                otherSizeInput.required = true;
+                            }
+                        }
+                    });
+                });
+
+                // File Formats (Other)
+                const otherFormatCheck = container.querySelector('.js-file-format-other-check');
+                const otherFormatInput = container.querySelector('.js-file-format-other-input');
+
+                if (otherFormatCheck && otherFormatInput) {
+                    otherFormatCheck.addEventListener('change', (e) => {
+                        if (e.target.checked) {
+                            otherFormatInput.classList.remove('hidden');
+                            otherFormatInput.required = true;
+                        } else {
+                            otherFormatInput.classList.add('hidden');
+                            otherFormatInput.required = false;
+                        }
+                    });
+                }
+            }
+
+            // Initial setup for the first section
+            const firstSection = document.querySelector('.request-detail-section');
+            if (firstSection) setupRequestDetailListeners(firstSection);
+
+            // Handle Request Count Change
+            const requestCountInput = document.getElementById('request_count');
+            const tabsContainer = document.getElementById('request-tabs-container');
+            const contentsContainer = document.getElementById('request-contents-container');
+
+            requestCountInput.addEventListener('input', (e) => {
+                let targetCount = parseInt(e.target.value) || 1;
+                if (targetCount > 8) {
+                    targetCount = 8;
+                    e.target.value = 8;
+                }
+                const currentSections = contentsContainer.querySelectorAll('.request-detail-section');
+                const currentTabs = tabsContainer.querySelectorAll('.tab-button');
+                const currentCount = currentSections.length;
+
+                if (targetCount > currentCount) {
+                    // Add sections
+                    for (let i = currentCount; i < targetCount; i++) {
+                        const newIndex = i + 1;
+
+                        // 1. Clone Tab
+                        const tabTemplate = currentTabs[0].cloneNode(true);
+                        tabTemplate.setAttribute('onclick', `switchTab(${i})`);
+                        const tabLabel = tabTemplate.querySelector('.tab-label-text');
+                        if (tabLabel) tabLabel.textContent = `${newIndex}枚目`;
+
+                        // Set as inactive initially
+                        const bg = tabTemplate.querySelector('.tab-bg');
+                        const cover = tabTemplate.querySelector('.tab-cover-line');
+                        const label = tabTemplate.querySelector('.detail-header-label');
+                        tabTemplate.classList.remove('z-20'); tabTemplate.classList.add('z-0');
+                        bg.classList.remove('bg-gray-50', 'border-b-0'); bg.classList.add('bg-gray-200', 'border-b');
+                        cover.classList.add('hidden');
+                        label.classList.remove('text-gray-800'); label.classList.add('text-gray-500');
+
+                        tabsContainer.appendChild(tabTemplate);
+
+                        // 2. Clone Content
+                        const template = currentSections[0].cloneNode(true);
+
+                        // Update Section Title
+                        const title = template.querySelector('h3');
+                        if (title) title.textContent = `ご依頼詳細 (${newIndex}枚目)`;
+
+                        // Setup delete button for new section
+                        const sectionDelBtn = template.querySelector('.delete-section-btn');
+                        if (sectionDelBtn) {
+                            sectionDelBtn.onclick = () => deleteTab(i);
+                        }
+
+                        // Update Inputs (name, id, for)
+                        const inputs = template.querySelectorAll('input, select, textarea');
+                        inputs.forEach(input => {
+                            // Update name
+                            if (input.name) {
+                                const match = input.name.match(/^(.+?)(\[\])?$/);
+                                if (match) {
+                                    const baseName = match[1].replace(/_\d+$/, '');
+                                    const isArray = match[2] || '';
+                                    input.name = `${baseName}_${newIndex}${isArray}`;
+                                }
+                            }
+                            // Update ID and Label association
+                            if (input.id) {
+                                const baseId = input.id.replace(/_\d+$/, '');
+                                const newId = `${baseId}_${newIndex}`;
+                                input.id = newId;
+                            }
+                            // Reset values
+                            if (input.type === 'checkbox' || input.type === 'radio') {
+                                input.checked = false;
+                                // Restore defaults
+                                if (['RGB', 'Personal', 'BankTransfer', 'No', 'Vertical', 'PNG'].includes(input.value)) input.checked = true;
+                            } else {
+                                input.value = '';
+                            }
+                        });
+
+                        // Update Labels
+                        template.querySelectorAll('label').forEach(label => {
+                            const forAttr = label.getAttribute('for');
+                            if (forAttr) {
+                                const baseFor = forAttr.replace(/_\d+$/, '');
+                                label.setAttribute('for', `${baseFor}_${newIndex}`);
+                            }
+                        });
+
+                        // Reset visibility of conditional fields
+                        template.querySelectorAll('.js-orientation-a4, .js-orientation-4k, .js-other-size, .js-file-format-other-input').forEach(el => el.classList.add('hidden'));
+
+                        // Hide new section initially
+                        template.classList.add('hidden');
+
+                        contentsContainer.appendChild(template);
+                        setupRequestDetailListeners(template);
+                    }
+                } else if (targetCount < currentCount) {
+                    // Confirm deletion
+                    let confirmMessage = '';
+                    if (currentCount - targetCount === 1) {
+                        confirmMessage = `${currentCount}枚目を削除して良いですか？`;
+                    } else {
+                        confirmMessage = `${targetCount + 1}枚目〜${currentCount}枚目を削除して良いですか？`;
+                    }
+
+                    if (!confirm(confirmMessage)) {
+                        e.target.value = currentCount;
+                        return;
+                    }
+                    // Remove sections from the end
+                    for (let i = currentCount; i > targetCount; i--) {
+                        if (i > 1) { // Never remove the first one
+                            currentTabs[i - 1].remove();
+                            currentSections[i - 1].remove();
+                        }
+                    }
+                    // If we removed the active tab (because it was at the end), switch to the last available
+                    const visibleSection = contentsContainer.querySelector('.request-detail-section:not(.hidden)');
+                    if (!visibleSection) {
+                        switchTab(targetCount - 1);
+                    }
+                }
+
+                updateDeleteButtons();
+            });
+
+            // Initial setup for the first section's delete button
+            const firstDelBtn = contentsContainer.querySelector('.delete-section-btn');
+            if (firstDelBtn) {
+                firstDelBtn.onclick = () => deleteTab(0);
+            }
+
+            // Helper: Update Delete Buttons Visibility
+            function updateDeleteButtons() {
+                const tabs = tabsContainer.querySelectorAll('.tab-button');
+                const deleteBtns = contentsContainer.querySelectorAll('.delete-section-btn');
+                if (tabs.length <= 1) {
+                    deleteBtns.forEach(btn => btn.classList.add('hidden'));
+                } else {
+                    deleteBtns.forEach(btn => btn.classList.remove('hidden'));
+                }
+            }
+
+            // Helper: Delete Tab
+            window.deleteTab = function (index) {
+                const tabs = tabsContainer.querySelectorAll('.tab-button');
+                if (tabs.length <= 1) return;
+
+                const pageNum = index + 1; // This is the visual number
+                if (!confirm(`${pageNum}枚目を削除しますか？`)) return;
+
+                const sections = contentsContainer.querySelectorAll('.request-detail-section');
+
+                // Remove elements
+                tabs[index].remove();
+                sections[index].remove();
+
+                // Renumber everything
+                renumberAll();
+
+                // Switch to a valid tab (e.g., the one before the deleted one, or the same index if it shifted)
+                const newCount = tabsContainer.querySelectorAll('.tab-button').length;
+                let nextActive = index;
+                if (nextActive >= newCount) nextActive = newCount - 1;
+                switchTab(nextActive);
+            };
+
+            // Helper: Renumber Tabs and Sections
+            function renumberAll() {
+                const tabs = tabsContainer.querySelectorAll('.tab-button');
+                const sections = contentsContainer.querySelectorAll('.request-detail-section');
+
+                tabs.forEach((tab, i) => {
+                    const num = i + 1;
+                    tab.setAttribute('onclick', `switchTab(${i})`);
+                    const label = tab.querySelector('.tab-label-text');
+                    if (label) label.textContent = `${num}枚目`;
+                });
+
+                sections.forEach((section, i) => {
+                    const num = i + 1;
+                    const title = section.querySelector('h3');
+                    if (title) title.textContent = `ご依頼詳細 (${num}枚目)`;
+
+                    const delBtn = section.querySelector('.delete-section-btn');
+                    if (delBtn) {
+                        delBtn.onclick = () => deleteTab(i);
+                    }
+
+                    // Update inputs names/ids/labels
+                    const inputs = section.querySelectorAll('input, select, textarea');
+                    inputs.forEach(input => {
+                        if (input.name) input.name = input.name.replace(/_\d+(\[\])?$/, `_${num}$1`);
+                        if (input.id) input.id = input.id.replace(/_\d+$/, `_${num}`);
+                    });
+                    section.querySelectorAll('label').forEach(label => {
+                        const forAttr = label.getAttribute('for');
+                        if (forAttr) label.setAttribute('for', forAttr.replace(/_\d+$/, `_${num}`));
+                    });
+                });
+
+                // Update main count input
+                if (requestCountInput) requestCountInput.value = tabs.length;
+                updateDeleteButtons();
+            }
+
+            // Initial call
+            updateDeleteButtons();
+
+            // Publication
+            const pubRadios = document.querySelectorAll('input[name="publication"]');
+            const pubDateContainer = document.getElementById('pub-date-container');
+            const pubDateInput = document.getElementById('publication_date');
+            const pubOtherInput = document.getElementById('publication_other');
+
+            pubRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    pubDateContainer.classList.add('hidden');
+                    pubDateInput.required = false;
+                    pubOtherInput.classList.add('hidden');
+                    pubOtherInput.required = false;
+
+                    if (e.target.value === 'Allow') {
+                        pubDateContainer.classList.remove('hidden');
+                        pubDateInput.required = true;
+                    } else if (e.target.value === 'Other') {
+                        pubOtherInput.classList.remove('hidden');
+                        pubOtherInput.required = true;
+                    }
+                });
+            });
+
+            // --- AJAX Form Submission (GAS連携用) ---
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = document.getElementById('submit-btn');
+                    const originalBtnText = submitBtn.innerText;
+
+                    // 送信先URL (GASのデプロイURL)
+                    const GAS_URL = "https://script.google.com/macros/s/AKfycbzLoCwmHNQpe_HDSPLJkkNOE2-BXtGFOVtXoq-hOvWbdrQ4OI0CzU4Yj5Am37rfVvF_/exec";
+
+                    if (GAS_URL === "YOUR_GAS_DEPLOY_URL_HERE") {
+                        alert("GASのデプロイURLが設定されていません。gas-script.gsをデプロイしてURLを取得し、form.htmlの1440行目付近に貼り付けてください。");
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    submitBtn.innerText = '送信中...';
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+                    try {
+                        console.log("Transmission process started. Collecting form data...");
+                        // 1. 基本データの収集
+                        const formData = new FormData(form);
+                        const data = {};
+
+                        // 基本項目の抽出
+                        data.plan = formData.get('plan');
+                        const planSelect = document.getElementById('plan');
+                        data.plan_label = planSelect ? planSelect.options[planSelect.selectedIndex].text : data.plan;
+
+                        data.company_name = formData.get('company_name');
+                        data.department = formData.get('department');
+                        data.name = formData.get('name');
+                        data.email = formData.get('email');
+                        data.contact_method = formData.get('contact_method');
+                        data.user_id = formData.get('user_id');
+                        data.usage = formData.get('usage');
+                        data.request_count = parseInt(formData.get('request_count'));
+                        data.reference = formData.get('reference');
+                        data.deadline = formData.get('deadline');
+                        data.payment_method = formData.get('payment_method');
+                        data.publication = formData.get('publication');
+                        data.publication_date = formData.get('publication_date');
+                        data.publication_other = formData.get('publication_other');
+                        data.copyright_transfer = formData.get('copyright_transfer');
+                        data.remarks = formData.get('remarks');
+
+                        // 2. 複数枚の依頼詳細を配列にまとめる
+                        data.details_list = [];
+                        const sections = document.querySelectorAll('.request-detail-section');
+                        sections.forEach((section, i) => {
+                            const num = i + 1;
+                            const suffix = `_${num}`;
+
+                            // 複数選択(checkbox)の取得
+                            const types = [];
+                            section.querySelectorAll(`input[name="request_type${num > 1 ? suffix : ''}[]"]:checked`).forEach(cb => types.push(cb.value));
+
+                            const formats = [];
+                            section.querySelectorAll(`input[name="file_format${num > 1 ? suffix : ''}[]"]:checked`).forEach(cb => formats.push(cb.value));
+
+                            data.details_list.push({
+                                commercial_use: formData.get(`commercial_use${num > 1 ? suffix : ''}`),
+                                request_type: types,
+                                details: formData.get(`details${num > 1 ? suffix : ''}`) || formData.get(`project_details${num > 1 ? suffix : ''}`),
+                                color_mode: formData.get(`color_mode${num > 1 ? suffix : ''}`),
+                                canvas_size: formData.get(`canvas_size${num > 1 ? suffix : ''}`),
+                                orientation: formData.get(`orientation_a4${num > 1 ? suffix : ''}`) || formData.get(`orientation_4k${num > 1 ? suffix : ''}`),
+                                other_size: formData.get(`other_size${num > 1 ? suffix : ''}`),
+                                file_format: formats,
+                                file_format_other: formData.get(`file_format_other${num > 1 ? suffix : ''}`)
+                            });
+                        });
+
+                        console.log("Data collection complete. Payload:", data);
+                        // 3. GASへ送信 (JSON形式)
+                        console.log("Sending to GAS URL:", GAS_URL);
+                        const response = await fetch(GAS_URL, {
+                            method: 'POST',
+                            mode: 'no-cors', // GASのCORS制限回避のため no-cors を使用（レスポンスは読めませんが送信は成功します）
+                            headers: {
+                                'Content-Type': 'text/plain' // no-corsでは特定のContent-Typeのみ許可される
+                            },
+                            body: JSON.stringify(data)
+                        });
+
+                        // no-cors の場合 response.ok は常に false になるため、
+                        // ネットワークエラーがなければ成功とみなして thanks.html へ。
+                        window.location.href = 'thanks.html';
+
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert("送信中にエラーが発生しました。");
+                        resetButton();
+                    }
+
+                    function resetButton() {
+                        submitBtn.disabled = false;
+                        submitBtn.innerText = originalBtnText;
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

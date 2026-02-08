@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>依頼の流れ - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="依頼の流れ - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/workflow.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="ご依頼から納品までの制作フローをご案内します。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">個人様向け料金プラン</a>
+                            <a href="pricing-corporate.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">企業様向け依頼プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- FLOW VIEW -->
+    <main id="view-flow"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+
+        <!-- Progress Meter -->
+        <div id="progress-meter"
+            class="mb-16 max-w-7xl mx-auto relative flex flex-col md:flex-row items-center justify-center">
+            <a href="pricing.html"
+                class="group md:absolute md:left-0 md:top-0 mb-8 md:mb-0 inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>料金プランに戻る</span>
+            </a>
+            <div class="w-full max-w-3xl">
+                <div class="flex items-start">
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                            1</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">料金プランの選択</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                        <div class="progress-bar absolute top-0 left-0 h-full w-0"></div>
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                            2</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">依頼の流れ</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                        <div class="progress-bar absolute top-0 left-0 h-full w-0"></div>
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                            3</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">利用規約</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                        <div class="progress-bar absolute top-0 left-0 h-full w-0"></div>
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                            4</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">応募フォーム</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Request Flow Section -->
+        <div class="relative max-w-7xl mx-auto">
+            <div id="flow" class="bg-white py-12 rounded-2xl shadow-sm -mx-6 md:mx-0">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h3 id="flow-title" class="text-2xl font-bold text-gray-900 mb-2 text-center">依頼の流れ</h3>
+
+                    <div id="flow-content" class="pb-12"></div>
+
+                    <!-- Confirmation Section -->
+                    <div id="confirmation-separator" class="max-w-3xl mx-auto mt-8 border-t border-gray-200 pt-12">
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center">
+                            <label for="confirm-checkbox"
+                                class="flex items-center justify-center text-gray-700 cursor-pointer">
+                                <input type="checkbox" id="confirm-checkbox"
+                                    class="h-5 w-5 text-[#BE4B35] border-gray-300 rounded focus:ring-[#BE4B35]">
+                                <span class="ml-3 font-semibold">流れを理解できましたか？</span>
+                            </label>
+
+                            <a href="terms.html" id="next-step-button"
+                                class="inline-block mt-6 px-10 py-4 bg-gray-300 text-white rounded-full font-bold tracking-widest transition-all pointer-events-none opacity-50">
+                                次に進む
+                            </a>
+                        </div>
+
+                        <div class="mt-12 text-center">
+                            <p class="font-bold text-gray-700 mb-4">分からないことや質問がある場合</p>
+                            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 text-sm">
+                                <a href="faq.html"
+                                    class="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-widest hover:bg-[#BE4B35] hover:text-white transition shadow-sm">
+                                    <i class="fa-solid fa-circle-question mr-2"></i>よくある質問を見る
+                                </a>
+                                <a href="contact.html"
+                                    class="inline-flex items-center px-6 py-3 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-widest hover:bg-[#BE4B35] hover:text-white transition shadow-sm">
+                                    <i class="fa-regular fa-envelope mr-2"></i>メールorDMから質問
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden xl:block absolute top-0 left-full ml-12 h-full">
+                <div id="step-nav" class="sticky top-32 w-56">
+                    <ul id="step-nav-list" class="space-y-2">
+                        <!-- Injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 mb-8 relative flex flex-col sm:flex-row items-center justify-center">
+            <div class="sm:absolute sm:left-0 mb-6 sm:mb-0">
+                <a href="pricing.html"
+                    class="group inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                    <i
+                        class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                    <span>料金プランに戻る</span>
+                </a>
+            </div>
+            <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+                class="group inline-flex items-center px-6 py-3 bg-white border border-gray-300 text-gray-600 rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-gray-50 hover:text-gray-800 hover:shadow-lg hover:-translate-y-1 shadow-sm">
+                <span>TOPに戻る</span>
+                <i class="fa-solid fa-arrow-up ml-2 transition-transform duration-300 group-hover:-translate-y-1"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+    class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em] uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let observer;
+            let siteConfig = {};
+
+            // Scroll Position Management
+            const keepScrollReferrers = ['workflow.html', 'terms.html', 'form.html', 'faq.html'];
+            const shouldKeepScroll = document.referrer && keepScrollReferrers.some(ref => document.referrer.includes(ref));
+            if (!shouldKeepScroll) {
+                sessionStorage.removeItem('workflow_scroll_pos');
+                sessionStorage.removeItem('workflow_checkbox_checked');
+            }
+
+            function setupProgressMeter(theme) {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const connectors = Array.from(document.querySelectorAll('.progress-connector'));
+                const activeIndex = 1; // This page is always step 2
+
+                // Set initial state (step 1 is active)
+                const firstStep = steps[0];
+                const firstCircle = firstStep.querySelector('.progress-circle');
+                const firstText = firstStep.querySelector('p');
+                firstCircle.classList.remove('bg-gray-200', 'text-gray-500');
+                firstCircle.classList.add(theme.bg, 'text-white');
+                firstText.classList.remove('text-gray-500');
+                firstText.classList.add('text-gray-800', 'font-semibold');
+
+                // Check if returning (from later steps or reload)
+                const isReturning = document.referrer.includes('terms.html') ||
+                    document.referrer.includes('form.html') ||
+                    sessionStorage.getItem('workflow_scroll_pos');
+
+                if (isReturning) {
+                    // Immediate update without animation
+                    const connectorToAnimate = connectors[0];
+                    const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.classList.add(theme.bg);
+                        progressBar.style.width = '100%';
+                    }
+
+                    const secondStep = steps[activeIndex];
+                    const secondCircle = secondStep.querySelector('.progress-circle');
+                    const secondText = secondStep.querySelector('p');
+                    secondCircle.classList.remove('bg-gray-200', 'text-gray-500');
+                    secondCircle.classList.add(theme.bg, 'text-white');
+                    secondText.classList.remove('text-gray-500');
+                    secondText.classList.add('text-gray-800', 'font-semibold');
+                } else {
+                    // Start animation after a short delay for visual effect
+                    setTimeout(() => {
+                        // Animate the connector to step 2
+                        const connectorToAnimate = connectors[0];
+                        const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                        if (progressBar) {
+                            progressBar.classList.add(theme.bg);
+                            progressBar.style.width = '100%';
+                            progressBar.classList.add('transition-all', 'duration-1000', 'ease-out');
+                        }
+
+                        // Activate step 2 after the connector animation is complete
+                        setTimeout(() => {
+                            const secondStep = steps[activeIndex];
+                            const secondCircle = secondStep.querySelector('.progress-circle');
+                            const secondText = secondStep.querySelector('p');
+                            secondCircle.classList.remove('bg-gray-200', 'text-gray-500');
+                            secondCircle.classList.add(theme.bg, 'text-white');
+                            secondText.classList.remove('text-gray-500');
+                            secondText.classList.add('text-gray-800', 'font-semibold');
+                        }, 1000); // Must match the duration of the progress bar animation
+                    }, 300);
+                }
+            }
+
+            function showTooltip(stepElement, message) {
+                const circle = stepElement.querySelector('.progress-circle');
+                if (!circle) return;
+
+                const existing = document.querySelectorAll('.custom-tooltip');
+                existing.forEach(el => el.remove());
+
+                const tooltip = document.createElement('div');
+                tooltip.className = 'custom-tooltip absolute left-1/2 transform -translate-x-1/2 px-3 py-2 bg-[#BE4B35] text-white text-xs rounded shadow-lg z-50 whitespace-nowrap pointer-events-none transition-opacity duration-300';
+                tooltip.style.bottom = '120%';
+                tooltip.innerHTML = `${message}<div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-[#BE4B35]"></div>`;
+
+                circle.classList.add('relative');
+                circle.appendChild(tooltip);
+
+                setTimeout(() => {
+                    tooltip.classList.add('opacity-0');
+                    setTimeout(() => tooltip.remove(), 300);
+                }, 2000);
+            }
+
+            function setupProgressNavigation() {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const confirmCheckbox = document.getElementById('confirm-checkbox');
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || '');
+                const planQuery = planName ? `?plan=${encodeURIComponent(planName)}` : '';
+
+                // Step 1: Pricing (Always active)
+                steps[0].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[0].addEventListener('click', () => window.location.href = 'pricing.html');
+
+                // Step 3: Terms (Active only if checked)
+                const step3 = steps[2];
+
+                const updateStep3State = () => {
+                    if (confirmCheckbox && confirmCheckbox.checked) {
+                        step3.classList.remove('opacity-50', 'cursor-not-allowed');
+                        step3.classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                    } else {
+                        step3.classList.remove('hover:opacity-75', 'transition-opacity', 'cursor-not-allowed');
+                        step3.classList.add('opacity-50', 'cursor-pointer');
+                    }
+                };
+                if (confirmCheckbox) {
+                    confirmCheckbox.addEventListener('change', updateStep3State);
+                    updateStep3State(); // Initial state
+                }
+                step3.addEventListener('click', () => {
+                    if (confirmCheckbox && confirmCheckbox.checked) {
+                        window.location.href = `terms.html${planQuery}`;
+                    } else {
+                        showTooltip(steps[1], "チェックマークを押して下さい");
+                    }
+                });
+
+                // Step 4: Form (Active only if terms checked in session storage)
+                const step4 = steps[3];
+                const storageKeyChecked = `terms_checked_${planName || 'default'}`;
+                const isTermsChecked = sessionStorage.getItem(storageKeyChecked) === 'true';
+
+                if (isTermsChecked) {
+                    step4.classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                    step4.addEventListener('click', () => window.location.href = `form.html${planQuery}`);
+                } else {
+                    step4.classList.add('opacity-50', 'cursor-not-allowed');
+                }
+            }
+
+            function renderFlow(flowData, theme) {
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || '');
+
+                // プラン名に一致するデータがあればそれを使用、なければデフォルトを使用
+                let rawData = flowData[planName];
+                if (!rawData) {
+                    rawData = flowData['default'] || Object.values(flowData)[0];
+                }
+
+                let currentFlow = [];
+                let flowNote = '';
+                if (Array.isArray(rawData)) {
+                    currentFlow = rawData;
+                } else {
+                    currentFlow = rawData.steps || [];
+                    flowNote = rawData.note || '';
+                }
+
+                const flowContent = document.getElementById('flow-content');
+                const navList = document.getElementById('step-nav-list');
+                if (!flowContent) return;
+
+                flowContent.innerHTML = '';
+                if (navList) navList.innerHTML = '';
+
+                if (flowNote) {
+                    const noteElement = document.createElement('p');
+                    noteElement.className = 'text-center text-xs text-gray-400 mb-8';
+                    noteElement.textContent = flowNote;
+                    flowContent.appendChild(noteElement);
+                }
+
+                const container = document.createElement('div');
+                container.className = 'max-w-3xl mx-auto px-1 md:px-4 space-y-24 mt-12';
+
+                currentFlow.forEach((step, index) => {
+                    const stepId = `flow-step-${index}`;
+                    const stepWrapper = document.createElement('div');
+                    stepWrapper.id = stepId;
+                    stepWrapper.className = 'scroll-mt-40';
+
+                    // Step Header
+                    const stepHeader = document.createElement('div');
+                    stepHeader.className = 'relative flex items-center justify-center mb-10';
+                    stepHeader.innerHTML = `
+                    <div class="absolute inset-0 flex items-center" aria-hidden="true">
+                        <div class="w-full border-t ${theme.border}"></div>
+                    </div>
+                    <div class="relative bg-white px-6 py-2 rounded-full border border-gray-100 shadow-sm">
+                        <span class="text-sm font-bold ${theme.text} tracking-widest uppercase mr-3">${step.step}</span>
+                        <span class="text-sm font-bold text-gray-700">${step.title}</span>
+                    </div>
+                `;
+                    stepWrapper.appendChild(stepHeader);
+
+                    // Chats
+                    const chatContainer = document.createElement('div');
+                    chatContainer.className = 'space-y-8';
+
+                    step.chats.forEach(chat => {
+                        const isClient = chat.speaker === 'client';
+
+                        // --- Build Content ---
+                        // 1. Image Grid
+                        let imageGridHTML = '';
+                        if (chat.images && chat.images.length > 0) {
+                            const imageElements = chat.images.map(src => `
+                            <div class="w-20 md:w-32 aspect-[2/3] bg-gray-100 rounded-lg overflow-hidden border border-gray-200 flex-shrink-0 cursor-pointer hover:opacity-80 transition" onclick="openWorkflowImageModal('${src}')">
+                                <img src="${src}" alt="Chat image" class="w-full h-full object-cover pointer-events-none">
+                            </div>
+                        `).join('');
+
+                            const justifyClass = isClient ? 'justify-start' : 'justify-end';
+
+                            imageGridHTML = `
+                            <div class="flex flex-wrap gap-2 mb-2 ${justifyClass}">
+                                ${imageElements}
+                            </div>
+                        `;
+                        }
+
+                        // 2. Chat Bubble
+                        let bubbleHTML = '';
+                        if (chat.message && chat.message.trim() !== '') {
+                            const bubbleClass = isClient
+                                ? 'bg-gray-50 text-gray-700 rounded-tl-2xl rounded-tr-2xl rounded-br-2xl rounded-bl-none border border-gray-100'
+                                : 'bg-[#BE4B35]/5 text-gray-800 rounded-tl-2xl rounded-tr-2xl rounded-bl-2xl rounded-br-none border border-[#BE4B35]/20';
+                            bubbleHTML = `<div class="relative px-4 py-3 md:px-6 md:py-4 ${bubbleClass} shadow-sm"><p class="text-sm leading-relaxed whitespace-pre-wrap">${chat.message}</p></div>`;
+                        }
+
+                        // Skip if no content
+                        if (!imageGridHTML && !bubbleHTML) return;
+
+                        const contentHTML = `
+                        <div class="flex flex-col max-w-[90%] md:max-w-[80%] ${isClient ? 'items-start' : 'items-end'}">
+                            ${imageGridHTML}
+                            ${bubbleHTML}
+                        </div>
+                    `;
+
+                        // --- Build Avatar ---
+                        let avatarHTML;
+                        if (isClient) {
+                            const icon = '<i class="fa-solid fa-user"></i>';
+                            const iconClass = 'bg-gray-100 text-gray-400';
+                            avatarHTML = `<div class="flex-shrink-0 h-10 w-10 rounded-full ${iconClass} flex items-center justify-center shadow-sm">${icon}</div>`;
+                        } else {
+                            const illustratorImage = siteConfig.aboutImage || '';
+                            avatarHTML = `<div class="flex-shrink-0 h-10 w-10 rounded-full bg-gray-200 overflow-hidden shadow-sm"><img src="${illustratorImage}" alt="Illustrator" class="w-full h-full object-cover"></div>`;
+                        }
+
+                        // --- Assemble Row ---
+                        const row = document.createElement('div');
+                        row.className = `chat-row flex w-full items-end gap-2 md:gap-4 ${isClient ? 'justify-start' : 'justify-end'} opacity-0 translate-y-5 transition-all duration-700 ease-out`;
+                        row.innerHTML = isClient ? avatarHTML + contentHTML : contentHTML + avatarHTML;
+
+                        chatContainer.appendChild(row);
+                    });
+                    stepWrapper.appendChild(chatContainer);
+                    container.appendChild(stepWrapper);
+
+                    // Add to Nav
+                    if (navList) {
+                        const li = document.createElement('li');
+                        li.innerHTML = `
+                        <a href="#${stepId}" class="step-nav-link group flex flex-col border-l-2 border-gray-200 pl-4 py-2 hover:${theme.border} transition-colors duration-300">
+                            <span class="text-[10px] font-bold text-gray-400 group-hover:${theme.text} tracking-widest transition-colors duration-300">${step.step}</span>
+                            <span class="text-xs font-bold text-gray-600 group-hover:${theme.text} transition-colors duration-300">${step.title}</span>
+                        </a>
+                    `;
+                        const link = li.querySelector('a');
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault();
+
+                            // Stop the observer temporarily to prevent it from firing
+                            // on intermediate steps during the smooth scroll.
+                            if (observer) {
+                                observer.disconnect();
+                            }
+
+                            // Manually highlight the clicked link immediately
+                            document.querySelectorAll('.step-nav-link').forEach(navLink => {
+                                const stepSpan = navLink.querySelector('span:first-child');
+                                const titleSpan = navLink.querySelector('span:last-child');
+
+                                if (navLink === link) {
+                                    navLink.classList.remove('border-gray-200');
+                                    navLink.classList.add(theme.border, theme.bgSoft);
+                                    stepSpan.classList.remove('text-gray-400');
+                                    stepSpan.classList.add(theme.text);
+                                    titleSpan.classList.remove('text-gray-600');
+                                    titleSpan.classList.add(theme.text);
+                                } else {
+                                    navLink.classList.add('border-gray-200');
+                                    navLink.classList.remove(theme.border, theme.bgSoft);
+                                    stepSpan.classList.add('text-gray-400');
+                                    stepSpan.classList.remove(theme.text);
+                                    titleSpan.classList.add('text-gray-600');
+                                    titleSpan.classList.remove(theme.text);
+                                }
+                            });
+
+                            const target = document.getElementById(stepId);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+
+                            // After a delay (enough for the scroll to finish), re-observe all sections.
+                            setTimeout(() => {
+                                if (observer) document.querySelectorAll('[id^="flow-step-"]').forEach(section => observer.observe(section));
+                            }, 1000); // 1-second delay
+                        });
+                        navList.appendChild(li);
+                    }
+                });
+
+                flowContent.appendChild(container);
+
+                setupScrollSpy(theme);
+            }
+
+            function setupScrollSpy(theme) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -60% 0px',
+                    threshold: 0
+                };
+
+                observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            document.querySelectorAll('.step-nav-link').forEach(link => {
+                                const href = link.getAttribute('href').substring(1);
+                                const stepSpan = link.querySelector('span:first-child');
+                                const titleSpan = link.querySelector('span:last-child');
+
+                                if (href === id) {
+                                    link.classList.remove('border-gray-200');
+                                    link.classList.add(theme.border, theme.bgSoft);
+                                    stepSpan.classList.remove('text-gray-400');
+                                    stepSpan.classList.add(theme.text);
+                                    titleSpan.classList.remove('text-gray-600');
+                                    titleSpan.classList.add(theme.text);
+                                } else {
+                                    link.classList.add('border-gray-200');
+                                    link.classList.remove(theme.border, theme.bgSoft);
+                                    stepSpan.classList.add('text-gray-400');
+                                    stepSpan.classList.remove(theme.text);
+                                    titleSpan.classList.add('text-gray-600');
+                                    titleSpan.classList.remove(theme.text);
+                                }
+                            });
+
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('[id^="flow-step-"]').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+
+            function setupChatAnimation() {
+                const chatRows = Array.from(document.querySelectorAll('.chat-row'));
+                if (!chatRows.length) return;
+
+                const observer = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const target = entry.target;
+                            const index = chatRows.indexOf(target);
+
+                            // 現在の行を表示
+                            target.classList.remove('opacity-0', 'translate-y-5');
+                            observer.unobserve(target);
+
+                            // これより上の行がまだ表示されていなければ強制的に表示（スクロール復元時の対策）
+                            for (let i = 0; i < index; i++) {
+                                const prevRow = chatRows[i];
+                                if (prevRow.classList.contains('opacity-0')) {
+                                    prevRow.classList.remove('opacity-0', 'translate-y-5');
+                                    observer.unobserve(prevRow);
+                                }
+                            }
+                        }
+                    });
+                }, {
+                    root: null,
+                    rootMargin: '0px 0px -15% 0px',
+                    threshold: 0
+                });
+
+                chatRows.forEach(row => observer.observe(row));
+            }
+
+            // 状態復元ロジック
+            function restoreState() {
+                const savedScroll = sessionStorage.getItem('workflow_scroll_pos');
+                const savedCheckbox = sessionStorage.getItem('workflow_checkbox_checked');
+
+                if (savedCheckbox !== null) {
+                    const checkbox = document.getElementById('confirm-checkbox');
+                    if (checkbox) {
+                        checkbox.checked = (savedCheckbox === 'true');
+                        checkbox.dispatchEvent(new Event('change')); // ボタンの状態を更新
+                    }
+                }
+
+                if (savedScroll !== null) {
+                    setTimeout(() => {
+                        window.scrollTo({ top: parseInt(savedScroll), behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+
+            async function initializeSite() {
+                try {
+                    // 共通データの読み込み (common.jsの関数を使用)
+                    siteConfig = await loadCommonData();
+
+                    // --- Navigation Highlighting ---
+                    const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-item');
+                        link.classList.add('hover:text-gray-800');
+                    });
+                    const currentPath = window.location.pathname.split("/").pop();
+                    let activeLink = null;
+                    if (currentPath === 'index.html' || currentPath === '') {
+                        activeLink = document.querySelector('a.nav-link[href^="index.html"]');
+                    } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
+                        activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+                    } else {
+                        activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+                    }
+                    if (activeLink) {
+                        const mainLink = activeLink.closest('.relative.group')?.querySelector('a.nav-link') || activeLink;
+                        mainLink.classList.add('active-nav-item');
+                        mainLink.classList.remove('hover:text-gray-800');
+                    }
+                    // --- End Navigation Highlighting ---
+
+                    // Determine Theme Color based on Plan
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const planName = decodeURIComponent(urlParams.get('plan') || '');
+
+                    let theme = { bg: 'bg-[#BE4B35]', text: 'text-[#BE4B35]', border: 'border-[#BE4B35]', bgSoft: 'bg-[#BE4B35]/5', btnHover: 'hover:bg-red-700' }; // Default
+                    let currentPlanId = null;
+
+                    if (siteConfig.pricing && siteConfig.pricing.plans) {
+                        const plan = siteConfig.pricing.plans.find(p => p.name === planName);
+                        if (plan) {
+                            currentPlanId = plan.id;
+                            const colorThemes = {
+                                gray: { bg: 'bg-gray-500', text: 'text-gray-500', border: 'border-gray-500', bgSoft: 'bg-gray-100', btnHover: 'hover:bg-gray-600' },
+                                blue: { bg: 'bg-blue-600', text: 'text-blue-600', border: 'border-blue-600', bgSoft: 'bg-blue-50', btnHover: 'hover:bg-blue-700' },
+                                yellow: { bg: 'bg-amber-500', text: 'text-amber-500', border: 'border-amber-500', bgSoft: 'bg-amber-50', btnHover: 'hover:bg-amber-600' }
+                            };
+                            if (colorThemes[plan.color]) {
+                                theme = colorThemes[plan.color];
+                            }
+                        }
+                    }
+
+                    setupProgressMeter(theme);
+                    setupProgressNavigation();
+
+                    // Back to Pricing Buttons
+                    const backToPricingButtons = document.querySelectorAll('a[href="pricing.html"]');
+                    backToPricingButtons.forEach(btn => {
+                        if (currentPlanId) {
+                            btn.href = `pricing.html?plan=${currentPlanId}`;
+                        }
+                    });
+
+                    // Checkbox Logic with Theme
+                    const confirmCheckbox = document.getElementById('confirm-checkbox');
+                    const nextStepButton = document.getElementById('next-step-button');
+
+                    if (confirmCheckbox && nextStepButton) {
+                        confirmCheckbox.addEventListener('change', () => {
+                            sessionStorage.setItem('workflow_checkbox_checked', confirmCheckbox.checked);
+                            if (confirmCheckbox.checked) {
+                                nextStepButton.classList.remove('bg-gray-300', 'pointer-events-none', 'opacity-50');
+                                nextStepButton.classList.add(theme.bg, theme.btnHover, 'shadow-lg');
+                            } else {
+                                nextStepButton.classList.add('bg-gray-300', 'pointer-events-none', 'opacity-50');
+                                nextStepButton.classList.remove(theme.bg, theme.btnHover, 'shadow-lg');
+                            }
+                        });
+                    }
+
+                    // Load Flow Data
+                    if (typeof SITE_DATA !== 'undefined' && SITE_DATA.workflow) {
+                        const flowData = SITE_DATA.workflow;
+                        renderFlow(flowData, theme);
+                        setupChatAnimation();
+                        restoreState(); // データ描画後に状態を復元
+                    }
+
+                    const flowTitle = document.getElementById('flow-title');
+                    if (planName && flowTitle) {
+                        flowTitle.innerHTML = `<span class="${theme.text}">${planName}</span>の依頼の流れ`;
+                    }
+
+                    if (nextStepButton && planName) {
+                        nextStepButton.href = `terms.html?plan=${encodeURIComponent(planName)}`;
+                    }
+
+                    const flowContainer = document.getElementById('flow');
+                    if (flowContainer) {
+                        flowContainer.classList.add('border-2', theme.border);
+                    }
+
+                    const confSep = document.getElementById('confirmation-separator');
+                    if (confSep) {
+                        confSep.classList.remove('border-gray-200');
+                        confSep.classList.add(theme.border);
+                    }
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-flow').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+
+            // ページを離れる時に状態を保存
+            window.addEventListener('pagehide', () => {
+                sessionStorage.setItem('workflow_scroll_pos', window.scrollY);
+                const checkbox = document.getElementById('confirm-checkbox');
+                if (checkbox) {
+                    sessionStorage.setItem('workflow_checkbox_checked', checkbox.checked);
+                }
+            });
+        });
+    </script>
+    <!-- Image Modal -->
+    <div id="workflow-image-modal"
+        class="fixed inset-0 bg-black/80 z-[100] hidden items-center justify-center p-4 backdrop-blur-sm cursor-zoom-out"
+        onclick="closeWorkflowImageModal()">
+        <div class="relative max-w-5xl max-h-[90vh] w-full h-full flex items-center justify-center">
+            <img id="workflow-modal-img" src="" alt="拡大画像"
+                class="max-w-full max-h-full object-contain rounded-lg shadow-2xl">
+        </div>
+    </div>
+
+    <script>
+        function openWorkflowImageModal(src) {
+            const modal = document.getElementById('workflow-image-modal');
+            const img = document.getElementById('workflow-modal-img');
+            if (modal && img) {
+                img.src = src;
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeWorkflowImageModal() {
+            const modal = document.getElementById('workflow-image-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+
+</html>

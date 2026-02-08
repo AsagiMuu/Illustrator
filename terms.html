@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約 - AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="利用規約 - AsagiMuu Portfolio">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://your-site-url.com/terms.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="イラスト制作のご依頼に関する利用規約です。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+    <nav id="main-nav" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" id="logo-link" class="flex items-center">
+                <img id="logo-image" src="./images/ui/2024-09-05_01_AsagiMuu_02.png" alt="AsagiMuu" class="h-[34px]">
+            </a>
+
+            <div id="desktop-nav"
+                class="hidden md:flex space-x-8 text-[11px] tracking-[0.2em] uppercase font-bold text-gray-400">
+                <a href="index.html" class="nav-link hover:text-gray-800 transition">トップ</a>
+                <div class="relative group">
+                    <a href="gallery.html" class="nav-link hover:text-gray-800 transition block">アート</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-32 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="gallery.html?from=gallery"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">すべて見る</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="about.html" class="nav-link hover:text-gray-800 transition">プロフィール</a>
+                <div class="relative group">
+                    <a href="pricing.html" class="nav-link hover:text-gray-800 transition block">依頼について</a>
+                    <div
+                        class="absolute left-1/2 transform -translate-x-1/2 top-full pt-4 w-40 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-white border border-gray-100 shadow-lg rounded-lg overflow-hidden">
+                            <a href="pricing.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap">個人様向け料金プラン</a>
+                            <a href="pricing-corporate.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">企業様向け依頼プラン</a>
+                            <a href="terms.html?mode=view"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">利用規約</a>
+                            <a href="faq.html"
+                                class="block px-4 py-3 text-center text-gray-500 hover:text-[#BE4B35] hover:bg-gray-50 text-[10px] tracking-widest whitespace-nowrap border-t border-gray-50">よくある質問</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="links.html" class="nav-link hover:text-gray-800 transition">リンク</a>
+                <a href="contact.html" class="nav-link hover:text-gray-800 transition">お問い合わせ</a>
+            </div>
+
+            <button id="menu-btn" class="md:hidden text-2xl text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-40 transform translate-x-full md:hidden flex flex-col items-center justify-center space-y-8 text-xl tracking-widest uppercase">
+        <a href="index.html">トップ</a>
+        <a href="gallery.html">アート</a>
+        <a href="about.html">プロフィール</a>
+        <a href="pricing.html">依頼について</a>
+        <a href="links.html">リンク</a>
+        <a href="contact.html">お問い合わせ</a>
+        <button id="close-menu" class="absolute top-6 right-6 text-3xl">&times;</button>
+    </div>
+
+    <!-- TERMS VIEW -->
+    <main id="view-terms"
+        class="page-view active pt-32 pb-24 px-6 max-w-7xl mx-auto min-h-screen opacity-0 transition-opacity duration-500">
+
+        <!-- Progress Meter -->
+        <div id="progress-meter"
+            class="mb-16 max-w-7xl mx-auto relative flex flex-col md:flex-row items-center justify-center">
+            <a href="workflow.html"
+                class="group md:absolute md:left-0 md:top-0 mb-8 md:mb-0 inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                <span>依頼の流れに戻る</span>
+            </a>
+            <div class="w-full max-w-3xl">
+                <div class="flex items-start">
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            1</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">料金プランの選択</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden"></div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            2</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">依頼の流れ</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                        <div class="progress-bar absolute top-0 left-0 h-full w-0"></div>
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 text-gray-500 flex items-center justify-center text-sm font-bold transition-colors duration-300">
+                            3</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">利用規約</p>
+                    </div>
+                    <div class="progress-connector flex-auto h-1 bg-gray-200 mt-3.5 relative overflow-hidden">
+                    </div>
+                    <div class="progress-step flex-1 text-center">
+                        <div
+                            class="progress-circle w-8 h-8 mx-auto rounded-full bg-gray-200 flex items-center justify-center text-sm font-bold text-gray-500 transition-colors duration-300">
+                            4</div>
+                        <p class="text-xs mt-2 text-gray-500 transition-colors duration-300">応募フォーム</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms Content Wrapper -->
+        <div class="relative max-w-7xl mx-auto">
+            <div id="terms-container" class="bg-white py-12 rounded-2xl shadow-sm -mx-6 md:mx-0">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-bold text-center mb-10 text-gray-800"><span id="plan-title-span"
+                            class="block text-lg mb-2 font-medium"></span>利用規約</h2>
+
+                    <div class="prose prose-sm max-w-none text-gray-600 space-y-8 leading-relaxed mb-12">
+                        <!-- Terms will be injected here -->
+                    </div>
+
+                    <!-- Confirmation Section -->
+                    <div id="confirmation-separator" class="max-w-3xl mx-auto mt-8 border-t border-gray-200 pt-12">
+                        <div class="bg-gray-50 border border-gray-200 rounded-xl p-8 text-center">
+                            <label for="terms-checkbox"
+                                class="flex items-center justify-center text-gray-700 cursor-pointer mb-8 select-none">
+                                <input type="checkbox" id="terms-checkbox"
+                                    class="h-5 w-5 text-gray-400 border-gray-300 rounded focus:ring-gray-400 transition-colors">
+                                <span class="ml-3 font-bold">利用規約の内容を確認し、同意します</span>
+                            </label>
+
+                            <a href="form.html" id="next-step-button"
+                                class="inline-block px-12 py-4 bg-gray-300 text-white rounded-full font-bold tracking-widest transition-all pointer-events-none opacity-50 shadow-sm">
+                                応募フォームへ進む
+                            </a>
+                        </div>
+
+                        <div class="mt-12 text-center">
+                            <p class="font-bold text-gray-700 mb-4">分からないことや質問がある場合</p>
+                            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 text-sm">
+                                <a href="faq.html"
+                                    class="faq-btn inline-flex items-center px-6 py-3 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-widest hover:bg-[#BE4B35] hover:text-white transition shadow-sm">
+                                    <i class="fa-solid fa-circle-question mr-2"></i>よくある質問を見る
+                                </a>
+                                <a href="contact.html"
+                                    class="contact-btn inline-flex items-center px-6 py-3 bg-gray-100 text-gray-600 rounded-full text-xs font-bold tracking-widest hover:bg-[#BE4B35] hover:text-white transition shadow-sm">
+                                    <i class="fa-regular fa-envelope mr-2"></i>メールorDMから質問
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Navigation -->
+            <div class="hidden xl:block absolute top-0 left-full ml-12 h-full">
+                <div id="terms-nav" class="sticky top-32 w-56">
+                    <ul id="terms-nav-list" class="space-y-2">
+                        <!-- Injected by JS -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="terms-footer-nav" class="mt-12 mb-8 relative flex flex-col sm:flex-row items-center justify-center">
+            <div class="sm:absolute sm:left-0 mb-6 sm:mb-0">
+                <a href="workflow.html"
+                    class="group inline-flex items-center px-6 py-3 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                    <i
+                        class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                    <span>依頼の流れに戻る</span>
+                </a>
+            </div>
+            <button type="button" onclick="window.scrollTo({top: 0, behavior: 'smooth'});"
+                class="group inline-flex items-center px-6 py-3 bg-white border border-gray-300 text-gray-600 rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-gray-50 hover:text-gray-800 hover:shadow-lg hover:-translate-y-1 shadow-sm">
+                <span>TOPに戻る</span>
+                <i class="fa-solid fa-arrow-up ml-2 transition-transform duration-300 group-hover:-translate-y-1"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+    class="py-16 text-center text-gray-300 text-[9px] tracking-[0.4em] uppercase border-t border-gray-50 bg-white">
+    &copy; 2025 ASAGIMUU Portfolio
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let siteConfig = {};
+            let currentTheme = {
+                bg: 'bg-[#BE4B35]',
+                text: 'text-[#BE4B35]',
+                border: 'border-[#BE4B35]',
+                bgSoft: 'bg-[#BE4B35]/5',
+                hoverBg: 'hover:bg-[#BE4B35]',
+                btnHover: 'hover:bg-red-700',
+                ring: 'focus:ring-[#BE4B35]',
+                checkboxText: 'text-[#BE4B35]'
+            };
+
+            // Checkbox Logic
+            const termsCheckbox = document.getElementById('terms-checkbox');
+            const nextStepButton = document.getElementById('next-step-button');
+
+            if (termsCheckbox && nextStepButton) {
+                termsCheckbox.addEventListener('change', () => {
+                    if (termsCheckbox.checked) {
+                        nextStepButton.classList.remove('bg-gray-300', 'pointer-events-none', 'opacity-50');
+                        nextStepButton.classList.add(currentTheme.bg, currentTheme.btnHover, 'shadow-lg', 'hover:-translate-y-1');
+                    } else {
+                        nextStepButton.classList.add('bg-gray-300', 'pointer-events-none', 'opacity-50');
+                        nextStepButton.classList.remove(currentTheme.bg, currentTheme.btnHover, 'shadow-lg', 'hover:-translate-y-1');
+                    }
+                });
+
+                nextStepButton.addEventListener('click', () => {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const planName = decodeURIComponent(urlParams.get('plan') || 'default');
+                    sessionStorage.setItem(`terms_scroll_pos_${planName}`, window.scrollY);
+                    sessionStorage.setItem(`terms_checked_${planName}`, 'true');
+                });
+
+                // Save state when clicking FAQ button
+                const faqButtons = document.querySelectorAll('.faq-btn');
+                faqButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const planName = decodeURIComponent(urlParams.get('plan') || 'default');
+                        sessionStorage.setItem(`terms_scroll_pos_${planName}`, window.scrollY);
+                        sessionStorage.setItem(`terms_checked_${planName}`, termsCheckbox.checked);
+                    });
+                });
+            }
+
+            function showTooltip(stepElement, message) {
+                const circle = stepElement.querySelector('.progress-circle');
+                if (!circle) return;
+
+                const existing = document.querySelectorAll('.custom-tooltip');
+                existing.forEach(el => el.remove());
+
+                const tooltip = document.createElement('div');
+                tooltip.className = 'custom-tooltip absolute left-1/2 transform -translate-x-1/2 px-3 py-2 bg-[#BE4B35] text-white text-xs rounded shadow-lg z-50 whitespace-nowrap pointer-events-none transition-opacity duration-300';
+                tooltip.style.bottom = '120%';
+                tooltip.innerHTML = `${message}<div class="absolute top-full left-1/2 transform -translate-x-1/2 border-4 border-transparent border-t-[#BE4B35]"></div>`;
+
+                circle.classList.add('relative');
+                circle.appendChild(tooltip);
+
+                setTimeout(() => {
+                    tooltip.classList.add('opacity-0');
+                    setTimeout(() => tooltip.remove(), 300);
+                }, 2000);
+            }
+
+            function setupProgressMeter(theme) {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const connectors = Array.from(document.querySelectorAll('.progress-connector'));
+
+                // Step 1 & 2 are already completed
+                [0, 1].forEach(i => {
+                    const circle = steps[i].querySelector('.progress-circle');
+                    const text = steps[i].querySelector('p');
+                    circle.classList.remove('bg-gray-200', 'text-gray-500');
+                    circle.classList.add(theme.bg, 'text-white');
+                    text.classList.remove('text-gray-500');
+                    text.classList.add('text-gray-800', 'font-semibold');
+                });
+
+                // Connector 1 (between 1 and 2) is completed
+                connectors[0].classList.remove('bg-gray-200');
+                connectors[0].classList.add(theme.bg);
+
+                // Check if returning
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || 'default');
+                const isReturning = document.referrer.includes('form.html') ||
+                    (sessionStorage.getItem(`terms_scroll_pos_${planName}`) && !document.referrer.includes('workflow.html'));
+
+                if (isReturning) {
+                    // Immediate update
+                    const connectorToAnimate = connectors[1];
+                    const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                    if (progressBar) {
+                        progressBar.classList.add(theme.bg);
+                        progressBar.style.width = '100%';
+                    }
+
+                    const currentStep = steps[2];
+                    const circle = currentStep.querySelector('.progress-circle');
+                    const text = currentStep.querySelector('p');
+                    circle.classList.remove('bg-gray-200', 'text-gray-500');
+                    circle.classList.add(theme.bg, 'text-white');
+                    text.classList.remove('text-gray-500');
+                    text.classList.add('text-gray-800', 'font-semibold');
+                } else {
+                    // Animate Connector 2 (between 2 and 3)
+                    setTimeout(() => {
+                        const connectorToAnimate = connectors[1];
+                        const progressBar = connectorToAnimate.querySelector('.progress-bar');
+                        if (progressBar) {
+                            progressBar.classList.add(theme.bg);
+                            progressBar.style.width = '100%';
+                            progressBar.classList.add('transition-all', 'duration-1000', 'ease-out');
+                        }
+
+                        // Activate Step 3 (Terms) after animation
+                        setTimeout(() => {
+                            const currentStep = steps[2];
+                            const circle = currentStep.querySelector('.progress-circle');
+                            const text = currentStep.querySelector('p');
+                            circle.classList.remove('bg-gray-200', 'text-gray-500');
+                            circle.classList.add(theme.bg, 'text-white');
+                            text.classList.remove('text-gray-500');
+                            text.classList.add('text-gray-800', 'font-semibold');
+                        }, 1000);
+                    }, 300);
+                }
+            }
+
+            function setupProgressNavigation() {
+                const steps = Array.from(document.querySelectorAll('.progress-step'));
+                const termsCheckbox = document.getElementById('terms-checkbox');
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || '');
+                const planQuery = planName ? `?plan=${encodeURIComponent(planName)}` : '';
+
+                // Step 1: Pricing
+                steps[0].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[0].addEventListener('click', () => window.location.href = 'pricing.html');
+
+                // Step 2: Flow
+                steps[1].classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                steps[1].addEventListener('click', () => window.location.href = `workflow.html${planQuery}`);
+
+                // Step 4: Form (Active only if checked)
+                const step4 = steps[3];
+                const updateStep4State = () => {
+                    if (termsCheckbox && termsCheckbox.checked) {
+                        step4.classList.remove('opacity-50', 'cursor-not-allowed');
+                        step4.classList.add('cursor-pointer', 'hover:opacity-75', 'transition-opacity');
+                    } else {
+                        step4.classList.remove('hover:opacity-75', 'transition-opacity', 'cursor-not-allowed');
+                        step4.classList.add('opacity-50', 'cursor-pointer');
+                    }
+                };
+                if (termsCheckbox) {
+                    termsCheckbox.addEventListener('change', updateStep4State);
+                    updateStep4State();
+                }
+                step4.addEventListener('click', () => {
+                    if (termsCheckbox && termsCheckbox.checked) {
+                        window.location.href = `form.html${planQuery}`;
+                    } else {
+                        showTooltip(steps[2], "チェックマークを押して下さい");
+                    }
+                });
+            }
+
+            let observer;
+            function setupToc(theme) {
+                const container = document.querySelector('.prose');
+                if (!container) return;
+
+                const headings = container.querySelectorAll('h3');
+                const navList = document.getElementById('terms-nav-list');
+                if (!navList) return;
+
+                navList.innerHTML = '';
+
+                headings.forEach((heading, index) => {
+                    const section = heading.closest('section');
+                    const id = `term-section-${index + 1}`;
+                    if (section) {
+                        section.id = id;
+                        section.classList.add('scroll-mt-40');
+                    }
+
+                    const match = heading.textContent.match(/^(\d+)\.\s*(.+)$/);
+                    const num = match ? String(match[1]).padStart(2, '0') : String(index + 1).padStart(2, '0');
+                    const text = match ? match[2] : heading.textContent;
+
+                    const li = document.createElement('li');
+                    li.innerHTML = `
+                    <a href="#${id}" class="term-nav-link group flex flex-col border-l-2 border-gray-200 pl-4 py-2 hover:${theme.border} transition-colors duration-300">
+                        <span class="text-[10px] font-bold text-gray-400 group-hover:${theme.text} tracking-widest transition-colors duration-300">SECTION ${num}</span>
+                        <span class="text-xs font-bold text-gray-600 group-hover:${theme.text} transition-colors duration-300">${text}</span>
+                    </a>
+                `;
+
+                    const link = li.querySelector('a');
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if (observer) observer.disconnect();
+
+                        document.querySelectorAll('.term-nav-link').forEach(navLink => {
+                            updateLinkState(navLink, navLink === link, theme);
+                        });
+
+                        const target = document.getElementById(id);
+                        if (target) {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }
+
+                        setTimeout(() => {
+                            if (observer) {
+                                document.querySelectorAll('.prose section').forEach(sec => observer.observe(sec));
+                            }
+                        }, 1000);
+                    });
+
+                    navList.appendChild(li);
+                });
+
+                setupScrollSpy(theme);
+            }
+
+            function setupScrollSpy(theme) {
+                const observerOptions = {
+                    root: null,
+                    rootMargin: '-20% 0px -60% 0px',
+                    threshold: 0
+                };
+
+                observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.id;
+                            document.querySelectorAll('.term-nav-link').forEach(link => {
+                                const href = link.getAttribute('href').substring(1);
+                                updateLinkState(link, href === id, theme);
+                            });
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.prose section').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+
+            function updateLinkState(link, isActive, theme) {
+                const stepSpan = link.querySelector('span:first-child');
+                const titleSpan = link.querySelector('span:last-child');
+
+                if (isActive) {
+                    link.classList.remove('border-gray-200');
+                    link.classList.add(theme.border, theme.bgSoft);
+                    stepSpan.classList.remove('text-gray-400');
+                    stepSpan.classList.add(theme.text);
+                    titleSpan.classList.remove('text-gray-600');
+                    titleSpan.classList.add(theme.text);
+                } else {
+                    link.classList.add('border-gray-200');
+                    link.classList.remove(theme.border, theme.bgSoft);
+                    stepSpan.classList.add('text-gray-400');
+                    stepSpan.classList.remove(theme.text);
+                    titleSpan.classList.add('text-gray-600');
+                    titleSpan.classList.remove(theme.text);
+                }
+            }
+
+            function renderTerms(terms) {
+                const container = document.querySelector('.prose');
+                if (!container || !terms) return;
+
+                container.innerHTML = terms.map((term, index) => {
+                    let contentHtml = '';
+                    if (term.content) {
+                        contentHtml += `<p>${term.content}</p>`;
+                    }
+                    if (term.list) {
+                        contentHtml += `<ul class="list-disc pl-5 space-y-1">
+                        ${term.list.map(item => `<li>${item}</li>`).join('')}
+                    </ul>`;
+                    }
+
+                    return `
+                    <section>
+                        <h3 class="text-lg font-bold text-gray-800 mb-3 border-b border-gray-200 pb-2">${term.title}</h3>
+                        ${contentHtml}
+                    </section>
+                `;
+                }).join('');
+            }
+
+            async function initializeSite() {
+                try {
+                    const commonData = await loadCommonData();
+
+                    const termsData = (typeof SITE_DATA !== 'undefined' && SITE_DATA.terms) ? { terms: SITE_DATA.terms } : { terms: [] };
+                    const data = { ...commonData, ...termsData };
+                    siteConfig = data;
+
+                    // --- Navigation Highlighting ---
+                    const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active-nav-item');
+                        link.classList.add('hover:text-gray-800');
+                    });
+                    const currentPath = window.location.pathname.split("/").pop();
+                    let activeLink = null;
+                    if (currentPath === 'index.html' || currentPath === '') {
+                        activeLink = document.querySelector('a.nav-link[href^="index.html"]');
+                    } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
+                        activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+                    } else {
+                        activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+                    }
+                    if (activeLink) {
+                        const mainLink = activeLink.closest('.relative.group')?.querySelector('a.nav-link') || activeLink;
+                        mainLink.classList.add('active-nav-item');
+                        mainLink.classList.remove('hover:text-gray-800');
+                    }
+                    // --- End Navigation Highlighting ---
+
+                    // ドロップダウン内の「利用規約」をアクティブにする
+                    const termsDropdownLink = document.querySelector('a[href*="terms.html"]');
+                    if (termsDropdownLink) {
+                        termsDropdownLink.classList.remove('text-gray-500');
+                        termsDropdownLink.classList.add('text-[#BE4B35]', 'bg-gray-50');
+                    }
+
+                    // Theme Logic
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const planName = decodeURIComponent(urlParams.get('plan') || '');
+
+                    // View Mode Logic (Hide progress meter and form elements)
+                    if (urlParams.get('mode') === 'view') {
+                        const progressMeter = document.getElementById('progress-meter');
+                        const confirmationSeparator = document.getElementById('confirmation-separator');
+                        const footerNav = document.getElementById('terms-footer-nav');
+
+                        if (progressMeter) progressMeter.classList.add('hidden');
+                        if (confirmationSeparator) confirmationSeparator.classList.add('hidden');
+                        if (footerNav) footerNav.classList.add('hidden');
+
+                        // Determine back link text
+                        let backText = 'トップページに戻る';
+                        let backHref = 'index.html';
+
+                        if (document.referrer) {
+                            backHref = '#';
+                            if (document.referrer.includes('pricing.html')) {
+                                backText = '料金プランに戻る';
+                            } else if (document.referrer.includes('gallery.html')) {
+                                backText = 'アートに戻る';
+                            } else if (document.referrer.includes('about.html')) {
+                                backText = 'プロフィールに戻る';
+                            } else if (document.referrer.includes('faq.html')) {
+                                backText = 'よくある質問に戻る';
+                            } else if (document.referrer.includes('index.html')) {
+                                backText = 'トップページに戻る';
+                            } else if (document.referrer.includes('workflow.html')) {
+                                backText = '依頼の流れに戻る';
+                            } else if (document.referrer.includes('form.html')) {
+                                backText = '応募フォームに戻る';
+                            } else {
+                                backText = '前のページに戻る';
+                            }
+                        }
+
+                        // Add simple back button for view mode at TOP LEFT
+                        const mainContainer = document.getElementById('view-terms');
+                        const backBtnDiv = document.createElement('div');
+                        backBtnDiv.className = 'mb-8';
+                        backBtnDiv.innerHTML = `
+                        <a href="${backHref}" id="view-mode-back-btn" class="group inline-flex items-center px-5 py-2 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-lg hover:-translate-y-1 shadow-md">
+                            <i class="fa-solid fa-arrow-left mr-2 transition-transform duration-300 group-hover:-translate-x-1"></i>
+                            <span>${backText}</span>
+                        </a>
+                    `;
+                        mainContainer.insertBefore(backBtnDiv, mainContainer.firstChild);
+
+                        if (backHref === '#') {
+                            const btn = backBtnDiv.querySelector('a');
+                            btn.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                history.back();
+                            });
+                        }
+                    }
+
+                    if (siteConfig.pricing && siteConfig.pricing.plans) {
+                        const plan = siteConfig.pricing.plans.find(p => p.name === planName);
+                        if (plan) {
+                            const colorThemes = {
+                                gray: { bg: 'bg-gray-500', text: 'text-gray-500', border: 'border-gray-500', bgSoft: 'bg-gray-100', hoverBg: 'hover:bg-gray-500', btnHover: 'hover:bg-gray-600', ring: 'focus:ring-gray-500', checkboxText: 'text-gray-500' },
+                                blue: { bg: 'bg-blue-600', text: 'text-blue-600', border: 'border-blue-600', bgSoft: 'bg-blue-50', hoverBg: 'hover:bg-blue-600', btnHover: 'hover:bg-blue-700', ring: 'focus:ring-blue-600', checkboxText: 'text-blue-600' },
+                                yellow: { bg: 'bg-amber-500', text: 'text-amber-500', border: 'border-amber-500', bgSoft: 'bg-amber-50', hoverBg: 'hover:bg-amber-500', btnHover: 'hover:bg-amber-600', ring: 'focus:ring-amber-500', checkboxText: 'text-amber-500' }
+                            };
+                            if (colorThemes[plan.color]) {
+                                currentTheme = colorThemes[plan.color];
+                            }
+
+                            // Set Plan Title
+                            const planTitleSpan = document.getElementById('plan-title-span');
+                            if (planTitleSpan) {
+                                planTitleSpan.textContent = plan.name;
+                                planTitleSpan.className = `block text-lg mb-2 font-medium ${currentTheme.text}`;
+                            }
+                        }
+                    }
+
+                    // Setup Progress Meter with correct theme
+                    setupProgressMeter(currentTheme);
+                    setupProgressNavigation();
+
+                    // Render Terms
+                    renderTerms(data.terms);
+
+                    // Setup TOC
+                    setupToc(currentTheme);
+
+                    // Checkbox
+                    if (termsCheckbox) {
+                        termsCheckbox.classList.remove('text-gray-400', 'focus:ring-gray-400');
+                        termsCheckbox.classList.add(currentTheme.checkboxText, currentTheme.ring);
+                    }
+
+                    // Restore checkbox state if returning from form
+                    const storageKeyChecked = `terms_checked_${planName || 'default'}`;
+                    const savedChecked = sessionStorage.getItem(storageKeyChecked);
+                    if (savedChecked === 'true' && termsCheckbox) {
+                        termsCheckbox.checked = true;
+                        termsCheckbox.dispatchEvent(new Event('change'));
+                    }
+
+                    // Restore scroll position
+                    const storageKeyScroll = `terms_scroll_pos_${planName || 'default'}`;
+                    const savedScroll = sessionStorage.getItem(storageKeyScroll);
+
+                    if (savedScroll !== null) {
+                        setTimeout(() => window.scrollTo({ top: parseInt(savedScroll), behavior: 'smooth' }), 300);
+                    } else if (savedChecked === 'true' && termsCheckbox && !document.referrer.includes('flow.html')) {
+                        setTimeout(() => termsCheckbox.scrollIntoView({ behavior: 'smooth', block: 'center' }), 300);
+                    }
+
+                    // Back Buttons (Top and Bottom)
+                    const backButtons = document.querySelectorAll('a[href="workflow.html"]');
+                    backButtons.forEach(btn => {
+                        btn.classList.remove('hover:bg-[#BE4B35]');
+                        btn.classList.add(currentTheme.hoverBg);
+                        if (planName) {
+                            btn.href = `workflow.html?plan=${encodeURIComponent(planName)}`;
+                        }
+                    });
+
+                    // Pass plan to next page
+                    if (nextStepButton && planName) {
+                        nextStepButton.href = `form.html?plan=${encodeURIComponent(planName)}`;
+                    }
+
+                    // FAQ & Contact Buttons Theme
+                    document.querySelectorAll('.faq-btn, .contact-btn').forEach(btn => {
+                        btn.classList.remove('hover:bg-[#BE4B35]');
+                        btn.classList.add(currentTheme.hoverBg);
+                    });
+
+                    // Apply theme border to container
+                    const termsContainer = document.getElementById('terms-container');
+                    if (termsContainer) {
+                        termsContainer.classList.add('border-2', currentTheme.border);
+                    }
+
+                    // Apply theme border to confirmation separator
+                    const confSep = document.getElementById('confirmation-separator');
+                    if (confSep) {
+                        confSep.classList.remove('border-gray-200');
+                        confSep.classList.add(currentTheme.border);
+                    }
+
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                } finally {
+                    document.getElementById('view-terms').classList.remove('opacity-0');
+                }
+            }
+            initializeSite();
+
+            // ページを離れる時に状態を保存
+            window.addEventListener('pagehide', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const planName = decodeURIComponent(urlParams.get('plan') || 'default');
+
+                sessionStorage.setItem(`terms_scroll_pos_${planName}`, window.scrollY);
+
+                const termsCheckbox = document.getElementById('terms-checkbox');
+                if (termsCheckbox) {
+                    sessionStorage.setItem(`terms_checked_${planName}`, termsCheckbox.checked);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

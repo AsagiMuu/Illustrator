@@ -1,0 +1,1425 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsagiMuu Portfolio</title>
+    <link rel="icon" href="./images/ui/2025-09-02_01_AsagiMuu-01.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- OGP Settings -->
+    <meta property="og:title" content="AsagiMuu Portfolio">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-site-url.com/index.html">
+    <meta property="og:image" content="https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png">
+    <meta property="og:description" content="イラストレーター 浅葱 無雨のポートフォリオサイトです。">
+    <meta property="og:site_name" content="AsagiMuu Portfolio">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="site-data.js"></script>
+    <script src="common.js" defer></script>
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <!-- Navigation and Mobile Menu will be injected by components.js -->
+
+    <!-- MAIN HOME VIEW -->
+    <main id="view-home" class="page-view active opacity-0 transition-opacity duration-500">
+        <!-- Hero Slider Section -->
+        <header id="top" class="relative h-[85vh] overflow-hidden pt-16 bg-white">
+            <div class="slider-container">
+                <div id="slider-inner">
+                    <!-- Slides will be injected here by JS -->
+                </div>
+            </div>
+
+            <!-- Desktop Button (Hidden on Mobile) -->
+            <div class="hidden md:block absolute bottom-10 left-10 z-30">
+                <a href="pricing.html?from=top"
+                    class="group inline-flex items-center px-6 py-4 bg-white/90 backdrop-blur-sm border border-white/50 rounded-full text-xs font-bold tracking-widest text-gray-800 hover:bg-[#BE4B35] hover:text-white hover:border-[#BE4B35] transition duration-300 shadow-lg">
+                    <i
+                        class="fa-solid fa-file-invoice-dollar mr-2 text-[#BE4B35] group-hover:text-white transition-colors duration-300"></i>
+                    依頼の相談や料金表はこちらから
+                </a>
+            </div>
+
+            <!-- Mobile Controls Wrapper (Center Bottom) -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
+                <div class="relative flex justify-center items-center">
+                    <!-- Mobile Button (Absolute Left of Dots) -->
+                    <a href="pricing.html?from=top"
+                        class="md:hidden absolute right-full top-1/2 -translate-y-1/2 mr-4 flex flex-col items-center justify-center w-20 h-20 bg-white/95 backdrop-blur-md border border-white/50 rounded-full shadow-xl text-[#BE4B35] hover:bg-[#BE4B35] hover:text-white transition duration-300 transform hover:scale-105 whitespace-nowrap">
+                        <i class="fa-solid fa-file-invoice-dollar text-xl mb-1"></i>
+                        <span class="text-[8px] leading-tight font-bold text-center tracking-tighter">
+                            依頼の<br>料金プランは<br>こちら！
+                        </span>
+                    </a>
+
+                    <!-- Dots (Centered) -->
+                    <div class="flex space-x-4 bg-white/20 backdrop-blur-sm p-3 rounded-full relative z-10">
+                        <button class="dot active" data-index="0"></button>
+                        <button class="dot" data-index="1"></button>
+                        <button class="dot" data-index="2"></button>
+                        <button class="dot" data-index="3"></button>
+                        <button class="dot" data-index="4"></button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="pt-16 pb-8">
+            <div class="text-center mb-8 px-6">
+                <h3 class="text-3xl font-bold mb-2">アート</h3>
+                <p class="text-gray-400 text-[10px] tracking-[0.3em] uppercase">Selected Artworks</p>
+            </div>
+            <div id="gallery-container" class="relative w-full">
+                <div id="gallery-track">
+                    <!-- Works will be injected here via JS -->
+                </div>
+            </div>
+            <div class="text-center mt-8 px-6">
+                <a href="gallery.html?from=gallery"
+                    class="group inline-flex items-center px-10 py-4 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-xl hover:-translate-y-1 shadow-lg">
+                    <span>すべて見る</span>
+                    <i
+                        class="fa-solid fa-arrow-right ml-3 transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Commission Status Section -->
+        <section id="service" class="pt-12 pb-12 px-6 bg-gray-50 relative overflow-hidden">
+
+            <div class="max-w-6xl mx-auto relative z-10">
+                <div class="text-center mb-8">
+                    <span
+                        class="inline-block py-1 px-3 rounded-full bg-[#BE4B35]/10 text-[#BE4B35] text-[10px] font-bold tracking-widest uppercase mb-4">Service
+                        & Pricing</span>
+                    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-4 mb-4">
+                        <div class="hidden md:block"></div>
+                        <h3 class="text-3xl md:text-5xl font-bold text-gray-800"
+                            style="font-family: 'Zen Maru Gothic', sans-serif;">個人様向け料金プラン</h3>
+                        <div class="flex justify-center md:justify-start">
+                            <a href="pricing-corporate.html"
+                                class="group inline-flex items-center px-5 py-2 bg-white border-2 border-[#BE4B35] text-[#BE4B35] rounded-full text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:text-white hover:shadow-lg hover:-translate-y-1 shadow-sm">
+                                <span>企業様向けプランはこちらから</span>
+                                <i
+                                    class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed mb-6">
+                        ご予算や用途に合わせて最適なプランをお選びいただけます。<br class="hidden md:block">
+                        詳細な比較や制作の流れについては詳細ページをご覧ください。
+                    </p>
+                </div>
+
+                <div id="pricing-cards-container"
+                    class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start relative mb-12">
+                    <!-- Pricing cards will be injected here -->
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="pricing.html?from=service"
+                        class="group inline-flex items-center px-10 py-4 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-xl hover:-translate-y-1 shadow-lg">
+                        <span>プラン詳細・比較表を見る</span>
+                        <i
+                            class="fa-solid fa-arrow-right ml-3 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+        </section>
+
+        <!-- About Teaser Section -->
+        <section id="about-teaser" class="pt-12 pb-24 px-6">
+            <div class="max-w-6xl mx-auto bg-white rounded-[40px] p-8 md:p-16 shadow-sm border border-gray-100">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-5 md:order-1">
+                        <div class="aspect-square rounded-[40px] overflow-hidden shadow-lg border border-gray-100">
+                            <img id="about-image" class="w-full h-full object-cover" alt="Artist AsagiMuu">
+                        </div>
+                    </div>
+                    <div class="md:col-span-7 px-4 md:px-8 md:order-2">
+                        <span class="text-gray-400 text-[10px] font-bold tracking-[0.3em] uppercase block mb-4">About
+                            the Artist</span>
+                        <h3 class="text-3xl font-bold mb-6 flex items-baseline">
+                            浅葱 無雨 <span class="text-sm font-normal text-gray-400 ml-3">AsagiMuu</span>
+                        </h3>
+                        <p class="text-gray-500 text-sm leading-[2] mb-8 max-w-lg">
+                            フリーランスのイラストレーターとして活動中。シックな色合いや空気感のあるイラストが得意です。男性・獣人・老人・モンスターなど幅広い作風に対応できます。
+                        </p>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="w-1 h-3 bg-[#BE4B35] rounded-full"></div>
+                                    <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-700">History
+                                    </h4>
+                                </div>
+                                <ul class="text-[10px] text-gray-400 space-y-2 font-medium">
+                                    <li>企業・個人様ご依頼多数</li>
+                                    <li>MVイラストレーション</li>
+                                    <li>キャラクターデザイン</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2 mb-3">
+                                    <div class="w-1 h-3 bg-[#BE4B35] rounded-full"></div>
+                                    <h4 class="text-[10px] font-bold uppercase tracking-widest text-gray-700">
+                                        Environment</h4>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-[10px] text-gray-400 font-medium">OS: Windows / iPad</p>
+                                    <p class="text-[10px] text-gray-400 font-medium">Soft: Procreate</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12">
+                    <a href="about.html"
+                        class="group inline-flex items-center px-10 py-4 bg-gray-800 text-white rounded-full text-sm font-bold tracking-widest transition-all duration-300 hover:bg-[#BE4B35] hover:shadow-xl hover:-translate-y-1 shadow-lg">
+                        <span>プロフィール詳細</span>
+                        <i
+                            class="fa-solid fa-arrow-right ml-3 transition-transform duration-300 group-hover:translate-x-1"></i>
+                    </a>
+                </div>
+
+                <!-- Mini Links -->
+                <div class="mt-12 pt-8 border-t border-gray-100 flex justify-center items-center gap-6 flex-wrap">
+                    <a href="https://x.com/AsagiMuu" target="_blank"
+                        class="text-gray-400 hover:text-gray-800 transition-colors text-xl"><i
+                            class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://www.instagram.com/" target="_blank"
+                        class="text-gray-400 hover:text-gray-800 transition-colors text-xl"><i
+                            class="fa-brands fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="text-gray-400 hover:text-gray-800 transition-colors text-xl"><i
+                            class="fa-brands fa-pixiv"></i></a>
+                    <div class="flex items-center gap-3">
+                        <a href="links.html"
+                            class="text-[10px] font-bold tracking-widest text-gray-400 hover:text-[#BE4B35] transition-colors border border-gray-200 rounded-full px-4 py-2 hover:border-[#BE4B35]">ALL
+                            LINKS</a>
+                        <span class="h-3 w-px bg-gray-300"></span>
+                        <a href="contact.html"
+                            class="group inline-flex items-center text-[10px] font-bold tracking-widest text-white bg-gray-800 hover:bg-[#BE4B35] transition-all duration-300 rounded-full px-4 py-2 shadow-md hover:shadow-lg hover:-translate-y-1">
+                            <span>お問い合わせはこちら</span>
+                            <i
+                                class="fa-solid fa-arrow-right ml-2 transition-transform duration-300 group-hover:translate-x-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer will be injected by components.js -->
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="fixed inset-0 bg-black/60 z-[100] hidden overflow-y-auto backdrop-blur-md">
+        <div class="flex min-h-full items-center justify-center p-4">
+            <button id="close-modal-bg" class="fixed inset-0 w-full h-full cursor-default"></button>
+            <div
+                class="relative max-w-7xl w-full flex flex-col md:flex-row gap-8 items-center bg-white p-8 md:p-12 rounded-[40px] shadow-2xl overflow-hidden z-10">
+                <button id="close-modal-btn"
+                    class="absolute top-6 right-8 text-gray-400 text-4xl hover:text-[#BE4B35] z-10 transition">&times;</button>
+                <div class="w-full md:w-3/5" id="modal-img-wrapper">
+                    <div id="modal-img-container">
+                        <!-- Images will be injected here -->
+                    </div>
+                </div>
+                <div class="w-full md:w-2/5 flex flex-col justify-center text-left">
+                    <div class="flex items-baseline gap-3 mb-2">
+                        <h4 id="modal-title" class="text-2xl font-bold"></h4>
+                        <span id="modal-counter" class="text-gray-400 text-lg font-bold"></span>
+                    </div>
+                    <p id="modal-category" class="text-[#BE4B35] text-[10px] font-bold uppercase tracking-[0.2em] mb-3">
+                    </p>
+                    <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+                    <div class="flex gap-8 mb-6 text-xs">
+                        <div>
+                            <span class="text-gray-400 block mb-1 tracking-widest">制作日</span>
+                            <span id="modal-date" class="font-bold text-gray-700 font-serif"></span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400 block mb-1 tracking-widest">制作期間</span>
+                            <span id="modal-time" class="font-bold text-gray-700 font-serif"></span>
+                        </div>
+                    </div>
+                    <div class="text-sm text-gray-500 space-y-4">
+                        <p id="modal-details" class="leading-relaxed"></p>
+                    </div>
+                    <!-- Thumbnails Container -->
+                    <div id="modal-thumbnails" class="flex flex-wrap gap-3 mt-8"></div>
+
+                    <!-- Share Buttons -->
+                    <div class="mt-8 pt-6 border-t border-gray-100">
+                        <div class="relative inline-block">
+                            <button id="share-trigger"
+                                class="group inline-flex items-center gap-2 text-gray-400 hover:text-gray-800 transition-colors">
+                                <i class="fa-solid fa-arrow-up-from-bracket text-xl"></i>
+                                <span class="text-[10px] font-bold uppercase tracking-widest">Share</span>
+                            </button>
+                            <div id="share-menu"
+                                class="absolute top-full left-0 mt-2 bg-white border border-gray-100 shadow-xl rounded-xl p-2 flex flex-col gap-1 opacity-0 invisible transition-all duration-300 transform -translate-y-2 z-20 min-w-[160px] whitespace-nowrap">
+                                <button id="share-copy"
+                                    class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-gray-900 rounded-lg transition-colors text-sm font-bold w-full text-left">
+                                    <i class="fa-solid fa-link text-lg w-6 text-center"></i>
+                                    <span>リンクをコピー</span>
+                                </button>
+                                <a id="share-x" href="#" target="_blank"
+                                    class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-black rounded-lg transition-colors text-sm font-bold w-full text-left">
+                                    <i class="fa-brands fa-x-twitter text-lg w-6 text-center"></i>
+                                    <span>Xでシェア</span>
+                                </a>
+                                <a id="share-line" href="#" target="_blank"
+                                    class="flex items-center gap-3 px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-[#06C755] rounded-lg transition-colors text-sm font-bold w-full text-left">
+                                    <i class="fa-brands fa-line text-lg w-6 text-center"></i>
+                                    <span>LINEでシェア</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM Elements ---
+            const sliderInner = document.getElementById('slider-inner');
+            const dots = document.querySelectorAll('.dot');
+            const logoLink = document.getElementById('logo-link');
+            const imageModal = document.getElementById('image-modal');
+            const closeModalBtn = document.getElementById('close-modal-btn');
+            const closeModalBg = document.getElementById('close-modal-bg');
+
+            // --- State ---
+            let works = []; // 作品データは外部JSONから読み込む
+            let commissionStatus = []; // スケジュールデータは外部JSONから読み込む
+            let siteConfig = {}; // サイト設定は外部JSONから読み込む
+            let selectedTags = new Set(['All']); // 現在選択されているタグ
+            let currentSort = 'newest'; // 現在の並び順
+            let currentSlide = 1;
+            let sliderInterval;
+
+            // Hero Slider Drag Variables
+            let isHeroDragging = false;
+            let heroStartPos = 0;
+            let heroDragDiff = 0;
+            let heroInitialDiff = 0;
+            let isHeroAnimating = false;
+            let heroTransitionHandler = null;
+
+            // Gallery Slider State
+            let galleryX = 0;
+            let gallerySpeed = 0.5; // ゆっくり進む速度
+            let isGalleryDragging = false;
+            let isGalleryPaused = false;
+            let galleryStartX = 0;
+            let galleryPrevX = 0;
+            let galleryPauseTimeout;
+            let galleryAnimFrame;
+            let isGalleryMobile = false;
+            let galleryInitialY = 0;
+            let isVerticalScroll = false;
+
+            // --- Functions ---
+
+            // Slider
+            function renderSlider() {
+                if (!sliderInner) return;
+
+                // worksからheroSlides_idを持つものを抽出してソート
+                let originalSlides = works
+                    .filter(w => w.heroSlides_id)
+                    .sort((a, b) => a.heroSlides_id - b.heroSlides_id);
+
+                if (originalSlides.length === 0) return;
+
+                // Clone first and last for infinite loop
+                const firstClone = originalSlides[0];
+                const lastClone = originalSlides[originalSlides.length - 1];
+                const slidesToRender = [lastClone, ...originalSlides, firstClone];
+
+                sliderInner.innerHTML = '';
+                // Flex container setup
+                sliderInner.style.width = `${slidesToRender.length * 100}%`;
+                sliderInner.style.display = 'flex';
+
+                slidesToRender.forEach((slide, index) => {
+                    // 文字列の場合はオブジェクトに変換（互換性維持）
+                    const s = typeof slide === 'string' ? { image: slide } : slide;
+                    const sliderImage = s.heroImage || s.image;
+
+                    const div = document.createElement('div');
+                    div.className = 'slide cursor-pointer relative';
+                    div.style.width = `${100 / slidesToRender.length}%`;
+                    div.innerHTML = `<img src="${sliderImage}" class="w-full h-full object-cover" alt="${s.title || 'Hero image'}" draggable="false">`;
+
+                    div.addEventListener('click', (e) => {
+                        if (Math.abs(heroDragDiff) > 5) return; // Dragged, ignore click
+                        openModal(s);
+                    });
+                    sliderInner.appendChild(div);
+                });
+
+                // Initial position (showing the first real slide)
+                currentSlide = 1;
+                const percentage = 100 / slidesToRender.length;
+                sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+            }
+
+            function updateSlider(index, animate = true) {
+                const totalSlides = sliderInner.children.length;
+                if (totalSlides === 0) return;
+
+                const percentage = 100 / totalSlides;
+
+                // Handle wrapping logic for dots
+                const realCount = totalSlides - 2;
+                let dotIndex = (index - 1 + realCount) % realCount;
+
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === dotIndex);
+                });
+
+                if (animate) {
+                    if (isHeroAnimating) return;
+                    isHeroAnimating = true;
+                    sliderInner.style.transition = 'transform 0.5s ease-out';
+                    currentSlide = index;
+                    sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+
+                    if (heroTransitionHandler) {
+                        sliderInner.removeEventListener('transitionend', heroTransitionHandler);
+                    }
+
+                    heroTransitionHandler = () => {
+                        isHeroAnimating = false;
+                        heroTransitionHandler = null;
+                        if (currentSlide === 0) {
+                            sliderInner.style.transition = 'none';
+                            currentSlide = realCount;
+                            sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+                        } else if (currentSlide === totalSlides - 1) {
+                            sliderInner.style.transition = 'none';
+                            currentSlide = 1;
+                            sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+                        }
+                    };
+                    sliderInner.addEventListener('transitionend', heroTransitionHandler, { once: true });
+                } else {
+                    sliderInner.style.transition = 'none';
+                    currentSlide = index;
+                    sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+                }
+            }
+
+            function nextSlide() {
+                if (!sliderInner.children.length) return;
+                updateSlider(currentSlide + 1);
+            }
+            function startSlider() {
+                if (sliderInterval) clearInterval(sliderInterval);
+                sliderInterval = setInterval(nextSlide, 5000);
+            }
+
+            function initHeroSliderEvents() {
+                const container = document.querySelector('.slider-container');
+                if (!container || !sliderInner) return;
+
+                const getPositionX = (e) => e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+
+                const dragStart = (e) => {
+                    if (e.type === 'mousedown') e.preventDefault();
+
+                    let startTranslate = null;
+
+                    if (isHeroAnimating) {
+                        isHeroAnimating = false;
+                        sliderInner.style.transition = 'none';
+
+                        // アニメーション中断時の現在位置を取得
+                        const style = window.getComputedStyle(sliderInner);
+                        const matrix = new (window.DOMMatrix || window.WebKitCSSMatrix)(style.transform);
+                        startTranslate = matrix.m41;
+
+                        if (heroTransitionHandler) {
+                            sliderInner.removeEventListener('transitionend', heroTransitionHandler);
+                            heroTransitionHandler = null;
+                        }
+                    }
+
+                    const totalSlides = sliderInner.children.length;
+                    const sliderWidth = sliderInner.clientWidth;
+                    const percentage = 100 / totalSlides;
+
+                    // アニメーション中でない場合のみ、ループ位置の補正を行う
+                    if (startTranslate === null && totalSlides > 0) {
+                        if (currentSlide === 0) {
+                            currentSlide = totalSlides - 2;
+                            sliderInner.style.transition = 'none';
+                            sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+                        } else if (currentSlide === totalSlides - 1) {
+                            currentSlide = 1;
+                            sliderInner.style.transition = 'none';
+                            sliderInner.style.transform = `translateX(-${currentSlide * percentage}%)`;
+                        }
+                    }
+
+                    isHeroDragging = true;
+                    heroStartPos = getPositionX(e);
+                    heroInitialDiff = 0;
+
+                    // アニメーション中断時は、見た目の位置がズレないようにオフセットを計算
+                    if (startTranslate !== null) {
+                        const baseTranslatePx = -(currentSlide * percentage / 100) * sliderWidth;
+                        heroInitialDiff = startTranslate - baseTranslatePx;
+                    }
+
+                    heroDragDiff = heroInitialDiff;
+                    clearInterval(sliderInterval);
+                    sliderInner.style.transition = 'none';
+                    container.style.cursor = 'grabbing';
+                };
+
+                const dragMove = (e) => {
+                    if (!isHeroDragging) return;
+                    const currentPosition = getPositionX(e);
+                    const currentDrag = currentPosition - heroStartPos;
+                    heroDragDiff = currentDrag + heroInitialDiff;
+
+                    if (e.type === 'touchmove' && Math.abs(currentDrag) > 5) {
+                        if (e.cancelable) e.preventDefault();
+                    }
+
+                    const totalSlides = sliderInner.children.length;
+                    const sliderWidth = sliderInner.clientWidth;
+                    const percentage = 100 / totalSlides;
+                    let baseTranslate = -(currentSlide * percentage);
+                    const movePercent = (heroDragDiff / sliderWidth) * 100;
+
+                    let newTranslate = baseTranslate + movePercent;
+
+                    // Prevent dragging beyond the cloned slides to avoid white space
+                    const minTranslate = -((totalSlides - 1) * percentage);
+                    const maxTranslate = 0;
+                    if (newTranslate > maxTranslate) newTranslate = maxTranslate + (newTranslate - maxTranslate) * 0.4; // Rubber band effect at start
+                    if (newTranslate < minTranslate) newTranslate = minTranslate + (newTranslate - minTranslate) * 0.4; // Rubber band effect at end
+
+                    sliderInner.style.transform = `translateX(${newTranslate}%)`;
+                };
+
+                const dragEnd = () => {
+                    if (!isHeroDragging) return;
+                    isHeroDragging = false;
+                    container.style.cursor = 'grab';
+
+                    const totalSlides = sliderInner.children.length;
+                    const sliderWidth = sliderInner.clientWidth;
+                    const oneSlideWidth = sliderWidth / totalSlides;
+
+                    if (heroDragDiff < -oneSlideWidth / 5) {
+                        // Next
+                        updateSlider(currentSlide + 1);
+                    } else if (heroDragDiff > oneSlideWidth / 5) {
+                        // Prev
+                        updateSlider(currentSlide - 1);
+                    } else {
+                        updateSlider(currentSlide);
+                    }
+
+                    startSlider();
+                };
+
+                container.addEventListener('mousedown', dragStart);
+                container.addEventListener('touchstart', dragStart, { passive: true });
+
+                container.addEventListener('mousemove', dragMove);
+                container.addEventListener('touchmove', dragMove, { passive: false });
+
+                container.addEventListener('mouseup', dragEnd);
+                container.addEventListener('mouseleave', dragEnd);
+                container.addEventListener('touchend', dragEnd);
+
+                container.style.cursor = 'grab';
+            }
+
+            // Gallery & Modal
+            function createWorkElement(w) {
+                const hasMultipleImages = w.images && w.images.length > 1;
+                const div = document.createElement('div');
+                div.className = 'gallery-item relative w-[280px] h-[350px] md:w-full md:h-auto md:aspect-[4/5] flex-shrink-0 bg-white rounded-[32px] overflow-hidden shadow-sm cursor-pointer border border-gray-100 group';
+                div.innerHTML = `
+                <div class="w-full h-full bg-gray-50 relative">
+                    <img src="${w.image}" class="w-full h-full object-cover transition duration-1000 group-hover:scale-105" alt="${w.title}">
+                    ${hasMultipleImages ? '<div class="absolute top-4 right-4 bg-black/30 text-white w-8 h-8 flex items-center justify-center rounded-full backdrop-blur-sm z-10 pointer-events-none"><i class="fa-solid fa-clone text-xs"></i></div>' : ''}
+                </div>
+                <div class="overlay absolute inset-0 bg-white/90 opacity-0 transition duration-300 flex flex-col justify-center items-center p-6 text-center group-hover:opacity-100">
+                    <span class="text-[9px] tracking-[0.3em] text-[#BE4B35] uppercase font-bold mb-1">${w.category}</span>
+                    <h4 class="text-lg font-bold text-gray-800 mb-3">${w.title}</h4>
+                    <div class="flex flex-wrap justify-center gap-1">
+                        ${(w.tags || []).map(tag => `<span class="text-[8px] px-2 py-0.5 bg-gray-100 text-gray-500 rounded-full font-medium">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `;
+                // ドラッグとクリックを区別する
+                let startX, startY;
+                div.addEventListener('mousedown', e => { startX = e.clientX; startY = e.clientY; });
+                div.addEventListener('click', (e) => {
+                    // Only open modal if it wasn't a drag on mobile
+                    if (isGalleryMobile) {
+                        const diffX = Math.abs(e.clientX - startX);
+                        const diffY = Math.abs(e.clientY - startY);
+                        if (diffX < 5 && diffY < 5) openModal(w);
+                    } else {
+                        openModal(w);
+                    }
+                });
+                return div;
+            }
+
+            function createArchiveCard() {
+                const div = document.createElement('div');
+                div.className = 'gallery-item relative w-[280px] h-[350px] md:w-full md:h-auto md:aspect-[4/5] flex-shrink-0 bg-gray-50 rounded-[32px] overflow-hidden shadow-sm cursor-pointer border border-gray-200 group flex flex-col items-center justify-center hover:bg-[#BE4B35] transition-colors duration-300';
+                div.innerHTML = `
+                <div class="text-center group-hover:text-white transition-colors duration-300">
+                    <div class="w-16 h-16 rounded-full border-2 border-gray-300 group-hover:border-white flex items-center justify-center mb-4 mx-auto transition-colors duration-300">
+                        <i class="fa-solid fa-arrow-right text-xl text-gray-400 group-hover:text-white transition-colors duration-300"></i>
+                    </div>
+                    <span class="text-sm font-bold tracking-widest uppercase text-gray-500 group-hover:text-white transition-colors duration-300">View Archive</span>
+                    <p class="text-[10px] mt-2 text-gray-400 group-hover:text-white/80 transition-colors duration-300">すべての作品を見る</p>
+                </div>
+            `;
+                let startX, startY;
+                div.addEventListener('mousedown', e => { startX = e.clientX; startY = e.clientY; });
+                div.addEventListener('click', (e) => {
+                    const diffX = Math.abs(e.clientX - startX);
+                    const diffY = Math.abs(e.clientY - startY);
+                    if (diffX < 5 && diffY < 5) window.location.href = 'gallery.html?from=gallery';
+                });
+                return div;
+            }
+
+            function showToast(message) {
+                const existingToast = document.getElementById('toast-notification');
+                if (existingToast) existingToast.remove();
+
+                const toast = document.createElement('div');
+                toast.id = 'toast-notification';
+                toast.className = 'fixed bottom-6 left-6 bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg z-[200] transition-all duration-300 opacity-0 translate-y-2 text-sm font-bold tracking-wide flex items-center';
+                toast.innerHTML = `<i class="fa-solid fa-check mr-2 text-green-400"></i>${message}`;
+                document.body.appendChild(toast);
+
+                requestAnimationFrame(() => {
+                    toast.classList.remove('opacity-0', 'translate-y-2');
+                });
+
+                setTimeout(() => {
+                    toast.classList.add('opacity-0', 'translate-y-2');
+                    setTimeout(() => toast.remove(), 300);
+                }, 3000);
+            }
+
+            function openModal(w, updateUrl = true) {
+                const container = document.getElementById('modal-img-container');
+                const thumbnailsContainer = document.getElementById('modal-thumbnails');
+                container.innerHTML = ''; // Clear previous content
+                thumbnailsContainer.innerHTML = '';
+
+                // Use 'images' array if available, otherwise fallback to single 'image'
+                const imagesToShow = (w.images && w.images.length > 0) ? w.images : [w.image];
+
+                // カウンターの初期化
+                const counter = document.getElementById('modal-counter');
+                if (imagesToShow.length > 1) {
+                    counter.innerText = `1/${imagesToShow.length}`;
+                    counter.style.display = 'inline';
+                } else {
+                    counter.style.display = 'none';
+                }
+
+                // Main Image
+                const mainImg = document.createElement('img');
+                mainImg.id = 'modal-main-img';
+                mainImg.src = imagesToShow[0];
+                mainImg.alt = w.title;
+                container.appendChild(mainImg);
+
+                // Thumbnails
+                imagesToShow.forEach((src, index) => {
+                    if (imagesToShow.length > 1) {
+                        const thumb = document.createElement('img');
+                        thumb.src = src;
+                        thumb.className = `modal-thumbnail ${index === 0 ? 'active' : ''}`;
+                        thumb.onclick = () => {
+                            mainImg.src = src;
+                            counter.innerText = `${index + 1}/${imagesToShow.length}`;
+                            document.querySelectorAll('.modal-thumbnail').forEach(t => t.classList.remove('active'));
+                            thumb.classList.add('active');
+                        };
+                        thumbnailsContainer.appendChild(thumb);
+                    }
+                });
+
+                document.getElementById('modal-title').innerText = w.title;
+                document.getElementById('modal-category').innerText = w.category;
+
+                const tagsContainer = document.getElementById('modal-tags');
+                if (tagsContainer) {
+                    tagsContainer.innerHTML = '';
+                    if (w.tags && Array.isArray(w.tags)) {
+                        w.tags.forEach(tag => {
+                            const btn = document.createElement('button');
+                            btn.className = 'text-[10px] px-3 py-1 bg-gray-100 text-gray-500 rounded-full hover:bg-[#BE4B35] hover:text-white transition cursor-pointer';
+                            btn.innerText = tag;
+                            btn.addEventListener('click', () => {
+                                window.location.href = `gallery.html?tag=${encodeURIComponent(tag)}`;
+                            });
+                            tagsContainer.appendChild(btn);
+                        });
+                    }
+                }
+
+                document.getElementById('modal-date').innerText = w.productionDate || '-';
+                document.getElementById('modal-time').innerText = w.productionTime || '-';
+
+                document.getElementById('modal-details').innerText = w.details;
+                imageModal.classList.remove('hidden');
+
+                // Share Logic
+                const shareUrl = new URL(window.location.origin + window.location.pathname);
+                shareUrl.searchParams.set('work', w.id);
+                const shareText = `${w.title} - AsagiMuu Portfolio`;
+
+                const shareX = document.getElementById('share-x');
+                if (shareX) shareX.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl.toString())}`;
+
+                const shareLine = document.getElementById('share-line');
+                if (shareLine) shareLine.href = `https://social-plugins.line.me/lineit/share?url=${encodeURIComponent(shareUrl.toString())}`;
+
+                const shareCopy = document.getElementById('share-copy');
+                if (shareCopy) {
+                    shareCopy.onclick = () => {
+                        navigator.clipboard.writeText(shareUrl.toString()).then(() => showToast('クリップボードにコピーしました'));
+                    };
+                }
+
+                // Reset Share Menu
+                const shareMenu = document.getElementById('share-menu');
+                if (shareMenu) {
+                    shareMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                    shareMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                }
+
+                if (updateUrl) {
+                    const newUrl = new URL(window.location);
+                    newUrl.searchParams.set('work', w.id);
+                    history.pushState({ workId: w.id }, '', newUrl);
+                }
+
+                // ブラウザのタブ名とメタタグを更新（※SNSシェア時のカードには反映されません）
+                document.title = `${w.title} - AsagiMuu Portfolio`;
+                const metaImage = document.querySelector('meta[property="og:image"]');
+                if (metaImage) {
+                    const imgUrl = (w.images && w.images.length > 0) ? w.images[0] : w.image;
+                    const absoluteUrl = new URL(imgUrl, window.location.href).href;
+                    metaImage.content = absoluteUrl;
+                }
+            }
+            const closeModal = () => {
+                imageModal.classList.add('hidden');
+                const url = new URL(window.location);
+                if (url.searchParams.get('work')) {
+                    url.searchParams.delete('work');
+                    history.pushState(null, '', url);
+                }
+                // タイトルとメタタグを元に戻す
+                document.title = 'AsagiMuu Portfolio';
+                const metaImage = document.querySelector('meta[property="og:image"]');
+                if (metaImage) metaImage.content = 'https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png';
+            };
+
+            function setupGalleryLayout() {
+                const isNowMobile = window.innerWidth < 768;
+                if (isNowMobile === isGalleryMobile && document.getElementById('gallery-track').children.length > 0) {
+                    return; // No change needed
+                }
+                isGalleryMobile = isNowMobile;
+
+                cancelAnimationFrame(galleryAnimFrame); // Stop any running animation
+
+                const container = document.getElementById('gallery-container');
+                const track = document.getElementById('gallery-track');
+                if (!container || !track) return;
+
+                track.innerHTML = '';
+                track.style.transform = ''; // Reset position
+
+                if (isGalleryMobile) {
+                    // --- Mobile Slider Setup ---
+                    container.className = 'relative w-full overflow-hidden cursor-grab active:cursor-grabbing select-none -mx-6 px-6';
+                    track.className = 'flex gap-8 w-max will-change-transform';
+
+                    const displayWorks = works.slice(0, 9);
+                    const appendItems = () => {
+                        displayWorks.forEach(w => track.appendChild(createWorkElement(w)));
+                        track.appendChild(createArchiveCard());
+                    };
+                    appendItems();
+                    appendItems(); // For infinite loop
+
+                    initGallerySlider();
+                } else {
+                    // --- Desktop Grid Setup ---
+                    container.className = 'max-w-7xl mx-auto px-6';
+                    track.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10';
+
+                    works.slice(0, 6).forEach(w => {
+                        track.appendChild(createWorkElement(w));
+                    });
+                    // Remove event listeners by cloning the node
+                    const newContainer = container.cloneNode(false); // shallow clone
+                    while (container.firstChild) {
+                        newContainer.appendChild(container.firstChild);
+                    }
+                    container.parentNode.replaceChild(newContainer, container);
+                }
+            }
+
+            function initGallerySlider() {
+                const container = document.getElementById('gallery-container');
+                const track = document.getElementById('gallery-track');
+                if (!container || !track) return;
+
+                galleryX = 0; // Reset position
+
+                let velocity = 0;
+                let lastMoveTime = 0;
+
+                const animate = () => {
+                    if (!isGalleryDragging) {
+                        // Inertia
+                        if (Math.abs(velocity) > 0.1) {
+                            galleryX += velocity;
+                            velocity *= 0.95; // Friction
+                        } else {
+                            velocity = 0;
+                            if (!isGalleryPaused) {
+                                galleryX -= gallerySpeed;
+                            }
+                        }
+                    }
+
+                    const totalWidth = track.scrollWidth;
+                    const setWidth = totalWidth / 2;
+                    if (galleryX <= -setWidth) {
+                        galleryX += setWidth;
+                        galleryPrevX += setWidth;
+                    } else if (galleryX > 0) {
+                        galleryX -= setWidth;
+                        galleryPrevX -= setWidth;
+                    }
+
+                    track.style.transform = `translateX(${galleryX}px)`;
+                    galleryAnimFrame = requestAnimationFrame(animate);
+                };
+                cancelAnimationFrame(galleryAnimFrame);
+                animate();
+
+                // ドラッグイベント
+                const startDrag = (e) => {
+                    isGalleryDragging = true;
+                    isGalleryPaused = true;
+                    clearTimeout(galleryPauseTimeout);
+                    isVerticalScroll = false;
+                    velocity = 0; // Stop inertia on tap
+
+                    galleryStartX = getPositionX(e);
+                    galleryInitialY = getPositionY(e);
+                    galleryPrevX = galleryX;
+
+                    lastMoveTime = Date.now();
+                    lastMoveX = galleryStartX; // Initialize lastMoveX
+
+                    container.style.cursor = 'grabbing';
+                };
+
+                const moveDrag = (e) => {
+                    if (!isGalleryDragging) return;
+
+                    const currentX = getPositionX(e);
+                    const currentY = getPositionY(e);
+                    const diff = currentX - galleryStartX;
+                    const diffY = currentY - galleryInitialY;
+
+                    // 最初の動きで縦スクロールか横スクロールかを判定
+                    if (!isVerticalScroll && Math.abs(diffY) > Math.abs(diff)) {
+                        isVerticalScroll = true;
+                        isGalleryDragging = false; // 縦スクロールならギャラリーのドラッグを中止
+                        return;
+                    }
+
+                    if (isVerticalScroll) return;
+
+                    if (e.cancelable) e.preventDefault(); // 横スクロールが確定したらページの縦スクロールを止める
+
+                    galleryX = galleryPrevX + diff;
+
+                    // Calculate velocity for inertia
+                    const now = Date.now();
+                    const dt = now - lastMoveTime;
+                    if (dt > 0) {
+                        const dx = currentX - lastMoveX;
+                        velocity = dx / dt * 10; // Scale velocity for effect
+                    }
+                    lastMoveTime = now;
+                    lastMoveX = currentX;
+
+                    // Infinite Scroll Loop Logic
+                    const totalWidth = track.scrollWidth;
+                    const setWidth = totalWidth / 2;
+
+                    if (galleryX > 0) {
+                        galleryX -= setWidth;
+                        galleryPrevX -= setWidth;
+                    } else if (galleryX < -setWidth) {
+                        galleryX += setWidth;
+                        galleryPrevX += setWidth;
+                    }
+                };
+
+                const endDrag = () => {
+                    if (!isGalleryDragging) return;
+                    isGalleryDragging = false;
+                    container.style.cursor = 'grab';
+
+                    // すぐに再開 (0秒)
+                    galleryPauseTimeout = setTimeout(() => {
+                        isGalleryPaused = false;
+                    }, 0);
+                };
+
+                const getPositionX = (e) => {
+                    return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+                };
+
+                const getPositionY = (e) => {
+                    return e.type.includes('mouse') ? e.pageY : e.touches[0].clientY;
+                };
+
+                container.addEventListener('mousedown', startDrag);
+                container.addEventListener('touchstart', startDrag, { passive: true });
+                container.addEventListener('mousemove', moveDrag);
+                container.addEventListener('touchmove', moveDrag, { passive: false });
+                container.addEventListener('mouseup', endDrag);
+                container.addEventListener('mouseleave', endDrag);
+                container.addEventListener('touchend', endDrag);
+            }
+
+            function renderStatusTable() {
+                const tableBody = document.getElementById('status-table-body');
+                if (!tableBody) return;
+
+                if (!commissionStatus || commissionStatus.length === 0) {
+                    tableBody.innerHTML = `<tr><td colspan="4" class="text-center text-gray-500 py-8">現在、受付状況の情報はありません。</td></tr>`;
+                    return;
+                }
+
+                const statusMap = {
+                    close: { symbol: '×', class: 'status-x' },
+                    limited: { symbol: '△', class: 'status-delta' },
+                    open: { symbol: '○', class: 'status-circle' }
+                };
+
+                tableBody.innerHTML = commissionStatus.map(item => {
+                    const statusInfo = statusMap[item.status] || { symbol: '-', class: '' };
+                    return `
+                    <tr>
+                        <td>${item.month}</td>
+                        <td class="${statusInfo.class}">${statusInfo.symbol}</td>
+                        <td>${item.description}</td>
+                        <td>${item.details}</td>
+                    </tr>
+                `;
+                }).join('');
+            }
+
+            // --- Event Listeners ---
+            if (logoLink) {
+                logoLink.addEventListener('click', (e) => {
+                    // Smooth scroll to top if already on home page
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    updateSlider(parseInt(dot.dataset.index) + 1);
+                    startSlider(); // Reset interval on manual navigation
+                });
+            });
+
+            // Navigation Links Logic (Desktop & Mobile)
+            document.querySelectorAll('.nav-link, #mobile-menu a, #logo-link').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const targetId = link.getAttribute('href');
+                    // #で始まるリンク、または index.html へのリンクを制御
+                    if (targetId === 'index.html' || (targetId && targetId.startsWith('#'))) {
+                        e.preventDefault();
+                        if (targetId === 'index.html' || targetId === '#top') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        } else {
+                            const target = document.querySelector(targetId);
+                            if (target) {
+                                target.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Handle browser back/forward navigation
+            window.addEventListener('popstate', (e) => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const workId = urlParams.get('work');
+                if (workId) {
+                    const work = works.find(w => w.id == workId);
+                    if (work) {
+                        openModal(work, false);
+                    }
+                } else {
+                    imageModal.classList.add('hidden');
+                    // ブラウザバック時もタイトルとメタタグを元に戻す
+                    document.title = 'AsagiMuu Portfolio';
+                    const metaImage = document.querySelector('meta[property="og:image"]');
+                    if (metaImage) metaImage.content = 'https://your-site-url.com/images/ui/2025-09-02_01_AsagiMuu.png';
+                }
+            });
+
+            if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+            if (closeModalBg) closeModalBg.addEventListener('click', closeModal);
+
+            // Share Menu Toggle
+            const shareTrigger = document.getElementById('share-trigger');
+            const shareMenu = document.getElementById('share-menu');
+            if (shareTrigger && shareMenu) {
+                shareTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    shareMenu.classList.toggle('opacity-0');
+                    shareMenu.classList.toggle('invisible');
+                    shareMenu.classList.toggle('-translate-y-2');
+                    shareMenu.classList.toggle('opacity-100');
+                    shareMenu.classList.toggle('visible');
+                    shareMenu.classList.toggle('translate-y-0');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!shareTrigger.contains(e.target) && !shareMenu.contains(e.target)) {
+                        shareMenu.classList.add('opacity-0', 'invisible', '-translate-y-2');
+                        shareMenu.classList.remove('opacity-100', 'visible', 'translate-y-0');
+                    }
+                });
+            }
+
+            // Pricing page card hover logic
+            const plans = {
+            };
+
+            function activatePlan(activePlanId) {
+                if (!plans[activePlanId]) return;
+
+                Object.keys(plans).forEach(planId => {
+                    const plan = plans[planId];
+                    const isActive = planId === activePlanId;
+
+                    // Card container
+                    plan.el.classList.toggle('plan-active', isActive);
+                    plan.el.classList.toggle('plan-inactive', !isActive);
+                    // 常にプランの枠線カラーを表示します。アクティブ状態はCSSのborder-widthで制御されます。
+                    plan.el.classList.remove('border-gray-100');
+
+                    // 上枠線の制御: アクティブかつバッジがある場合は上枠線を消す
+                    plan.el.classList.remove('border-t-0');
+                    if (isActive && plan.hasBadge) {
+                        plan.el.classList.add('border-t-0');
+                    }
+
+                    plan.el.classList.add(plan.colors.border);
+
+                    // Badge
+                    if (plan.badge) {
+                        plan.badge.classList.toggle('opacity-100', isActive);
+                        plan.badge.classList.toggle('opacity-0', !isActive);
+                    }
+
+                    // Title
+                    plan.title.classList.toggle('text-2xl', isActive);
+                    plan.title.classList.toggle('font-bold', isActive);
+                    plan.title.classList.toggle('text-xl', !isActive);
+                    plan.title.classList.toggle('font-semibold', !isActive);
+                    const isPremium = planId === 'premium';
+                    const isBasic = planId === 'basic';
+                    plan.title.classList.toggle(plan.colors.text, isActive || isPremium || isBasic);
+                    plan.title.classList.toggle('text-gray-500', !isActive && !isPremium && !isBasic);
+
+                    // Price
+                    plan.price.classList.toggle('text-5xl', isActive);
+                    plan.price.classList.toggle('text-4xl', !isActive);
+
+                    // Button
+                    if (plan.button) {
+                        plan.button.classList.remove('py-4', 'shadow-lg', 'text-white', plan.colors.bg, plan.colors.hoverBg, 'py-3', 'border-2', 'border-gray-300', 'text-gray-500', plan.colors.hoverText, 'hover:border-transparent');
+                        if (isActive) {
+                            plan.button.classList.add('py-4', 'shadow-lg', 'text-white', plan.colors.bg, plan.colors.hoverBg);
+                        } else {
+                            plan.button.classList.add('py-3', 'border-2', 'border-gray-300', 'text-gray-500', plan.colors.hoverBg, plan.colors.hoverText, 'hover:border-transparent');
+                        }
+                    }
+                });
+            }
+            window.activatePlan = activatePlan; // Make it globally accessible for onmouseenter
+
+            function renderPricing() {
+                const pricingData = siteConfig.pricing;
+                if (!pricingData) return;
+
+                const cardsContainer = document.getElementById('pricing-cards-container');
+                if (cardsContainer) {
+                    const colorClasses = {
+                        gray: { text: 'text-gray-600', border: 'border-gray-400', bg: 'bg-gray-400', hoverBg: 'hover:bg-gray-500', hoverText: 'hover:text-white' },
+                        blue: { text: 'text-blue-600', border: 'border-blue-600', bg: 'bg-blue-600', hoverBg: 'hover:bg-blue-700', hoverText: 'hover:text-white' },
+                        yellow: { text: 'text-amber-600', border: 'border-amber-500', bg: 'bg-amber-500', hoverBg: 'hover:bg-amber-600', hoverText: 'hover:text-white' }
+                    };
+
+                    // Render all cards with base inactive styles. JS will handle activation.
+                    cardsContainer.innerHTML = pricingData.plans.map((plan, index) => {
+                        const orderClass = index === 0 ? 'order-1 md:order-1' : (index === 1 ? 'order-2 md:order-2' : 'order-3');
+                        const planColor = colorClasses[plan.color] || colorClasses.gray;
+
+                        return `
+                        <div id="plan-${plan.id}" class="plan-card bg-white rounded-2xl relative ${orderClass} transition-all duration-300" onmouseenter="activatePlan('${plan.id}')">
+                            <div id="badge-${plan.id}" class="plan-badge ${planColor.bg} text-white text-xs font-bold uppercase tracking-wider py-1 absolute top-[-2px] left-[-2px] right-[-2px] text-center transition-opacity duration-300 rounded-t-[14px]">
+                                ${plan.badge}
+                            </div>
+                            <div class="p-8 pt-10">
+                                <h3 id="plan-title-${plan.id}" class="text-center mb-2 transition-all duration-300" style="font-family: 'Zen Maru Gothic', sans-serif;">${plan.name}</h3>
+                                <div class="text-center mb-4">
+                                    <span class="price-span font-bold text-gray-900 transition-all duration-300">${plan.price}</span>
+                                </div>
+                                <p class="text-sm text-gray-600 text-center mb-4 min-h-[40px]">${plan.description}</p>
+                                <ul class="space-y-2 text-sm mb-8">
+                                    ${plan.features.map(f => `<li class="flex items-start"><i class="fa-solid fa-check check-icon mt-1 mr-3 text-green-500"></i><span>${f}</span></li>`).join('')}
+                                </ul>
+                                <a id="plan-button-${plan.id}" href="pricing.html?plan=${plan.id}" class="block w-full px-6 text-center rounded-lg font-bold transition-all">
+                                    このプランを確認する
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    }).join('');
+
+                    // Populate plans object with elements and color data
+                    pricingData.plans.forEach(planData => {
+                        const planEl = document.getElementById(`plan-${planData.id}`);
+                        plans[planData.id] = {
+                            el: planEl,
+                            badge: document.getElementById(`badge-${planData.id}`),
+                            title: document.getElementById(`plan-title-${planData.id}`),
+                            price: planEl.querySelector('.price-span'),
+                            button: document.getElementById(`plan-button-${planData.id}`),
+                            colors: colorClasses[planData.color] || colorClasses.gray,
+                            hasBadge: !!planData.badge
+                        };
+                    });
+
+                    // Find the default plan and activate it
+                    const defaultPlan = pricingData.plans.find(p => p.default);
+
+                    // Mobile default override: Light Plan
+                    if (window.innerWidth < 768) {
+                        activatePlan('light');
+                    } else if (defaultPlan) {
+                        activatePlan(defaultPlan.id);
+                    } else if (pricingData.plans.length > 0) {
+                        activatePlan(pricingData.plans[0].id); // Fallback to first plan
+                    }
+
+                    // Mobile Scroll Observer for highlighting
+                    if (window.innerWidth < 768) {
+                        const observer = new IntersectionObserver((entries) => {
+                            entries.forEach(entry => {
+                                if (entry.isIntersecting) {
+                                    const planId = entry.target.id.replace('plan-', '');
+                                    activatePlan(planId);
+                                }
+                            });
+                        }, {
+                            root: null,
+                            rootMargin: '-40% 0px -40% 0px',
+                            threshold: 0
+                        });
+
+                        Object.values(plans).forEach(plan => {
+                            if (plan.el) observer.observe(plan.el);
+                        });
+                    }
+                }
+
+                // Render Comparison Table
+                const table = document.getElementById('pricing-comparison-table');
+                if (table) {
+                    const colorClasses = {
+                        gray: { text: 'text-gray-500', bg: 'bg-gray-50', border: 'border-gray-100' },
+                        blue: { text: 'text-blue-600', bg: 'bg-blue-50', border: 'border-blue-100' },
+                        yellow: { text: 'text-amber-600', bg: 'bg-amber-50', border: 'border-amber-100' }
+                    };
+
+                    const theadHTML = `
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-4 text-left text-sm font-bold text-gray-500 uppercase tracking-wider w-1/6 sticky left-0 bg-gray-50 z-10 border-r border-gray-200">プラン</th>
+                            ${pricingData.plans.map(p => {
+                        const planColor = colorClasses[p.color] || colorClasses.gray;
+                        const isHighlighted = p.default || p.id === 'premium';
+                        return `<th scope="col" class="px-6 py-4 text-center text-sm font-bold ${isHighlighted ? planColor.text : 'text-gray-500'} uppercase tracking-wider w-1/4 ${isHighlighted ? planColor.bg + ' ' + planColor.border + ' border-x' : ''}">${p.name}</th>`;
+                    }).join('')}
+                        </tr>
+                    </thead>
+                `;
+
+                    const tbodyHTML = pricingData.comparison.map(cat => {
+                        const categoryRow = `<tr class="bg-gray-50"><td colspan="${1 + pricingData.plans.length}" class="px-6 py-2 text-center text-xs font-bold text-gray-600 tracking-widest">${cat.category}</td></tr>`;
+                        const itemRows = cat.items.map(item => `
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap font-bold text-gray-900 sticky left-0 bg-white border-r border-gray-200 align-top">${item.name}</td>
+                            ${item.values.map((val, index) => {
+                            const plan = pricingData.plans[index];
+                            const isHighlighted = plan.default || plan.id === 'premium';
+                            const planColor = colorClasses[plan.color] || colorClasses.gray;
+                            const valueColor = isHighlighted ? planColor.text.replace('600', '900').replace('500', '800') : 'text-gray-600';
+                            return `<td class="px-6 py-4 text-center text-xs ${valueColor} ${isHighlighted ? planColor.bg + ' ' + planColor.border + ' border-x' : ''}">${val}</td>`;
+                        }).join('')}
+                        </tr>
+                    `).join('');
+                        return categoryRow + itemRows;
+                    }).join('');
+
+                    table.innerHTML = theadHTML + `<tbody class="bg-white divide-y divide-gray-200 text-sm">${tbodyHTML}</tbody>`;
+                }
+            }
+
+            function setupResizeHandler() {
+                // Add resize listener for gallery
+                let galleryResizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(galleryResizeTimeout);
+                    galleryResizeTimeout = setTimeout(setupGalleryLayout, 250);
+                });
+            }
+
+            // --- Initialisation ---
+            async function initializeSite() {
+                // 外部JSONファイルから作品データを非同期で読み込む
+                try {
+                    const data = await loadCommonData();
+                    siteConfig = data;
+                    works = data.works || [];
+                    // 初期ソートは renderArchive で行われるためここでは不要ですが、TopページのGallery用にソートしておく
+                    works.sort((a, b) => (b.productionDate || '').localeCompare(a.productionDate || ''));
+                    commissionStatus = data.commissionStatus || [];
+
+                    // Handle 'work' parameter for direct modal link
+                    const urlParams = new URLSearchParams(window.location.search);
+                    const workId = urlParams.get('work');
+                    if (workId) {
+                        const work = works.find(w => w.id == workId);
+                        if (work) {
+                            openModal(work, false);
+                        }
+                    }
+                } catch (error) {
+                    console.error("データの読み込みに失敗しました:", error);
+                    const archiveGrid = document.getElementById('archive-grid');
+                    if (archiveGrid) archiveGrid.innerHTML = '<p class="text-center text-gray-500 col-span-full">作品の読み込みに失敗しました。</p>';
+                    // データがなくても他の部分は初期化を試みる
+                } finally {
+                    document.getElementById('view-home').classList.remove('opacity-0');
+                }
+
+                const aboutImage = document.getElementById('about-image');
+                if (aboutImage) aboutImage.src = siteConfig.aboutImage;
+
+                // プロフィール情報の反映
+                if (siteConfig.profile) {
+                    // Description
+                    const aboutDesc = document.querySelector('#about-teaser p.text-gray-500');
+                    if (aboutDesc) aboutDesc.textContent = siteConfig.profile.shortDescription || siteConfig.profile.description;
+
+                    // History & Environment
+                    const headings = document.querySelectorAll('#about-teaser h4');
+                    headings.forEach(h => {
+                        const container = h.parentElement.nextElementSibling;
+                        if (!container) return;
+
+                        if (h.textContent.includes('History') && siteConfig.profile.history) {
+                            container.innerHTML = siteConfig.profile.history.map(item => `<li>${item}</li>`).join('');
+                        } else if (h.textContent.includes('Environment') && siteConfig.profile.environment) {
+                            container.innerHTML = siteConfig.profile.environment.map(item => `<p class="text-[10px] text-gray-400 font-medium">${item}</p>`).join('');
+                        }
+                    });
+                }
+
+                // 動的なコンテンツをレンダリング
+                renderSlider(); // スライダーは静的データなので先にレンダリング
+                initHeroSliderEvents();
+                setupGalleryLayout(); // This replaces renderGallery()
+                renderPricing();
+                renderStatusTable();
+                setupResizeHandler();
+
+                // --- Navigation Highlighting ---
+                const navLinks = document.querySelectorAll('#desktop-nav a.nav-link');
+                navLinks.forEach(link => {
+                    link.classList.remove('active-nav-item');
+                    link.classList.add('hover:text-gray-800');
+                });
+                const currentPath = window.location.pathname.split("/").pop();
+                let activeLink = null;
+                if (currentPath === 'index.html' || currentPath === '') {
+                    activeLink = document.querySelector('a.nav-link[href^="index.html"]');
+                } else if (['pricing.html', 'pricing-corporate.html', 'terms.html', 'faq.html', 'workflow.html', 'form.html'].includes(currentPath)) {
+                    activeLink = document.querySelector('a.nav-link[href="pricing.html"]');
+                } else {
+                    activeLink = document.querySelector(`#desktop-nav a.nav-link[href="${currentPath}"]`);
+                }
+                if (activeLink) {
+                    const mainLink = activeLink.closest('.relative.group')?.querySelector('a.nav-link') || activeLink;
+                    mainLink.classList.add('active-nav-item');
+                    mainLink.classList.remove('hover:text-gray-800');
+                }
+                // --- End Navigation Highlighting ---
+
+                if (sliderInner) {
+                    startSlider();
+                }
+
+                // Add click listeners to save scroll position for navigation links (Pricing & Gallery & About)
+                document.querySelectorAll('a[href^="pricing.html"], a[href^="gallery.html"], a[href^="about.html"]').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        // ヘッダーまたはモバイルメニュー内のリンクなら保存しない（一番上に戻るため）
+                        if (link.closest('#main-nav') || link.closest('#mobile-menu')) {
+                            sessionStorage.removeItem('index_scroll_pos');
+                            sessionStorage.removeItem('index_scroll_target');
+                            return;
+                        }
+                        sessionStorage.setItem('index_scroll_pos', window.scrollY);
+                        sessionStorage.setItem('index_scroll_target', link.getAttribute('href'));
+                    });
+                });
+
+                // Restore scroll position if returning from other pages
+                const savedScroll = sessionStorage.getItem('index_scroll_pos');
+                const savedTarget = sessionStorage.getItem('index_scroll_target');
+
+                let shouldRestore = false;
+                if (savedScroll && savedTarget) {
+                    // ターゲットのファイル名部分を取得 (例: "pricing.html")
+                    const targetPath = savedTarget.split('?')[0].split('#')[0];
+                    // リファラーにターゲットが含まれているか確認（直前のページが移動先だった場合のみ復元）
+                    if (document.referrer && document.referrer.includes(targetPath)) {
+                        shouldRestore = true;
+                    }
+                }
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const scrollTarget = urlParams.get('scroll');
+
+                if (shouldRestore) {
+                    setTimeout(() => {
+                        window.scrollTo({ top: parseInt(savedScroll), behavior: 'smooth' });
+                        sessionStorage.removeItem('index_scroll_pos');
+                        sessionStorage.removeItem('index_scroll_target');
+                    }, 300);
+                } else if (scrollTarget) {
+                    sessionStorage.removeItem('index_scroll_pos');
+                    sessionStorage.removeItem('index_scroll_target');
+                    const target = document.getElementById(scrollTarget);
+                    if (target) {
+                        setTimeout(() => {
+                            target.scrollIntoView({ behavior: 'smooth' });
+                        }, 300);
+                    }
+                    const newUrl = new URL(window.location);
+                    newUrl.searchParams.delete('scroll');
+                    history.replaceState(null, '', newUrl);
+                } else {
+                    sessionStorage.removeItem('index_scroll_pos');
+                    sessionStorage.removeItem('index_scroll_target');
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            }
+            initializeSite();
+
+            // Contact Form Logic
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+                    const submitBtn = document.getElementById('submit-btn');
+                    const btnSpan = submitBtn.querySelector('span');
+                    const originalText = btnSpan ? btnSpan.textContent : submitBtn.textContent;
+
+                    submitBtn.disabled = true;
+                    if (btnSpan) btnSpan.textContent = '送信中...';
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+                    try {
+                        const formData = new FormData(contactForm);
+                        const response = await fetch(contactForm.action, {
+                            method: 'POST',
+                            body: formData,
+                            headers: {
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        if (response.ok) {
+                            window.location.href = 'thanks.html';
+                        } else {
+                            const data = await response.json();
+                            let errorMessage = "送信に失敗しました。";
+                            if (data.errors && data.errors.length > 0) {
+                                errorMessage = data.errors.map(error => error.message).join(", ");
+                            }
+                            alert(errorMessage);
+                            resetButton();
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        alert("送信エラーが発生しました。ネットワーク接続を確認して再度お試しください。");
+                        resetButton();
+                    }
+
+                    function resetButton() {
+                        submitBtn.disabled = false;
+                        if (btnSpan) btnSpan.textContent = originalText;
+                        submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
