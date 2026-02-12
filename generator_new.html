@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>帳票生成ツール - Asagimuu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            --primary-color: #00A3AF;
+            --accent-color: #72C7C3;
+            --bg-color: #F0FAFA;
+            --text-color: #384D48;
+            --border-radius: 8px;
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: #f5f5f5;
+            color: var(--text-color);
+        }
+
+        /* Layout */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #34495e;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-section h3 {
+            font-size: 14px;
+            color: #95a5a6;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .template-btn,
+        .color-btn,
+        .download-btn {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 8px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+            text-align: left;
+        }
+
+        .template-btn {
+            background: #34495e;
+            color: white;
+        }
+
+        .template-btn:hover {
+            background: #415a77;
+        }
+
+        .template-btn.active {
+            background: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .color-btn {
+            background: white;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .color-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-indicator {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+
+        .download-btn {
+            background: #27ae60;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .download-btn:hover {
+            background: #229954;
+        }
+
+        /* Preview Area */
+        .preview {
+            flex: 1;
+            padding: 40px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .a4-page {
+            width: 210mm;
+            min-height: 297mm;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 10mm;
+            margin-bottom: 20px;
+        }
+
+        /* Editable Fields */
+        [contenteditable="true"] {
+            outline: 2px dashed transparent;
+            transition: outline 0.2s;
+            border-radius: 2px;
+            padding: 2px;
+        }
+
+        [contenteditable="true"]:hover {
+            outline-color: var(--primary-color);
+            background: #f0fffe;
+        }
+
+        [contenteditable="true"]:focus {
+            outline-color: var(--primary-color);
+            background: #fff;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                margin: 0;
+                size: A4;
+            }
+
+            * {
+                overflow: visible !important;
+            }
+
+            body {
+                background: white;
+                margin: 0;
+                padding: 0;
+            }
+
+            .sidebar {
+                display: none !important;
+            }
+
+            .preview {
+                padding: 0;
+                margin: 0;
+                overflow: visible !important;
+            }
+
+            .a4-page {
+                width: 210mm;
+                height: 296mm;
+                /* 微調整 */
+                margin: 0;
+                padding: 8mm;
+                /* さらに縮小 */
+                box-shadow: none;
+                overflow: hidden !important;
+                /* はみ出し防止 */
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Template Common Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 10px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 5px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-placeholder {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .title-area h1 {
+            font-size: 26px;
+            margin: 0;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .title-area span {
+            font-size: 12px;
+            color: var(--accent-color);
+            font-weight: bold;
+            display: block;
+            margin-top: 2px;
+        }
+
+        .doc-meta {
+            text-align: right;
+            font-size: 11px;
+            line-height: 1.4;
+            color: #666;
+        }
+
+        /* Address Area */
+        .address-area {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .client-info {
+            width: 55%;
+            padding-top: 10px;
+        }
+
+        .client-name {
+            font-size: 20px;
+            font-weight: bold;
+            border-bottom: 1px dashed var(--primary-color);
+            padding-bottom: 2px;
+            margin-bottom: 4px;
+            display: inline-block;
+            min-width: 200px;
+        }
+
+        .sender-info {
+            width: 38%;
+            font-size: 11px;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 1px solid #D0EBEB;
+        }
+
+        .sender-job-title {
+            font-size: 10px;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .sender-name {
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        /* Table Styles */
+        .table-wrap {
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid var(--primary-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+
+        th,
+        td {
+            padding: 6px 10px;
+            vertical-align: middle;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            border-right: 1px solid #fff;
+            background-color: var(--bg-color);
+            color: var(--primary-color);
+            font-weight: bold;
+            text-align: left;
+        }
+
+        td {
+            border-left: 1px solid #eee;
+        }
+
+        /* Total Area */
+        .total-area {
+            margin-top: 10px;
+            text-align: right;
+            padding: 10px 15px;
+            background-color: var(--bg-color);
+            border-radius: var(--border-radius);
+            color: var(--primary-color);
+            border: 1px solid #D0EBEB;
+        }
+
+        .total-label {
+            font-size: 14px;
+            margin-right: 30px;
+            font-weight: bold;
+        }
+
+        .total-amount {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Bank Info */
+        .bank-info {
+            margin-top: 10px;
+            padding: 15px;
+            background-color: #fafafa;
+            border-radius: var(--border-radius);
+            border: 1px dashed #ccc;
+            font-size: 13px;
+        }
+
+        .bank-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--text-color);
+        }
+
+        /* Notes Area */
+        .notes-area {
+            margin-top: 10px;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 10px;
+            min-height: 60px;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .notes-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 13px;
+            color: var(--primary-color);
+            border-left: 4px solid var(--primary-color);
+            padding-left: 8px;
+        }
+
+        /* Summary Grid for Confirmation */
+        .info-table th {
+            width: 22%;
+        }
+
+        .info-table td {
+            width: 28%;
+        }
+
+        /* Card Layout for Details */
+        .section-header {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+
+        .section-add-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 6px 16px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .section-add-btn:hover {
+            background: var(--accent-color);
+        }
+
+        .detail-card {
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: #fff;
+            padding: 15px 20px;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .card-number {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .card-delete-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            color: #999;
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .card-delete-btn:hover {
+            background: #f44336;
+            border-color: #f44336;
+            color: white;
+        }
+
+        .card-body {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px 15px;
+            margin-bottom: 12px;
+        }
+
+        .spec-item {
+            display: flex;
+            gap: 8px;
+        }
+
+        .spec-item label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 600;
+            min-width: 60px;
+        }
+
+        .spec-value {
+            font-size: 12px;
+            color: #333;
+            flex: 1;
+        }
+
+        .description {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .description label {
+            display: block;
+            font-size: 11px;
+            color: #666;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        .description-content {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #333;
+            padding: 8px;
+            background: #fafafa;
+            border-radius: 3px;
+        }
+
+        /* Two-Column Layout for Details */
+        .notes-flex {
+            display: flex;
+            gap: 20px;
+        }
+
+        .notes-left {
+            width: 25%;
+            border-right: 1px dashed #ddd;
+            padding-right: 15px;
+        }
+
+        .notes-right {
+            width: 75%;
+        }
+
+        .sub-label {
+            font-weight: bold;
+            font-size: 12px;
+            color: var(--text-color);
+            margin-top: 5px;
+            margin-bottom: 3px;
+            display: block;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 2px;
+        }
+
+        .sub-label:first-child {
+            margin-top: 0;
+        }
+
+        .sub-content {
+            padding-left: 5px;
+            color: #444;
+            margin-bottom: 8px;
+            word-wrap: break-word;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        /* Detail Section Header with Buttons */
+        .detail-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            align-items: center;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .detail-section-title {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--primary-color);
+        }
+
+        .detail-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .add-detail-btn,
+        .delete-detail-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .add-detail-btn:hover {
+            background: var(--accent-color);
+        }
+
+        .delete-detail-btn {
+            background: #e74c3c;
+        }
+
+        .delete-detail-btn:hover {
+            background: #c0392b;
+        }
+
+        .detail-card-number {
+            font-weight: bold;
+            font-size: 14px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+            margin-bottom: 10px;
+            padding-bottom: 2px;
+            display: inline-block;
+        }
+
+        /* Invoice Row Buttons */
+        .invoice-row-controls {
+            text-align: center;
+            padding: 5px;
+        }
+
+        .add-row-btn,
+        .delete-row-btn {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            margin: 0 3px;
+        }
+
+        .add-row-btn:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .delete-row-btn {
+            border-color: #e74c3c;
+            color: #e74c3c;
+        }
+
+        .delete-row-btn:hover {
+            background: #e74c3c;
+            color: white;
+        }
+
+        /* Detail Card Wrapper */
+        .detail-card-wrapper {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background: #fafafa;
+        }
+
+        .detail-card-number {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        /* ============================================
+           Print Styles - PDF出力用の最適化
+           ============================================ */
+        @media print {
+
+            /* 背景色と境界線を強制的に印刷 */
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* ページ設定 */
+            @page {
+                margin: 15mm;
+                size: A4;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            /* サイドバーとボタンを非表示 */
+            .sidebar,
+            .no-print,
+            .template-btn,
+            .color-btn,
+            .print-btn {
+                display: none !important;
+            }
+
+            /* メインコンテンツを全幅に */
+            .container {
+                display: block;
+            }
+
+            .main-content {
+                max-width: 100%;
+                padding: 0;
+                box-shadow: none;
+            }
+
+            /* テーブルのスタイルを画面表示と完全一致 */
+            /* テーブルのスタイルを画面表示と完全一致 */
+            .table-wrap {
+                border: none !important;
+                /* 外枠をbox-shadowで描画して最前面に見せる */
+                box-shadow: 0 0 0 1px var(--primary-color) !important;
+                border-radius: 8px !important;
+                overflow: hidden;
+                position: relative;
+                z-index: 2;
+            }
+
+            table {
+                border-collapse: collapse !important;
+                width: 100% !important;
+            }
+
+            /* 確認書のテーブルは角丸を維持するために separate にする */
+            table.info-table {
+                border-collapse: separate !important;
+                border-spacing: 0;
+                border: none !important;
+            }
+
+            /* info-table のセル境界線の調整と背景色の角丸化 */
+            .info-table th,
+            .info-table td {
+                border-bottom: 1px solid #eee !important;
+                border-right: 1px solid #eee !important;
+            }
+
+            /* 左上のセル */
+            .info-table tr:first-child th:first-child {
+                border-top-left-radius: 8px !important;
+            }
+
+            /* 右上のセル */
+            .info-table tr:first-child td:last-child {
+                border-top-right-radius: 8px !important;
+            }
+
+            /* 左下のセル */
+            .info-table tr:last-child th:first-child {
+                border-bottom-left-radius: 8px !important;
+            }
+
+            /* 右下のセル */
+            .info-table tr:last-child td:last-child {
+                border-bottom-right-radius: 8px !important;
+            }
+
+            .info-table tr:last-child th,
+            .info-table tr:last-child td {
+                border-bottom: none !important;
+            }
+
+            .info-table tr th:last-child,
+            .info-table tr td:last-child {
+                border-right: none !important;
+            }
+
+            th,
+            td {
+                padding: 10px 15px !important;
+                border-bottom: 1px solid #eee !important;
+            }
+
+            th {
+                border-right: 1px solid #fff !important;
+                background-color: var(--bg-color) !important;
+                color: var(--primary-color) !important;
+                font-weight: bold !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            td {
+                border-left: 1px solid #eee !important;
+                background-color: white !important;
+            }
+
+            /* 小計・消費税行の背景色（請求書用） - info-table以外のテーブルに適用 */
+            /* 金額セルと項目名セルのみ背景色をつける */
+            table:not(.info-table) tbody tr:last-child td:last-child,
+            table:not(.info-table) tbody tr:last-child td:nth-last-child(2),
+            table:not(.info-table) tbody tr:nth-last-child(2) td:last-child,
+            table:not(.info-table) tbody tr:nth-last-child(2) td:nth-last-child(2) {
+                background-color: var(--bg-color) !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* 小計・消費税行の左側の空セルは背景色なし */
+            table:not(.info-table) tbody tr:last-child td:first-child,
+            table:not(.info-table) tbody tr:nth-last-child(2) td:first-child {
+                background-color: transparent !important;
+                border: none !important;
+            }
+
+            /* 確認書のテーブルセルは白背景 */
+            .info-table td {
+                background-color: white !important;
+            }
+
+            /* 送信者カードの背景色を画面表示と同じに */
+            .sender-info {
+                background-color: var(--bg-color) !important;
+                border: 1px solid #D0EBEB !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .client-info {
+                background-color: transparent !important;
+            }
+
+            /* 合計金額エリアの背景色を画面表示と同じに */
+            .total-area {
+                background-color: var(--bg-color) !important;
+                border: 1px solid #D0EBEB !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* 銀行情報の背景色を画面表示と同じに */
+            .bank-info {
+                background-color: #fafafa !important;
+                border: 1px dashed #ccc !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .notes-area {
+                background-color: transparent !important;
+                border: none !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            /* 請求書のテーブルヘッダーの角丸化 */
+            table:not(.info-table) thead tr:first-child th:first-child {
+                border-top-left-radius: 8px !important;
+                border-left: none !important;
+                /* box-shadowに任せる */
+            }
+
+            table:not(.info-table) thead tr:first-child th:last-child {
+                border-top-right-radius: 8px !important;
+                border-right: none !important;
+                /* box-shadowに任せる */
+            }
+
+            /* 請求書のテーブルフッター（最下部）の角丸化 */
+            table:not(.info-table) tbody tr:last-child td:first-child {
+                border-bottom-left-radius: 8px !important;
+                border-left: none !important;
+            }
+
+            table:not(.info-table) tbody tr:last-child td:last-child {
+                border-bottom-right-radius: 8px !important;
+                border-right: none !important;
+            }
+
+            /* 請求書テーブル全体の枠線調整 */
+            table:not(.info-table) {
+                border-collapse: separate !important;
+                border-spacing: 0;
+                /* 外枠をbox-shadowで描画して最前面に見せる */
+                box-shadow: 0 0 0 1px #00A3AF !important;
+                border-radius: 8px !important;
+                overflow: hidden !important;
+                border: none !important;
+            }
+
+            table:not(.info-table) th,
+            table:not(.info-table) td {
+                border-bottom: 1px solid #eee !important;
+                border-right: 1px solid #eee !important;
+                position: relative;
+                /* z-indexを効かせるため */
+                z-index: 1;
+            }
+
+            table:not(.info-table) tr td:first-child,
+            table:not(.info-table) tr th:first-child {
+                border-left: none !important;
+            }
+
+            /* 外枠の色（ヘッダー部分） */
+            table:not(.info-table) thead tr th {
+                border-top: none !important;
+                border-bottom: 1px solid #00A3AF !important;
+            }
+
+            /* 右端の線はbox-shadowに任せるため削除 */
+            table:not(.info-table) tr th:last-child,
+            table:not(.info-table) tr td:last-child {
+                border-right: none !important;
+            }
+
+            /* contenteditable要素の編集用スタイルを削除 */
+            [contenteditable="true"] {
+                border: none !important;
+                outline: none !important;
+            }
+
+            /* 改ページ制御 */
+            .header,
+            .address-area,
+            .total-area,
+            .table-wrap,
+            .bank-info {
+                page-break-inside: avoid;
+            }
+
+            /* 詳細カードの背景色を画面表示と同じに */
+            .detail-card-wrapper {
+                border: 1px solid #ddd !important;
+                background-color: #fafafa !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                page-break-inside: avoid;
+            }
+
+            /* タイトルバー */
+            .notes-title {
+                background-color: transparent !important;
+                border-left: 4px solid var(--primary-color) !important;
+            }
+
+            /* 2カラムレイアウトの背景色を画面表示と同じに */
+            .notes-flex {
+                background-color: transparent !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <h2>📄 帳票生成ツール</h2>
+
+            <!-- Template Selection -->
+            <div class="sidebar-section">
+                <h3>テンプレート選択</h3>
+                <button class="template-btn" onclick="switchTemplate('invoice-individual')">
+                    請求書(個人向け)
+                </button>
+                <button class="template-btn" onclick="switchTemplate('invoice-corporate')">
+                    請求書(企業向け)
+                </button>
+                <button class="template-btn active" onclick="switchTemplate('confirmation-individual')">
+                    依頼内容確認書(個人向け)
+                </button>
+                <button class="template-btn" onclick="switchTemplate('confirmation-corporate')">
+                    依頼内容確認書(企業向け)
+                </button>
+            </div>
+
+            <!-- Color Theme -->
+            <div class="sidebar-section">
+                <h3>カラーテーマ</h3>
+                <button class="color-btn" onclick="changeColor('#00A3AF', '#72C7C3', '#F0FAFA')">
+                    <span class="color-indicator" style="background: #00A3AF;"></span>
+                    浅葱色(デフォルト)
+                </button>
+                <button class="color-btn" onclick="changeColor('#BE4B35', '#f5a89a', '#fcece9')">
+                    <span class="color-indicator" style="background: #BE4B35;"></span>
+                    レッド
+                </button>
+                <button class="color-btn" onclick="changeColor('#2E86AB', '#7fb3d5', '#e8f4f8')">
+                    <span class="color-indicator" style="background: #2E86AB;"></span>
+                    ブルー
+                </button>
+                <button class="color-btn" onclick="changeColor('#2D6A4F', '#6fa88a', '#e8f5f0')">
+                    <span class="color-indicator" style="background: #2D6A4F;"></span>
+                    グリーン
+                </button>
+            </div>
+
+            <!-- Download -->
+            <div class="sidebar-section">
+                <button class="download-btn" onclick="downloadPDF()">
+                    📥 PDFダウンロード
+                </button>
+            </div>
+        </aside>
+
+        <!-- Preview Area -->
+        <main class="preview">
+            <div class="a4-page" id="template-container">
+                <!-- Templates will be loaded here -->
+                <p style="text-align: center; color: #999; padding: 100px 0;">
+                    テンプレートを読み込み中...
+                </p>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Global State
+        let currentTemplate = 'confirmation-individual';
+        const templates = {};
+
+        // Template Switching
+        function switchTemplate(templateId) {
+            currentTemplate = templateId;
+
+            // Update button states
+            document.querySelectorAll('.template-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Load template
+            loadTemplate(templateId);
+        }
+
+        // Color Theme Change
+        function changeColor(primary, accent, bg) {
+            document.documentElement.style.setProperty('--primary-color', primary);
+            document.documentElement.style.setProperty('--accent-color', accent);
+            document.documentElement.style.setProperty('--bg-color', bg);
+        }
+
+        // PDF Download
+        function downloadPDF() {
+            const templateNames = {
+                'invoice-individual': '請求書_個人様向け',
+                'invoice-corporate': '請求書_企業様向け',
+                'confirmation-individual': '依頼内容確認書_個人様向け',
+                'confirmation-corporate': '依頼内容確認書_企業様向け'
+            };
+
+            const originalTitle = document.title;
+            document.title = templateNames[currentTemplate] || '帳票';
+
+            window.print();
+
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 500);
+        }
+
+        // Template HTML Generators
+        // 1. Confirmation Individual Template
+        templates['confirmation-individual'] = function () {
+            return `
+                <div class="header">
+                    <div class="header-left">
+                        <div class="logo-placeholder">A</div>
+                        <div class="title-area">
+                            <h1>依頼内容確認書</h1>
+                            <span>Request Confirmation</span>
+                        </div>
+                    </div>
+                    <div class="doc-meta">
+                        発行日: <span contenteditable="true">2026年02月10日</span><br>
+                        管理番号: <span contenteditable="true">20260210-REQ</span>
+                    </div>
+                </div>
+
+                <div class="address-area">
+                    <div class="client-info">
+                        <div class="client-name" contenteditable="true">山田太郎 様</div>
+                        <div style="font-size: 12px; color: #666;">Email: <span contenteditable="true">sample@example.com</span></div>
+                        <div style="font-size: 12px; color: #666; margin-top: 3px;">連絡方法: <span contenteditable="true">X(旧Twitter)DM - @AsagiMuu</span></div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 10px;">
+                            <div style="font-weight: bold; font-size: 14px; color: var(--primary-color);">概算お見積り</div>
+                            <div style="font-weight: bold; font-size: 24px; color: var(--text-color); line-height: 1; margin-right: 2px;">
+                                ¥ <span contenteditable="true">50,000</span> -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sender-info">
+                        <div class="sender-job-title">イラストレーター</div>
+                        <div class="sender-name">Asagimuu (浅葱 むう)</div>
+                        <div>Web: https://asagimuu.com</div>
+                        <div>Email: asagimuu1101@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="info-table">
+                        <tr>
+                            <th>ご選択プラン</th>
+                            <td contenteditable="true">ベーシックプラン</td>
+                            <th>利用区分</th>
+                            <td contenteditable="true">個人利用</td>
+                        </tr>
+                        <tr>
+                            <th>納期</th>
+                            <td contenteditable="true">2026年03月31日</td>
+                            <th>支払い方法</th>
+                            <td contenteditable="true">銀行振込</td>
+                        </tr>
+                        <tr>
+                            <th>実績公開の可否</th>
+                            <td contenteditable="true">許可 / 公開可能日: 2026年04月01日</td>
+                            <th>公開場所</th>
+                            <td contenteditable="true">SNS, ポートフォリオ, ホームページ</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 2px; margin-bottom: 2px;">
+                    <!-- 使用用途欄 -->
+                    <div class="notes-area" style="flex: 1.5; min-height: 30px; margin: 0; padding: 6px 10px;">
+                        <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">使用用途</div>
+                        <p style="margin: 0; font-size: 13px;" contenteditable="true">SNSアイコン、個人サイトのヘッダー画像として使用</p>
+                    </div>
+
+                    <!-- 参考資料URL欄 -->
+                    <div class="notes-area" style="flex: 1; min-height: 30px; margin: 0; padding: 6px 10px;">
+                        <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">参考資料URL</div>
+                        <p style="margin: 0; font-size: 11px; word-break: break-all;" contenteditable="true">https://example.com/reference</p>
+                    </div>
+                </div>
+
+                <!-- ご依頼詳細セクション -->
+                <div class="detail-section-header">
+                    <div class="detail-section-title">ご依頼詳細</div>
+                    <div class="detail-buttons">
+                        <button class="add-detail-btn no-print" onclick="addDetailCard('individual')">+ 追加</button>
+                        <button class="delete-detail-btn no-print" onclick="deleteDetailCard('individual')">- 削除</button>
+                    </div>
+                </div>
+
+                <div id="detail-container-individual">
+                    <div class="detail-card-wrapper">
+                        <div class="notes-area" style="margin: 0;">
+                            <div class="notes-flex">
+                                <!-- 左カラム:スペック情報 -->
+                                <div class="notes-left">
+                                    <div class="detail-card-number">1枚目</div>
+                                    <span class="sub-label">■ ご依頼の種類</span>
+                                    <div class="sub-content" contenteditable="true">キャラクターイラスト</div>
+
+                                    <span class="sub-label">■ サイズ・形式</span>
+                                    <div class="sub-content" contenteditable="true">
+                                        カラー:フルカラー<br>
+                                        サイズ:A4<br>
+                                        形式:PNG, PSD
+                                    </div>
+                                    
+
+                                </div>
+                                
+                                <!-- 右カラム:詳細本文 -->
+                                <div class="notes-right">
+                                    <div style="display: flex;">
+                                        <div style="flex: 1; border-right: 1px dashed #ddd; padding-right: 15px; margin-right: 15px;">
+                                            <span class="sub-label">■ 依頼内容詳細</span>
+                                            <div class="sub-content" style="white-space: pre-wrap;" contenteditable="true">ファンタジー系の女性キャラクター
+髪色:銀髪、瞳:青色
+服装:魔法使い風のローブ</div>
+                                        </div>
+                                        <div style="width: 30%;">
+                                            <span class="sub-label">■ 背景</span>
+                                            <div class="sub-content" style="white-space: pre-wrap;" contenteditable="true">シンプルな単色背景</div>
+
+                                            <span class="sub-label">■ オプション</span>
+                                            <div class="sub-content" contenteditable="true">なし</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">
+                                <span class="sub-label">■ イメージに近いイラスト</span>
+                                <div class="sub-content" style="word-break: break-all; font-size: 10px; line-height: 1.4;" contenteditable="true">
+                                    https://example.com/sample-image.jpg
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 備考・質問欄 -->
+                <div class="notes-area" style="min-height: 30px; margin-top: 5px; margin-bottom: 5px; padding: 6px 10px;">
+                    <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">備考・質問</div>
+                    <div style="margin: 0; font-size: 13px; white-space: pre-wrap;" contenteditable="true">特になし</div>
+                </div>
+
+                <div style="margin-top: 5px; font-size: 10px; color: #888; border-top: 1px solid #eee; padding-top: 5px;">
+                    <strong>【制作に関する注意事項】</strong><br>
+                    ・本確認書の内容に基づき制作を開始いたします。<br>
+                    ・制作着手後の大幅な仕様変更は、追加料金が発生する場合がございます。<br>
+                    ・著作権の譲渡については、別途契約がない限り制作者に帰属します。
+                </div>
+            `;
+        };
+
+
+
+        // 2. Confirmation Corporate Template
+        templates['confirmation-corporate'] = function () {
+            return `
+                <div class="header">
+                    <div class="header-left">
+                        <div class="logo-placeholder">A</div>
+                        <div class="title-area">
+                            <h1>依頼内容確認書</h1>
+                            <span>Request Confirmation</span>
+                        </div>
+                    </div>
+                    <div class="doc-meta">
+                        発行日: <span contenteditable="true">2026年02月10日</span><br>
+                        管理番号: <span contenteditable="true">20260210-REQ-CORP</span>
+                    </div>
+                </div>
+
+                <div class="address-area">
+                    <div class="client-info">
+                        <div class="client-name" contenteditable="true">株式会社サンプル 御中</div>
+                        <div style="font-size: 12px; color: #666;">
+                            担当者: <span contenteditable="true">山田太郎 様</span><br>
+                            Email: <span contenteditable="true">sample@example.co.jp</span><br>
+                            連絡方法: <span contenteditable="true">X(旧Twitter)DM - @AsagiMuu</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2px solid var(--primary-color); padding-bottom: 5px; margin-top: 10px;">
+                            <div style="font-weight: bold; font-size: 14px; color: var(--primary-color);">概算お見積り</div>
+                            <div style="font-weight: bold; font-size: 24px; color: var(--text-color); line-height: 1; margin-right: 2px;">
+                                ¥ <span contenteditable="true">100,000</span> -
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sender-info">
+                        <div class="sender-job-title">イラストレーター</div>
+                        <div class="sender-name">Asagimuu (浅葱 むう)</div>
+                        <div>Web: https://asagimuu.com</div>
+                        <div>Email: asagimuu1101@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="table-wrap">
+                    <table class="info-table">
+                        <tr>
+                            <th>ご選択プラン</th>
+                            <td contenteditable="true">プレミアムプラン</td>
+                            <th>利用区分</th>
+                            <td contenteditable="true">商用利用</td>
+                        </tr>
+                        <tr>
+                            <th>納期</th>
+                            <td contenteditable="true">2026年03月31日</td>
+                            <th>支払い方法</th>
+                            <td contenteditable="true">銀行振込</td>
+                        </tr>
+                        <tr>
+                            <th>実績公開の可否</th>
+                            <td contenteditable="true">許可 / 公開可能日: 2026年04月01日</td>
+                            <th>公開場所</th>
+                            <td contenteditable="true">SNS, ポートフォリオ, ホームページ</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="display: flex; gap: 10px; margin-top: 2px; margin-bottom: 2px;">
+                    <!-- 使用用途欄 -->
+                    <div class="notes-area" style="flex: 1.5; min-height: 30px; margin: 0; padding: 6px 10px;">
+                        <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">使用用途</div>
+                        <p style="margin: 0; font-size: 13px;" contenteditable="true">企業サイトのメインビジュアル、広告バナーとして使用</p>
+                    </div>
+
+                    <!-- 参考資料URL欄 -->
+                    <div class="notes-area" style="flex: 1; min-height: 30px; margin: 0; padding: 6px 10px;">
+                        <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">参考資料URL</div>
+                        <p style="margin: 0; font-size: 11px; word-break: break-all;" contenteditable="true">https://example.com/corporate-reference</p>
+                    </div>
+                </div>
+
+                <!-- ご依頼詳細セクション -->
+                <div class="detail-section-header">
+                    <div class="detail-section-title">ご依頼詳細</div>
+                    <div class="detail-buttons">
+                        <button class="add-detail-btn no-print" onclick="addDetailCard('corporate')">+ 追加</button>
+                        <button class="delete-detail-btn no-print" onclick="deleteDetailCard('corporate')">- 削除</button>
+                    </div>
+                </div>
+
+                <div id="detail-container-corporate">
+                    <div class="detail-card-wrapper">
+                        <div class="notes-area" style="margin: 0;">
+                            <div class="notes-flex">
+                                <!-- 左カラム:スペック情報 -->
+                                <div class="notes-left">
+                                    <div class="detail-card-number">1枚目</div>
+                                    <span class="sub-label">■ ご依頼の種類</span>
+                                    <div class="sub-content" contenteditable="true">キャラクターイラスト</div>
+
+                                    <span class="sub-label">■ サイズ・形式</span>
+                                    <div class="sub-content" contenteditable="true">
+                                        カラー:フルカラー<br>
+                                        サイズ:A3<br>
+                                        形式:PNG, AI, PSD
+                                    </div>
+                                    
+
+                                </div>
+                                
+                                <!-- 右カラム:詳細本文 -->
+                                <div class="notes-right">
+                                    <div style="display: flex;">
+                                        <div style="flex: 1; border-right: 1px dashed #ddd; padding-right: 15px; margin-right: 15px;">
+                                            <span class="sub-label">■ 依頼内容詳細</span>
+                                            <div class="sub-content" style="white-space: pre-wrap;" contenteditable="true">企業マスコットキャラクター
+明るく親しみやすい雰囲気
+服装:ビジネスカジュアル</div>
+                                        </div>
+                                        <div style="width: 30%;">
+                                            <span class="sub-label">■ 背景</span>
+                                            <div class="sub-content" style="white-space: pre-wrap;" contenteditable="true">企業カラーを使用した背景</div>
+
+                                            <span class="sub-label">■ オプション</span>
+                                            <div class="sub-content" contenteditable="true">なし</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px dashed #ddd;">
+                                <span class="sub-label">■ イメージに近いイラスト</span>
+                                <div class="sub-content" style="word-break: break-all; font-size: 10px; line-height: 1.4;" contenteditable="true">
+                                    https://example.com/corporate-sample.jpg
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 備考・質問欄 -->
+                <div class="notes-area" style="min-height: 30px; margin-top: 5px; margin-bottom: 5px; padding: 6px 10px;">
+                    <div class="notes-title" style="font-size: 12px; border-left-width: 3px; margin-bottom: 2px;">備考・質問</div>
+                    <div style="margin: 0; font-size: 13px; white-space: pre-wrap;" contenteditable="true">特になし</div>
+                </div>
+
+                <div style="margin-top: 5px; font-size: 10px; color: #888; border-top: 1px solid #eee; padding-top: 5px;">
+                    <strong>【制作に関する注意事項】</strong><br>
+                    ・本確認書の内容に基づき制作を開始いたします。<br>
+                    ・制作着手後の大幅な仕様変更は、追加料金が発生する場合がございます。<br>
+                    ・著作権の譲渡については、別途契約がない限り制作者に帰属します。
+                </div>
+            `;
+        };
+
+
+
+        // 3. Invoice Individual Template
+        templates['invoice-individual'] = function () {
+            return `
+                <div class="header">
+                    <div class="header-left">
+                        <div class="logo-placeholder">A</div>
+                        <div class="title-area">
+                            <h1>請求書</h1>
+                            <span>INVOICE</span>
+                        </div>
+                    </div>
+                    <div class="doc-meta">
+                        請求日: <span contenteditable="true">2026年02月10日</span><br>
+                        請求番号: <span contenteditable="true">INV-20260210-001</span><br>
+                        支払期限: <span contenteditable="true">2026年02月28日</span>
+                    </div>
+                </div>
+
+                <div class="address-area">
+                    <div class="client-info">
+                        <div class="client-name" contenteditable="true">山田太郎 様</div>
+                        <div style="font-size: 13px; margin-top: 8px;">下記の通りご請求申し上げます。</div>
+                        <div style="font-size: 12px; color: #666; margin-top: 3px;">連絡方法: <span contenteditable="true">X(旧Twitter)DM - @AsagiMuu</span></div>
+                    </div>
+                    <div class="sender-info">
+                        <div class="sender-job-title">イラストレーター</div>
+                        <div class="sender-name">Asagimuu (浅葱 むう)</div>
+                        <div>Web: https://asagimuu.com</div>
+                        <div>Email: asagimuu1101@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="total-area">
+                    <span class="total-label">ご請求金額 (税込)</span>
+                    <span class="total-amount">¥ <span contenteditable="true">55,000</span> -</span>
+                </div>
+
+                <div class="table-wrap" style="margin-top: 25px;">
+                    <table style="text-align: left;">
+                        <thead style="background-color: var(--bg-color);">
+                            <tr>
+                                <th style="width: 50%; border-right: none;">品名・詳細</th>
+                                <th style="width: 10%; text-align: center; border-right: none;">数量</th>
+                                <th style="width: 20%; text-align: right; border-right: none;">単価</th>
+                                <th style="width: 20%; text-align: right;">金額</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-left: none;" contenteditable="true">イラスト制作費 (ベーシックプラン)</td>
+                                <td style="text-align: center;" contenteditable="true">1</td>
+                                <td style="text-align: right;" contenteditable="true">50,000</td>
+                                <td style="text-align: right;" contenteditable="true">50,000</td>
+                                <td class="invoice-row-controls no-print">
+                                    <button class="add-row-btn" onclick="addInvoiceRow(this)" title="行を追加">+</button>
+                                    <button class="delete-row-btn" onclick="deleteInvoiceRow(this)" title="行を削除">-</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: none;" contenteditable="true">オプション・修正費など</td>
+                                <td style="text-align: center;" contenteditable="true">1</td>
+                                <td style="text-align: right;" contenteditable="true">0</td>
+                                <td style="text-align: right;" contenteditable="true">0</td>
+                                <td class="invoice-row-controls no-print">
+                                    <button class="add-row-btn" onclick="addInvoiceRow(this)" title="行を追加">+</button>
+                                    <button class="delete-row-btn" onclick="deleteInvoiceRow(this)" title="行を削除">-</button>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 2px solid var(--primary-color);">
+                                <td colspan="2" style="border: none;"></td>
+                                <td style="background-color: var(--bg-color); text-align: right; font-weight: bold; border: none;">小計</td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;" contenteditable="true">50,000</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border: none;"></td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;">消費税 (10%)</td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;" contenteditable="true">5,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bank-info">
+                    <div class="bank-title">【お振込先】</div>
+                    <div style="margin-top: 5px; font-weight: 500;" contenteditable="true">
+                        楽天銀行　〇〇支店 (支店番号: xxx)<br>
+                        普通　1234567　口座名義： アサギムウ
+                    </div>
+                    <div style="margin-top: 10px; font-size: 11px; color: #888;">
+                        ※恐れ入りますが、振込手数料は貴社にてご負担願います。
+                    </div>
+                </div>
+
+                <div class="notes-area" style="margin-top: 10px; min-height: 40px;">
+                    <div class="notes-title">備考</div>
+                    <div contenteditable="true">こちらに備考を記載してください。</div>
+                </div>
+            `;
+        };
+
+        // 4. Invoice Corporate Template
+        templates['invoice-corporate'] = function () {
+            return `
+                <div class="header">
+                    <div class="header-left">
+                        <div class="logo-placeholder">A</div>
+                        <div class="title-area">
+                            <h1>請求書</h1>
+                            <span>INVOICE</span>
+                        </div>
+                    </div>
+                    <div class="doc-meta">
+                        請求日: <span contenteditable="true">2026年02月10日</span><br>
+                        請求番号: <span contenteditable="true">INV-20260210-CORP-001</span><br>
+                        支払期限: <span contenteditable="true">2026年02月28日</span>
+                    </div>
+                </div>
+
+                <div class="address-area">
+                    <div class="client-info">
+                        <div class="client-name" contenteditable="true">株式会社サンプル 御中</div>
+                        <div style="font-size: 13px; margin-top: 8px;">
+                            担当者: <span contenteditable="true">山田太郎 様</span><br>
+                            下記の通りご請求申し上げます。<br>
+                            <span style="font-size: 12px; color: #666;">連絡方法: <span contenteditable="true">X(旧Twitter)DM - @AsagiMuu</span></span>
+                        </div>
+                    </div>
+                    <div class="sender-info">
+                        <div class="sender-job-title">イラストレーター</div>
+                        <div class="sender-name">Asagimuu (浅葱 むう)</div>
+                        <div>Web: https://asagimuu.com</div>
+                        <div>Email: asagimuu1101@gmail.com</div>
+                    </div>
+                </div>
+
+                <div class="total-area">
+                    <span class="total-label">ご請求金額 (税込)</span>
+                    <span class="total-amount">¥ <span contenteditable="true">110,000</span> -</span>
+                </div>
+
+                <div class="table-wrap" style="margin-top: 25px;">
+                    <table style="text-align: left;">
+                        <thead style="background-color: var(--bg-color);">
+                            <tr>
+                                <th style="width: 50%; border-right: none;">品名・詳細</th>
+                                <th style="width: 10%; text-align: center; border-right: none;">数量</th>
+                                <th style="width: 20%; text-align: right; border-right: none;">単価</th>
+                                <th style="width: 20%; text-align: right;">金額</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="border-left: none;" contenteditable="true">キャラクターイラスト制作 (商用)</td>
+                                <td style="text-align: center;" contenteditable="true">1</td>
+                                <td style="text-align: right;" contenteditable="true">100,000</td>
+                                <td style="text-align: right;" contenteditable="true">100,000</td>
+                                <td class="invoice-row-controls no-print">
+                                    <button class="add-row-btn" onclick="addInvoiceRow(this)" title="行を追加">+</button>
+                                    <button class="delete-row-btn" onclick="deleteInvoiceRow(this)" title="行を削除">-</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="border-left: none;" contenteditable="true">オプション・修正費など</td>
+                                <td style="text-align: center;" contenteditable="true">1</td>
+                                <td style="text-align: right;" contenteditable="true">0</td>
+                                <td style="text-align: right;" contenteditable="true">0</td>
+                                <td class="invoice-row-controls no-print">
+                                    <button class="add-row-btn" onclick="addInvoiceRow(this)" title="行を追加">+</button>
+                                    <button class="delete-row-btn" onclick="deleteInvoiceRow(this)" title="行を削除">-</button>
+                                </td>
+                            </tr>
+                            <tr style="border-top: 2px solid var(--primary-color);">
+                                <td colspan="2" style="border: none;"></td>
+                                <td style="background-color: var(--bg-color); text-align: right; font-weight: bold; border: none;">小計</td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;" contenteditable="true">100,000</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" style="border: none;"></td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;">消費税 (10%)</td>
+                                <td style="background-color: var(--bg-color); text-align: right; border: none;" contenteditable="true">10,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="bank-info">
+                    <div class="bank-title">【お振込先】</div>
+                    <div style="margin-top: 5px; font-weight: 500;" contenteditable="true">
+                        楽天銀行　〇〇支店 (支店番号: xxx)<br>
+                        普通　1234567　口座名義： アサギムウ
+                    </div>
+                    <div style="margin-top: 10px; font-size: 11px; color: #888;">
+                        ※恐れ入りますが、振込手数料は貴社にてご負担願います。
+                    </div>
+                </div>
+
+                <div class="notes-area" style="margin-top: 10px; min-height: 40px;">
+                    <div class="notes-title">備考</div>
+                    <div contenteditable="true">こちらに備考を記載してください。</div>
+                </div>
+            `;
+        };
+
+        // Card Management Functions
+        function addCard(containerId) {
+            const container = document.getElementById(containerId);
+            const cards = container.querySelectorAll('.detail-card');
+            const newNumber = cards.length + 1;
+
+            const newCard = cards[0].cloneNode(true);
+            newCard.querySelector('.card-number').textContent = newNumber + '枚目';
+
+            container.appendChild(newCard);
+        }
+
+        function removeCard(button) {
+            const card = button.closest('.detail-card');
+            const container = card.parentElement;
+
+            if (container.children.length <= 1) {
+                alert('最低1つの依頼詳細が必要です。');
+                return;
+            }
+
+            card.remove();
+
+            // Renumber remaining cards
+            const cards = container.querySelectorAll('.detail-card');
+            cards.forEach((c, index) => {
+                c.querySelector('.card-number').textContent = (index + 1) + '枚目';
+            });
+        }
+
+        // Detail Card Management Functions (for Confirmation Templates)
+        function addDetailCard(type) {
+            const containerId = `detail-container-${type}`;
+            const container = document.getElementById(containerId);
+            const cards = container.querySelectorAll('.detail-card-wrapper');
+            const newNumber = cards.length + 1;
+
+            const newCard = cards[0].cloneNode(true);
+            newCard.querySelector('.detail-card-number').textContent = newNumber + '枚目';
+
+            // 入力内容をリセット（任意）
+            // newCard.querySelectorAll('[contenteditable]').forEach(el => el.textContent = '');
+
+            container.appendChild(newCard);
+        }
+
+        function deleteDetailCard(type) {
+            const containerId = `detail-container-${type}`;
+            const container = document.getElementById(containerId);
+            const cards = container.querySelectorAll('.detail-card-wrapper');
+
+            if (cards.length <= 1) {
+                alert('最低1つの依頼詳細が必要です。');
+                return;
+            }
+
+            // Remove last card
+            cards[cards.length - 1].remove();
+
+            // 番号の振り直しは必要ない（末尾を削除するため）ですが、念のため行う場合は以下
+            /*
+            const remainingCards = container.querySelectorAll('.detail-card-wrapper');
+            remainingCards.forEach((card, index) => {
+                card.querySelector('.detail-card-number').textContent = (index + 1) + '枚目';
+            });
+            */
+        }
+
+        // Invoice Row Management Functions
+        function addInvoiceRow(button) {
+            const row = button.closest('tr');
+            const tbody = row.parentElement;
+            const newRow = row.cloneNode(true);
+
+            // Clear contenteditable fields
+            newRow.querySelectorAll('[contenteditable="true"]').forEach(field => {
+                if (field.tagName === 'TD') {
+                    field.textContent = '0';
+                }
+            });
+
+            tbody.insertBefore(newRow, row.nextSibling);
+        }
+
+        function deleteInvoiceRow(button) {
+            const row = button.closest('tr');
+            const tbody = row.parentElement;
+            const dataRows = tbody.querySelectorAll('tr:not([style*="border-top"])');
+
+            if (dataRows.length <= 1) {
+                alert('最低1つの品目が必要です。');
+                return;
+            }
+
+            row.remove();
+        }
+
+        function loadTemplate(templateId) {
+            const container = document.getElementById('template-container');
+
+            if (templates[templateId]) {
+                container.innerHTML = templates[templateId]();
+            } else {
+                container.innerHTML = `<p style="text-align: center; color: #999; padding: 100px 0;">テンプレート "${templateId}" は準備中です...</p>`;
+            }
+        }
+
+        // Initialize
+        function init() {
+            loadTemplate(currentTemplate);
+        }
+
+        // Run on page load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+
+</html>

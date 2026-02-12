@@ -175,6 +175,24 @@
 
                         <!-- Request Section -->
                         <div id="form-section-request" class="space-y-10">
+                            <!-- Personal/Commercial Classification -->
+                            <div id="personal-commercial-check">
+                                <label class="block text-sm font-bold text-gray-700 mb-2">利用区分 <span
+                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                <div class="flex gap-6">
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="commercial_use" value="Personal" checked
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">個人使用</span>
+                                    </label>
+                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                        <input type="radio" name="commercial_use" value="Commercial"
+                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                        <span class="text-sm text-gray-600">商用利用</span>
+                                    </label>
+                                </div>
+                            </div>
+
                             <!-- Usage -->
                             <div id="personal-usage">
                                 <label for="usage" class="block text-sm font-bold text-gray-700 mb-2">具体的な使用用途 <span
@@ -227,23 +245,7 @@
                                                 削除
                                             </button>
                                         </div>
-                                        <!-- Personal/Commercial -->
-                                        <div id="personal-commercial-check">
-                                            <label class="block text-sm font-bold text-gray-700 mb-2">個人使用 / 商用利用 <span
-                                                    class="text-[#BE4B35] form-accent-text">*</span></label>
-                                            <div class="flex gap-6">
-                                                <label class="flex items-center space-x-2 cursor-pointer">
-                                                    <input type="radio" name="commercial_use" value="Personal" checked
-                                                        class="text-[#BE4B35] focus:ring-[#BE4B35]">
-                                                    <span class="text-sm text-gray-600">個人使用</span>
-                                                </label>
-                                                <label class="flex items-center space-x-2 cursor-pointer">
-                                                    <input type="radio" name="commercial_use" value="Commercial"
-                                                        class="text-[#BE4B35] focus:ring-[#BE4B35]">
-                                                    <span class="text-sm text-gray-600">商用利用</span>
-                                                </label>
-                                            </div>
-                                        </div>
+
 
                                         <!-- Request Type -->
                                         <div>
@@ -284,6 +286,64 @@
                                             <textarea id="details" name="details" rows="6"
                                                 placeholder="キャラクターの特徴、構図、雰囲気、背景の有無など、可能な限り詳しくご記入ください。" required
                                                 class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+
+                                            <!-- Personal Background Option -->
+                                            <div class="mt-6">
+                                                <label class="block text-sm font-bold text-gray-700 mb-2">背景 <span
+                                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                                <div class="flex gap-6 mb-3">
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="radio" name="background_option_personal_1"
+                                                            value="無し" checked
+                                                            class="text-[#BE4B35] focus:ring-[#BE4B35]"
+                                                            onchange="toggleBackgroundInput(this)">
+                                                        <span class="text-sm text-gray-600">無し</span>
+                                                    </label>
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="radio" name="background_option_personal_1"
+                                                            value="有り" class="text-[#BE4B35] focus:ring-[#BE4B35]"
+                                                            onchange="toggleBackgroundInput(this)">
+                                                        <span class="text-sm text-gray-600">有り</span>
+                                                    </label>
+                                                </div>
+                                                <div class="bg-text-container hidden">
+                                                    <textarea name="background_text_personal_1" rows="3"
+                                                        placeholder="ご希望の背景シチュエーションをご記入ください（例：青空、教室、森の中など）。資料がある場合は参考画像URL欄にご記入ください。"
+                                                        class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Dynamic Image Reference URLs & Thoughts -->
+                                        <div>
+                                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                                イメージが近いイラスト
+                                            </label>
+                                            <p class="text-[10px] text-gray-500 mb-2">
+                                                ※参考画像URLとその説明をセットで入力してください。「＋追加」ボタンで複数入力できます。</p>
+
+                                            <!-- Gallery Link -->
+                                            <div class="mb-2">
+                                                <a href="gallery.html" target="_blank"
+                                                    class="inline-flex items-center px-3 py-1.5 bg-gray-50 border border-gray-200 rounded-md text-xs font-bold text-gray-600 hover:text-[#BE4B35] hover:border-[#BE4B35] transition-all">
+                                                    <i
+                                                        class="fa-solid fa-images mr-1.5 text-[#BE4B35]"></i>ギャラリーはこちら（別タブ表示）
+                                                </a>
+                                            </div>
+
+                                            <!-- Container for dynamic items -->
+                                            <div class="image-ref-container space-y-4 mb-3">
+                                                <!-- Dynamic items will be injected here by JS -->
+                                            </div>
+
+                                            <button type="button"
+                                                class="add-image-ref-btn inline-flex items-center px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm font-bold hover:bg-gray-200 transition-colors">
+                                                <i class="fa-solid fa-plus mr-2"></i>画像・説明を追加
+                                            </button>
+
+                                            <!-- Hidden inputs for submission -->
+                                            <input type="hidden" name="image_reference_url" class="hidden-ref-url">
+                                            <input type="hidden" name="image_reference_text" class="hidden-ref-text">
                                         </div>
 
                                         <!-- Corporate Project Details -->
@@ -294,6 +354,121 @@
                                             <textarea id="project_details" name="project_details" rows="8"
                                                 placeholder="案件の概要、スケジュール、ご予算感、使用媒体などをご記入ください。"
                                                 class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+
+                                            <!-- Corporate Background Option -->
+                                            <div class="mt-6">
+                                                <label class="block text-sm font-bold text-gray-700 mb-2">背景 <span
+                                                        class="text-[#BE4B35] form-accent-text">*</span></label>
+                                                <div class="flex gap-6 mb-3">
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="radio" name="background_option_corporate_1"
+                                                            value="無し" checked
+                                                            class="text-[#BE4B35] focus:ring-[#BE4B35]"
+                                                            onchange="toggleBackgroundInput(this)">
+                                                        <span class="text-sm text-gray-600">無し</span>
+                                                    </label>
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="radio" name="background_option_corporate_1"
+                                                            value="有り" class="text-[#BE4B35] focus:ring-[#BE4B35]"
+                                                            onchange="toggleBackgroundInput(this)">
+                                                        <span class="text-sm text-gray-600">有り</span>
+                                                    </label>
+                                                </div>
+                                                <div class="bg-text-container hidden">
+                                                    <textarea name="background_text_corporate_1" rows="3"
+                                                        placeholder="ご希望の背景シチュエーションをご記入ください。資料がある場合は参考画像URL欄にご記入ください。"
+                                                        class="w-full px-4 py-3 rounded-lg bg-white border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Optional Services (Moved) -->
+                                        <div class="p-6 bg-white rounded-xl border border-gray-200 space-y-6">
+                                            <label class="block text-xs font-bold text-gray-500 mb-2">オプション
+                                                (複数選択可)</label>
+                                            <p class="text-xs text-gray-500 mb-2">※塗りと線画のレイヤ分けは対応してません。</p>
+                                            <div class="space-y-3">
+                                                <!-- Layer separation -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]"
+                                                        value="背景とキャラのレイヤー分け"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">背景とキャラのレイヤー分け <span
+                                                            class="text-xs text-gray-500">(+0円)</span></span>
+                                                </label>
+                                                <!-- No effects -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="エフェクト無し"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">エフェクト無し <span
+                                                            class="text-xs text-gray-500">(+0円)</span></span>
+                                                </label>
+                                                <!-- Facial expression Diff -->
+                                                <div>
+                                                    <label class="flex items-start space-x-2 cursor-pointer">
+                                                        <input type="checkbox" name="optional_services[]"
+                                                            value="表情差分1つ追加"
+                                                            class="js-facial-diff-check rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                        <span class="text-sm text-gray-600">表情差分1つ追加 <span
+                                                                class="text-xs text-gray-500">(+2,000円)</span></span>
+                                                    </label>
+                                                    <input type="text" name="facial_diff_detail"
+                                                        placeholder="内容を入力（例：笑顔、泣き顔など）"
+                                                        class="js-facial-diff-input hidden mt-2 ml-6 px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none w-[calc(100%-1.5rem)]">
+                                                </div>
+                                                <!-- Add Person -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="1人追加"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">1人追加 <span
+                                                            class="text-xs text-gray-500">(+プラン料金の2倍)</span></span>
+                                                </label>
+                                                <!-- 2 Views -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="2面図"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">2面図 <span
+                                                            class="text-xs text-gray-500">(+プラン料金の2倍)</span></span>
+                                                </label>
+                                                <!-- 3 Views -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="3面図"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">3面図 <span
+                                                            class="text-xs text-gray-500">(+プラン料金の3倍)</span></span>
+                                                </label>
+                                                <!-- Live2D Parts -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]"
+                                                        value="LIVE2D用パーツ分け"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">LIVE2D用パーツ分け <span
+                                                            class="text-xs text-gray-500">(+30,000円)</span></span>
+                                                </label>
+                                                <!-- Live2D Modeling -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]"
+                                                        value="LIVE2Dモデリング"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">LIVE2Dモデリング <span
+                                                            class="text-xs text-gray-500">(+50,000円)</span></span>
+                                                </label>
+                                                <!-- Simple MV -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="簡単なMV制作"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">簡単なMV制作 <span
+                                                            class="text-xs text-gray-500">(+30,000円)</span></span>
+                                                </label>
+                                                <!-- Copyright Transfer -->
+                                                <label class="flex items-start space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="optional_services[]" value="著作権譲渡"
+                                                        class="rounded text-[#BE4B35] focus:ring-[#BE4B35] mt-0.5">
+                                                    <span class="text-sm text-gray-600">著作権譲渡 <span
+                                                            class="text-xs text-gray-500">(+プラン料金の2倍～5倍
+                                                            ※使用用途により変動)</span></span>
+                                                </label>
+                                            </div>
                                         </div>
 
                                         <!-- Size / Resolution / Format -->
@@ -313,6 +488,10 @@
                                                             type="radio" name="color_mode" value="CMYK"
                                                             class="text-[#BE4B35] focus:ring-[#BE4B35]"><span
                                                             class="text-sm text-gray-600">CMYK (印刷用)</span></label>
+                                                    <label class="flex items-center space-x-2 cursor-pointer"><input
+                                                            type="radio" name="color_mode" value="相談して決めたい"
+                                                            class="text-[#BE4B35] focus:ring-[#BE4B35]"><span
+                                                            class="text-sm text-gray-600">相談して決めたい</span></label>
                                                 </div>
                                             </div>
 
@@ -377,6 +556,16 @@
                                                             placeholder="例：1000x1000px"
                                                             class="js-other-size hidden px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none">
                                                     </div>
+                                                    <!-- Consult -->
+                                                    <div class="flex items-center flex-wrap gap-4">
+                                                        <label
+                                                            class="flex items-center space-x-2 cursor-pointer min-w-[60px]">
+                                                            <input type="radio" name="canvas_size" value="相談して決めたい"
+                                                                class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                            <span class="text-sm text-gray-600">相談して決めたい</span>
+                                                        </label>
+                                                    </div>
+
                                                 </div>
                                             </div>
 
@@ -406,8 +595,15 @@
                                                             placeholder="例：JPEG, ClipStudio形式など"
                                                             class="js-file-format-other-input hidden px-3 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none w-full sm:w-auto">
                                                     </div>
+                                                    <label class="flex items-center space-x-2 cursor-pointer">
+                                                        <input type="checkbox" name="file_format[]" value="相談して決めたい"
+                                                            class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                        <span class="text-sm text-gray-600">相談して決めたい</span>
+                                                    </label>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div> <!-- End of request-contents-container -->
@@ -420,9 +616,11 @@
                             <div>
                                 <label for="reference"
                                     class="block text-sm font-bold text-gray-700 mb-2">参考資料URL</label>
-                                <input type="url" id="reference" name="reference"
-                                    placeholder="Google DriveやDropbox等のURLがあればご記入ください"
-                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input">
+                                <p class="text-[10px] text-gray-500 mb-2">※複数ある場合は改行して入力してください。Google
+                                    DriveやDropbox等の共有URLも可能です。</p>
+                                <textarea id="reference" name="reference" rows="2"
+                                    placeholder="https://drive.google.com/sample1&#10;https://dropbox.com/sample2"
+                                    class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors form-input"></textarea>
                             </div>
 
                             <!-- Deadline -->
@@ -465,10 +663,52 @@
                                                 class="text-[#BE4B35] focus:ring-[#BE4B35]">
                                             <span class="text-sm text-gray-600">許可</span>
                                         </label>
-                                        <div id="pub-date-container" class="hidden flex items-center gap-2">
-                                            <span class="text-xs text-gray-500">公開可能日:</span>
-                                            <input type="date" id="publication_date" name="publication_date"
-                                                class="px-2 py-1 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none">
+                                    </div>
+
+                                    <!-- Publication Details (Shown when "Allow" is selected) -->
+                                    <div id="pub-details-container"
+                                        class="hidden mt-2 ml-6 p-4 bg-gray-50 rounded-lg border border-gray-100 space-y-4">
+                                        <!-- Publication Places -->
+                                        <div>
+                                            <label class="block text-[10px] font-bold text-gray-500 mb-2">公開可能場所
+                                                (複数選択可)</label>
+                                            <div class="flex flex-wrap gap-4">
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="publication_places[]" value="SNS"
+                                                        checked class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-xs text-gray-600">SNS</span>
+                                                </label>
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="publication_places[]" value="Portfolio"
+                                                        checked class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-xs text-gray-600">ポートフォリオ</span>
+                                                </label>
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="checkbox" name="publication_places[]" value="Homepage"
+                                                        checked class="rounded text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-xs text-gray-600">ホームページ</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <!-- Publication Date Type -->
+                                        <div>
+                                            <label class="block text-[10px] font-bold text-gray-500 mb-2">公開可能日</label>
+                                            <div class="flex items-center gap-6">
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="radio" name="publication_date_type" value="Specific"
+                                                        checked class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-xs text-gray-600">日付を指定</span>
+                                                </label>
+                                                <label class="flex items-center space-x-2 cursor-pointer">
+                                                    <input type="radio" name="publication_date_type" value="Undecided"
+                                                        class="text-[#BE4B35] focus:ring-[#BE4B35]">
+                                                    <span class="text-xs text-gray-600">未定</span>
+                                                </label>
+                                            </div>
+                                            <div id="pub-specific-date-input" class="mt-2">
+                                                <input type="date" id="publication_date" name="publication_date"
+                                                    class="px-3 py-1.5 text-sm rounded border border-gray-200 focus:border-[#BE4B35] outline-none">
+                                            </div>
                                         </div>
                                     </div>
                                     <label class="flex items-center space-x-2 cursor-pointer">
@@ -490,23 +730,7 @@
                                 </div>
                             </div>
 
-                            <!-- Copyright -->
-                            <div>
-                                <label class="block text-sm font-bold text-gray-700 mb-2">著作権譲渡を希望されますか？ <span
-                                        class="text-[#BE4B35] form-accent-text">*</span></label>
-                                <div class="flex gap-6">
-                                    <label class="flex items-center space-x-2 cursor-pointer">
-                                        <input type="radio" name="copyright_transfer" value="Yes"
-                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
-                                        <span class="text-sm text-gray-600">はい</span>
-                                    </label>
-                                    <label class="flex items-center space-x-2 cursor-pointer">
-                                        <input type="radio" name="copyright_transfer" value="No" checked
-                                            class="text-[#BE4B35] focus:ring-[#BE4B35]">
-                                        <span class="text-sm text-gray-600">いいえ</span>
-                                    </label>
-                                </div>
-                            </div>
+
                         </div>
 
                         <!-- Remarks -->
@@ -1015,7 +1239,83 @@
                 }, { passive: false });
             });
 
-            // --- Dynamic Form Fields Logic ---
+            // --- Background Option Logic ---
+            window.toggleBackgroundInput = function (radio) {
+                const wrapper = radio.closest('.mt-6');
+                const container = wrapper.querySelector('.bg-text-container');
+                const textArea = container.querySelector('textarea');
+
+                if (radio.value === '有り') {
+                    container.classList.remove('hidden');
+                    textArea.required = true;
+                } else {
+                    container.classList.add('hidden');
+                    textArea.required = false;
+                    textArea.value = '';
+                }
+            };
+
+            // --- Dynamic Image Reference Logic ---
+            function setupImageReferenceLogic(container) {
+                const listContainer = container.querySelector('.image-ref-container');
+                const addBtn = container.querySelector('.add-image-ref-btn');
+
+                if (!listContainer || !addBtn) return;
+
+                // Template for a new item
+                function createItem(index) {
+                    const div = document.createElement('div');
+                    div.className = 'image-ref-item p-4 bg-gray-50 rounded-lg border border-gray-200 relative group';
+                    div.innerHTML = `
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <div class="w-full md:w-1/2">
+                                <div class="flex justify-between items-center mb-1 min-h-[24px]">
+                                    <label class="block text-xs font-bold text-gray-600">説明・補足</label>
+                                </div>
+                                <textarea class="ref-text-input w-full px-3 py-2 rounded border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors text-sm" rows="1" placeholder="この画像の構図を参考に..."></textarea>
+                            </div>
+                            <div class="w-full md:w-1/2">
+                                <div class="flex justify-between items-center mb-1 min-h-[24px]">
+                                    <label class="block text-xs font-bold text-gray-600">参考画像URL</label>
+                                    <button type="button" class="delete-ref-btn text-gray-400 hover:text-red-500 transition-colors" title="削除">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </div>
+                                <input type="text" class="ref-url-input w-full px-3 py-2 rounded border border-gray-200 focus:border-[#BE4B35] focus:ring-1 focus:ring-[#BE4B35] outline-none transition-colors text-sm" placeholder="https://...">
+                            </div>
+                        </div>
+                    `;
+
+                    // Delete handler
+                    div.querySelector('.delete-ref-btn').addEventListener('click', () => {
+                        if (listContainer.children.length > 1) {
+                            div.remove();
+                        } else {
+                            // If it's the last one, just clear inputs
+                            div.querySelectorAll('input, textarea').forEach(el => el.value = '');
+                        }
+                    });
+
+                    return div;
+                }
+
+                // Add initial item if empty
+                if (listContainer.children.length === 0) {
+                    listContainer.appendChild(createItem(0));
+                }
+
+                // Add button handler - clone to remove old listeners
+                const newBtn = addBtn.cloneNode(true);
+                addBtn.parentNode.replaceChild(newBtn, addBtn);
+
+                newBtn.onclick = () => {
+                    listContainer.appendChild(createItem(listContainer.children.length));
+                };
+            }
+
+            // Initialize logic for the first section
+            setupImageReferenceLogic(document.querySelector('.request-detail-section'));
+
             // Contact Method
             const contactMethodRadios = document.querySelectorAll('input[name="contact_method"]');
             const userIdField = document.getElementById('user-id-field');
@@ -1128,6 +1428,22 @@
                         }
                     });
                 }
+
+                // Facial Diff toggler
+                const facialDiffCheck = container.querySelector('.js-facial-diff-check');
+                const facialDiffInput = container.querySelector('.js-facial-diff-input');
+                if (facialDiffCheck && facialDiffInput) {
+                    facialDiffCheck.addEventListener('change', function () {
+                        if (this.checked) {
+                            facialDiffInput.classList.remove('hidden');
+                            // facialDiffInput.required = true; // Optional logic
+                        } else {
+                            facialDiffInput.classList.add('hidden');
+                            facialDiffInput.value = '';
+                            // facialDiffInput.required = false;
+                        }
+                    });
+                }
             }
 
             // Initial setup for the first section
@@ -1158,7 +1474,7 @@
                         const tabTemplate = currentTabs[0].cloneNode(true);
                         tabTemplate.setAttribute('onclick', `switchTab(${i})`);
                         const tabLabel = tabTemplate.querySelector('.tab-label-text');
-                        if (tabLabel) tabLabel.textContent = `${newIndex}枚目`;
+                        if (tabLabel) tabLabel.textContent = `${newIndex} 枚目`;
 
                         // Set as inactive initially
                         const bg = tabTemplate.querySelector('.tab-bg');
@@ -1176,7 +1492,7 @@
 
                         // Update Section Title
                         const title = template.querySelector('h3');
-                        if (title) title.textContent = `ご依頼詳細 (${newIndex}枚目)`;
+                        if (title) title.textContent = `ご依頼詳細(${newIndex}枚目)`;
 
                         // Setup delete button for new section
                         const sectionDelBtn = template.querySelector('.delete-section-btn');
@@ -1193,13 +1509,13 @@
                                 if (match) {
                                     const baseName = match[1].replace(/_\d+$/, '');
                                     const isArray = match[2] || '';
-                                    input.name = `${baseName}_${newIndex}${isArray}`;
+                                    input.name = `${baseName}_${newIndex}${isArray} `;
                                 }
                             }
                             // Update ID and Label association
                             if (input.id) {
                                 const baseId = input.id.replace(/_\d+$/, '');
-                                const newId = `${baseId}_${newIndex}`;
+                                const newId = `${baseId}_${newIndex} `;
                                 input.id = newId;
                             }
                             // Reset values
@@ -1217,7 +1533,7 @@
                             const forAttr = label.getAttribute('for');
                             if (forAttr) {
                                 const baseFor = forAttr.replace(/_\d+$/, '');
-                                label.setAttribute('for', `${baseFor}_${newIndex}`);
+                                label.setAttribute('for', `${baseFor}_${newIndex} `);
                             }
                         });
 
@@ -1227,16 +1543,21 @@
                         // Hide new section initially
                         template.classList.add('hidden');
 
+                        // Reset Dynamic Image Reference
+                        const refContainer = template.querySelector('.image-ref-container');
+                        if (refContainer) refContainer.innerHTML = ''; // Clear all items
+
                         contentsContainer.appendChild(template);
                         setupRequestDetailListeners(template);
+                        setupImageReferenceLogic(template);
                     }
                 } else if (targetCount < currentCount) {
                     // Confirm deletion
                     let confirmMessage = '';
                     if (currentCount - targetCount === 1) {
-                        confirmMessage = `${currentCount}枚目を削除して良いですか？`;
+                        confirmMessage = `${currentCount} 枚目を削除して良いですか？`;
                     } else {
-                        confirmMessage = `${targetCount + 1}枚目〜${currentCount}枚目を削除して良いですか？`;
+                        confirmMessage = `${targetCount + 1} 枚目〜${currentCount} 枚目を削除して良いですか？`;
                     }
 
                     if (!confirm(confirmMessage)) {
@@ -1283,7 +1604,7 @@
                 if (tabs.length <= 1) return;
 
                 const pageNum = index + 1; // This is the visual number
-                if (!confirm(`${pageNum}枚目を削除しますか？`)) return;
+                if (!confirm(`${pageNum} 枚目を削除しますか？`)) return;
 
                 const sections = contentsContainer.querySelectorAll('.request-detail-section');
 
@@ -1310,13 +1631,13 @@
                     const num = i + 1;
                     tab.setAttribute('onclick', `switchTab(${i})`);
                     const label = tab.querySelector('.tab-label-text');
-                    if (label) label.textContent = `${num}枚目`;
+                    if (label) label.textContent = `${num} 枚目`;
                 });
 
                 sections.forEach((section, i) => {
                     const num = i + 1;
                     const title = section.querySelector('h3');
-                    if (title) title.textContent = `ご依頼詳細 (${num}枚目)`;
+                    if (title) title.textContent = `ご依頼詳細(${num}枚目)`;
 
                     const delBtn = section.querySelector('.delete-section-btn');
                     if (delBtn) {
@@ -1326,12 +1647,12 @@
                     // Update inputs names/ids/labels
                     const inputs = section.querySelectorAll('input, select, textarea');
                     inputs.forEach(input => {
-                        if (input.name) input.name = input.name.replace(/_\d+(\[\])?$/, `_${num}$1`);
-                        if (input.id) input.id = input.id.replace(/_\d+$/, `_${num}`);
+                        if (input.name) input.name = input.name.replace(/_\d+(\[\])?$/, `_${num} $1`);
+                        if (input.id) input.id = input.id.replace(/_\d+$/, `_${num} `);
                     });
                     section.querySelectorAll('label').forEach(label => {
                         const forAttr = label.getAttribute('for');
-                        if (forAttr) label.setAttribute('for', forAttr.replace(/_\d+$/, `_${num}`));
+                        if (forAttr) label.setAttribute('for', forAttr.replace(/_\d+$/, `_${num} `));
                     });
                 });
 
@@ -1345,20 +1666,24 @@
 
             // Publication
             const pubRadios = document.querySelectorAll('input[name="publication"]');
-            const pubDateContainer = document.getElementById('pub-date-container');
+            const pubDetailsContainer = document.getElementById('pub-details-container');
             const pubDateInput = document.getElementById('publication_date');
             const pubOtherInput = document.getElementById('publication_other');
+            const pubDateTypeRadios = document.querySelectorAll('input[name="publication_date_type"]');
+            const pubSpecificDateInput = document.getElementById('pub-specific-date-input');
 
             pubRadios.forEach(radio => {
                 radio.addEventListener('change', (e) => {
-                    pubDateContainer.classList.add('hidden');
+                    pubDetailsContainer.classList.add('hidden');
                     pubDateInput.required = false;
                     pubOtherInput.classList.add('hidden');
                     pubOtherInput.required = false;
 
                     if (e.target.value === 'Allow') {
-                        pubDateContainer.classList.remove('hidden');
-                        pubDateInput.required = true;
+                        pubDetailsContainer.classList.remove('hidden');
+                        // Update required status based on date type
+                        const dateType = document.querySelector('input[name="publication_date_type"]:checked').value;
+                        pubDateInput.required = (dateType === 'Specific');
                     } else if (e.target.value === 'Other') {
                         pubOtherInput.classList.remove('hidden');
                         pubOtherInput.required = true;
@@ -1366,19 +1691,68 @@
                 });
             });
 
+            pubDateTypeRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    if (e.target.value === 'Specific') {
+                        pubSpecificDateInput.classList.remove('hidden');
+                        pubDateInput.required = true;
+                    } else {
+                        pubSpecificDateInput.classList.add('hidden');
+                        pubDateInput.required = false;
+                    }
+                });
+            });
+
             // --- AJAX Form Submission (GAS連携用) ---
             const form = document.getElementById('contact-form');
             if (form) {
-                form.addEventListener('submit', async function (e) {
+                // メッセージリスナーを設定 (Success/Errorの受け取り)
+                window.addEventListener('message', function (event) {
+                    if (event.data && event.data.target === 'gas_form') {
+                        if (event.data.result === 'success') {
+                            console.log("Transmission successful!");
+                            window.location.href = 'thanks.html';
+                        } else {
+                            console.error("Transmission failed:", event.data.message);
+                            alert("送信中にエラーが発生しました: " + (event.data.message || "不明なエラー"));
+                            resetButton();
+                        }
+                    }
+                }, false);
+
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
                     const submitBtn = document.getElementById('submit-btn');
                     const originalBtnText = submitBtn.innerText;
 
-                    // 送信先URL (GASのデプロイURL)
-                    const GAS_URL = "https://script.google.com/macros/s/AKfycbzLoCwmHNQpe_HDSPLJkkNOE2-BXtGFOVtXoq-hOvWbdrQ4OI0CzU4Yj5Am37rfVvF_/exec";
+                    // Custom Validation for Publication Places
+                    const pubVal = new FormData(form).get('publication');
+                    if (pubVal === 'Allow') {
+                        const checkedPlaces = form.querySelectorAll('input[name="publication_places[]"]:checked');
+                        const placeInputs = form.querySelectorAll('input[name="publication_places[]"]');
 
-                    if (GAS_URL === "YOUR_GAS_DEPLOY_URL_HERE") {
-                        alert("GASのデプロイURLが設定されていません。gas-script.gsをデプロイしてURLを取得し、form.htmlの1440行目付近に貼り付けてください。");
+                        if (checkedPlaces.length === 0 && placeInputs.length > 0) {
+                            // Use first checkbox to show the validation bubble
+                            const firstInput = placeInputs[0];
+                            firstInput.setCustomValidity('最低一つ選択してください。');
+                            firstInput.reportValidity();
+
+                            // Setup listener to clear validity when any option is selected
+                            const clearHandler = () => {
+                                firstInput.setCustomValidity('');
+                                placeInputs.forEach(input => input.removeEventListener('change', clearHandler));
+                            };
+                            placeInputs.forEach(input => input.addEventListener('change', clearHandler));
+
+                            return;
+                        }
+                    }
+
+                    // 送信先URL (GAS de deploy URL)
+                    const GAS_URL = "https://script.google.com/macros/s/AKfycbwSceLrWZnhX1KRoDwlxGZars0_1haJ7lALw2ovlPW7MKgIwklK4ZzOX6ODcuLGFxtO/exec";
+
+                    if (GAS_URL === "https://script.google.com/macros/s/AKfycbwSceLrWZnhX1KRoDwlxGZars0_1haJ7lALw2ovlPW7MKgIwklK4ZzOX6ODcuLGFxtO/exec" && GAS_URL.includes("YOUR_GAS")) {
+                        alert("GASのデプロイURLが設定されていません。");
                         return;
                     }
 
@@ -1386,82 +1760,161 @@
                     submitBtn.innerText = '送信中...';
                     submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
-                    try {
-                        console.log("Transmission process started. Collecting form data...");
-                        // 1. 基本データの収集
-                        const formData = new FormData(form);
-                        const data = {};
+                    const formData = new FormData(form);
 
-                        // 基本項目の抽出
-                        data.plan = formData.get('plan');
-                        const planSelect = document.getElementById('plan');
-                        data.plan_label = planSelect ? planSelect.options[planSelect.selectedIndex].text : data.plan;
+                    // PRE-PROCESSING: Combine dynamic image references into hidden fields
+                    document.querySelectorAll('.request-detail-section').forEach((section, i) => {
+                        const num = i + 1;
+                        const suffix = num > 1 ? `_${num} ` : '';
 
-                        data.company_name = formData.get('company_name');
-                        data.department = formData.get('department');
-                        data.name = formData.get('name');
-                        data.email = formData.get('email');
-                        data.contact_method = formData.get('contact_method');
-                        data.user_id = formData.get('user_id');
-                        data.usage = formData.get('usage');
-                        data.request_count = parseInt(formData.get('request_count'));
-                        data.reference = formData.get('reference');
-                        data.deadline = formData.get('deadline');
-                        data.payment_method = formData.get('payment_method');
-                        data.publication = formData.get('publication');
-                        data.publication_date = formData.get('publication_date');
-                        data.publication_other = formData.get('publication_other');
-                        data.copyright_transfer = formData.get('copyright_transfer');
-                        data.remarks = formData.get('remarks');
+                        const urls = [];
+                        const texts = [];
 
-                        // 2. 複数枚の依頼詳細を配列にまとめる
-                        data.details_list = [];
-                        const sections = document.querySelectorAll('.request-detail-section');
-                        sections.forEach((section, i) => {
-                            const num = i + 1;
-                            const suffix = `_${num}`;
+                        section.querySelectorAll('.image-ref-item').forEach((item, idx) => {
+                            const urlVal = item.querySelector('.ref-url-input').value.trim();
+                            const textVal = item.querySelector('.ref-text-input').value.trim();
 
-                            // 複数選択(checkbox)の取得
-                            const types = [];
-                            section.querySelectorAll(`input[name="request_type${num > 1 ? suffix : ''}[]"]:checked`).forEach(cb => types.push(cb.value));
-
-                            const formats = [];
-                            section.querySelectorAll(`input[name="file_format${num > 1 ? suffix : ''}[]"]:checked`).forEach(cb => formats.push(cb.value));
-
-                            data.details_list.push({
-                                commercial_use: formData.get(`commercial_use${num > 1 ? suffix : ''}`),
-                                request_type: types,
-                                details: formData.get(`details${num > 1 ? suffix : ''}`) || formData.get(`project_details${num > 1 ? suffix : ''}`),
-                                color_mode: formData.get(`color_mode${num > 1 ? suffix : ''}`),
-                                canvas_size: formData.get(`canvas_size${num > 1 ? suffix : ''}`),
-                                orientation: formData.get(`orientation_a4${num > 1 ? suffix : ''}`) || formData.get(`orientation_4k${num > 1 ? suffix : ''}`),
-                                other_size: formData.get(`other_size${num > 1 ? suffix : ''}`),
-                                file_format: formats,
-                                file_format_other: formData.get(`file_format_other${num > 1 ? suffix : ''}`)
-                            });
+                            if (urlVal || textVal) {
+                                urls.push(`(${idx + 1}) ${urlVal} `);
+                                texts.push(`(${idx + 1}) ${textVal} `);
+                            }
                         });
 
-                        console.log("Data collection complete. Payload:", data);
-                        // 3. GASへ送信 (JSON形式)
-                        console.log("Sending to GAS URL:", GAS_URL);
-                        const response = await fetch(GAS_URL, {
-                            method: 'POST',
-                            mode: 'no-cors', // GASのCORS制限回避のため no-cors を使用（レスポンスは読めませんが送信は成功します）
-                            headers: {
-                                'Content-Type': 'text/plain' // no-corsでは特定のContent-Typeのみ許可される
-                            },
-                            body: JSON.stringify(data)
-                        });
+                        // Set values to hidden inputs (or create them if form data is gathered from name attributes)
+                        // Note: default method gathers from name attributes, so we need to update the hidden inputs
+                        const hiddenUrl = section.querySelector(`.hidden - ref - url`);
+                        const hiddenText = section.querySelector(`.hidden - ref - text`);
 
-                        // no-cors の場合 response.ok は常に false になるため、
-                        // ネットワークエラーがなければ成功とみなして thanks.html へ。
-                        window.location.href = 'thanks.html';
+                        if (hiddenUrl) hiddenUrl.value = urls.join('\n');
+                        if (hiddenText) hiddenText.value = texts.join('\n');
 
-                    } catch (error) {
-                        console.error('Error:', error);
-                        alert("送信中にエラーが発生しました。");
-                        resetButton();
+                        // Manually update formData object because FormData was created BEFORE this update?
+
+                        if (hiddenUrl && urls.length > 0) hiddenUrl.value = urls.join('\n');
+                        if (hiddenText && texts.length > 0) hiddenText.value = texts.join('\n');
+                    });
+
+                    // Re-create FormData to capture updated hidden inputs
+                    const updatedFormData = new FormData(form);
+                    const data = {};
+
+                    data.plan = updatedFormData.get('plan');
+                    const planSelect = document.getElementById('plan');
+                    data.plan_label = planSelect ? planSelect.options[planSelect.selectedIndex].text : data.plan;
+                    data.company_name = updatedFormData.get('company_name');
+                    data.department = updatedFormData.get('department');
+                    data.name = updatedFormData.get('name');
+                    data.email = updatedFormData.get('email');
+                    data.contact_method = updatedFormData.get('contact_method');
+                    data.user_id = updatedFormData.get('user_id');
+                    data.usage = updatedFormData.get('usage');
+                    data.request_count = parseInt(updatedFormData.get('request_count'));
+                    data.reference = updatedFormData.get('reference');
+                    data.deadline = updatedFormData.get('deadline');
+                    data.payment_method = updatedFormData.get('payment_method');
+                    data.publication = updatedFormData.get('publication');
+                    if (data.publication === 'Allow') {
+                        const places = [];
+                        document.querySelectorAll('input[name="publication_places[]"]:checked').forEach(cb => places.push(cb.value));
+                        data.publication_places = places;
+                        data.publication_date_type = updatedFormData.get('publication_date_type');
+                        data.publication_date = data.publication_date_type === 'Specific' ? updatedFormData.get('publication_date') : '未定';
+                    } else {
+                        data.publication_date = updatedFormData.get('publication_date');
                     }
+                    data.publication_other = updatedFormData.get('publication_other');
+                    data.copyright_transfer = updatedFormData.get('copyright_transfer');
+                    data.remarks = updatedFormData.get('remarks');
+
+                    data.details_list = [];
+                    const sections = document.querySelectorAll('.request-detail-section');
+                    sections.forEach((section, i) => {
+                        const num = i + 1;
+                        const suffix = `_${num} `;
+                        const types = [];
+                        section.querySelectorAll(`input[name = "request_type${num > 1 ? suffix : ''}[]"]: checked`).forEach(cb => types.push(cb.value));
+                        const formats = [];
+                        section.querySelectorAll(`input[name = "file_format${num > 1 ? suffix : ''}[]"]: checked`).forEach(cb => formats.push(cb.value));
+                        const optionalServices = [];
+                        section.querySelectorAll(`input[name = "optional_services${num > 1 ? suffix : ''}[]"]: checked`).forEach(cb => {
+                            let val = cb.value;
+                            // 表情差分の場合は詳細テキストを追加
+                            if (val === '表情差分1つ追加') {
+                                const facialDetail = section.querySelector(`.js-facial-diff-input`).value;
+                                if (facialDetail) {
+                                    val += ` (${facialDetail})`;
+                                }
+                            }
+                            optionalServices.push(val);
+                        });
+
+                        // Check active mode for background option
+                        const isCorporateMode = !document.getElementById('corporate-details').classList.contains('hidden');
+                        const bgOptKey = isCorporateMode ? `background_option_corporate_${num}` : `background_option_personal_${num}`;
+                        const bgTextKey = isCorporateMode ? `background_text_corporate_${num}` : `background_text_personal_${num}`;
+
+                        data.details_list.push({
+                            commercial_use: updatedFormData.get(`commercial_use${num > 1 ? suffix : ''} `),
+                            request_type: types,
+                            details: updatedFormData.get(`details${num > 1 ? suffix : ''} `) || updatedFormData.get(`project_details${num > 1 ? suffix : ''} `),
+                            background_option: updatedFormData.get(bgOptKey),
+                            background_text: updatedFormData.get(bgTextKey),
+                            image_reference_url: updatedFormData.get(`image_reference_url${num > 1 ? suffix : ''} `),
+                            image_reference_text: updatedFormData.get(`image_reference_text${num > 1 ? suffix : ''} `),
+                            color_mode: updatedFormData.get(`color_mode${num > 1 ? suffix : ''} `),
+                            canvas_size: updatedFormData.get(`canvas_size${num > 1 ? suffix : ''} `),
+                            orientation: updatedFormData.get(`orientation_a4${num > 1 ? suffix : ''} `) || updatedFormData.get(`orientation_4k${num > 1 ? suffix : ''} `),
+                            other_size: updatedFormData.get(`other_size${num > 1 ? suffix : ''} `),
+                            file_format: formats,
+                            file_format_other: updatedFormData.get(`file_format_other${num > 1 ? suffix : ''}`),
+                            optional_services: optionalServices
+                        });
+                    });
+
+                    // 2. 隠しiframeを作成して送信
+                    let iframe = document.getElementById('gas-target-iframe');
+                    if (!iframe) {
+                        iframe = document.createElement('iframe');
+                        iframe.id = 'gas-target-iframe';
+                        iframe.name = 'gas-target-iframe';
+                        iframe.style.display = 'none';
+                        document.body.appendChild(iframe);
+                    }
+
+                    // 3. ダミーのフォームでPOST送信
+                    const dummyForm = document.createElement('form');
+                    dummyForm.method = 'POST';
+                    dummyForm.action = GAS_URL;
+                    dummyForm.target = 'gas-target-iframe';
+
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'json_data';
+                    // GAS側のdoPostでe.postData.contentsを読み取れるようにするため、
+                    // 実際には標準の形式で送る必要がありますが、ここではpayload全体を1つのパラメータとして送るか、
+                    // または通常通り送ります。GAS側をJSON.parse(e.postData.contents)で維持したい場合は注意。
+                    // 
+                    // GASのdoPost(e)において、通常のフォーム送信は e.parameter に入ります。
+                    // 以前のfetchはJSON文字列をbodyに入れていたため e.postData.contents でした。
+                    // 今回は e.parameter['data'] を使うか、GAS側を少し調整します。
+
+                    const hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = 'payload';
+                    hiddenInput.value = JSON.stringify(data);
+                    dummyForm.appendChild(hiddenInput);
+
+                    document.body.appendChild(dummyForm);
+                    dummyForm.submit();
+                    document.body.removeChild(dummyForm);
+
+                    // タイムアウト設定 (15秒)
+                    setTimeout(() => {
+                        if (submitBtn.disabled && submitBtn.innerText === '送信中...') {
+                            alert("送信がタイムアウトしました。通信環境を確認するか、時間をおいて再度お試しください。");
+                            resetButton();
+                        }
+                    }, 15000);
 
                     function resetButton() {
                         submitBtn.disabled = false;
@@ -1470,6 +1923,15 @@
                     }
                 });
             }
+
+            // Click anywhere on date input to open picker
+            document.querySelectorAll('input[type="date"]').forEach(input => {
+                input.addEventListener('click', () => {
+                    if (typeof input.showPicker === 'function') {
+                        input.showPicker();
+                    }
+                });
+            });
         });
     </script>
 </body>

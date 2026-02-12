@@ -256,6 +256,7 @@
                         const planColor = colorClasses[plan.color] || colorClasses.gray;
                         return `
                         <div id="plan-${plan.id}" class="plan-card bg-white rounded-2xl relative ${orderClass} transition-all duration-300" onmouseenter="activatePlan('${plan.id}')">
+                            ${plan.saleBadge ? `<div class="price-sash"><div class="price-sash-inner">${plan.saleBadge}</div></div>` : ''}
                             <div id="badge-${plan.id}" class="plan-badge ${planColor.bg} text-white text-xs font-bold uppercase tracking-wider py-1 absolute top-[-2px] left-[-2px] right-[-2px] text-center transition-opacity duration-300 rounded-t-[14px]">
                                 ${plan.badge}
                             </div>

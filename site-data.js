@@ -15,23 +15,6 @@ const SITE_DATA = {
                 "tags": ["一枚絵", "人外", "Cute"]
             },
             {
-                "id": 51,
-                "title": "Work 2025.10.23",
-                "category": "Gallery",
-                "details": "",
-                "image": "./images/gallery/20251023_01.jpg",
-                "productionDate": "2025.10.23",
-                "productionTime": "",
-                "tags": ["コップちゃん", "一枚絵"],
-                "images": [
-                    "./images/gallery/20251023_01.jpg",
-                    "./images/gallery/20251023_02.jpg",
-                    "./images/gallery/20251023_03.jpg"
-                ],
-                "heroSlides_id": 1,
-                "heroImage": "./images/gallery/20251023_01.jpg"
-            },
-            {
                 "id": 2,
                 "title": "Work 2024.07.31",
                 "category": "Gallery",
@@ -789,6 +772,7 @@ const SITE_DATA = {
                         "大ラフのリテイク+1案無料、修正+1回無料！"
                     ],
                     "badge": "おすすめ / Recommended",
+                    "saleBadge": "1,000円OFF",
                     "color": "blue",
                     "default": true
                 },
@@ -989,68 +973,35 @@ const SITE_DATA = {
             "steps": [
                 {
                     "step": "STEP 01",
-                    "title": "ヒアリング・お見積り",
+                    "title": "ヒアリング",
                     "chats": [
-                        { "speaker": "client", "message": "はじめまして〇〇と言います！\nアイコンの制作をお願いしたいです！" },
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/20240726_.jpg"
-                            ],
-                            "message": "ご依頼ありがとうございます！\n記載内容にお間違いはないですか？"
-                        },
-                        { "speaker": "client", "message": "大丈夫です！" },
-                        { "speaker": "illustrator", "message": "それでは大ラフの制作に取り掛かりますね！" }
-
+                        { "speaker": "client", "message": "はじめまして〇〇といいます！\nSNSのアイコンをお願いしたくてフォームを送ったので、\n確認してもらえますか？" },
+                        { "speaker": "illustrator", "message": "ご連絡ありがとうございます！内容拝見しました。\nお見積りと詳細をまとめましたので、内容に間違いがないかチェックをお願いします！" },
+                        { "speaker": "client", "message": "大丈夫です、これで進めてください！" },
+                        { "speaker": "illustrator", "message": "ありがとうございます！では早速、大ラフの制作に入りますね。\n〇日くらいでお見せできると思います。何かあればいつでも連絡してください！" },
+                        { "speaker": "client", "message": "楽しみにしてます。よろしくお願いします！" }
                     ]
                 },
                 {
                     "step": "STEP 02",
-                    "title": "大ラフの確認・納品",
+                    "title": "大ラフの確認",
                     "chats": [
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/20240726_.jpg",
-                                "./images/gallery/2025-12-10_01_AsagiMuu_01.png",
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
-                            ],
-                            "message": "大ラフ(構図案)を3案作成しました。\nイメージに近いものをお選びください！"
-                        },
-                        { "speaker": "client", "message": "①案がイメージに一番近いです！こちらで進めて頂きたいです。" },
-                        { "speaker": "illustrator", "message": "承知いたしました！\nお振り込みが確認取れ次第、清書の制作を進めますね。" }
+                        { "speaker": "illustrator", "message": "大ラフを3パターン作ってみました。この中にイメージに近いものはありますか？" },
+                        { "speaker": "client", "message": "1番目の案が一番好きです！これで進めてもらえますか？" },
+                        { "speaker": "illustrator", "message": "ありがとうございます。1番目の案で進めますね！\nお振込みが確認でき次第、仕上げ作業に入ります。よろしくお願いします。" },
+                        { "speaker": "client", "message": "振込み完了しました、確認をお願いします！" },
+                        { "speaker": "illustrator", "message": "確認できました！ありがとうございます。\nそれでは、完成までもう少々お待ちくださいね。" }
                     ]
                 },
                 {
                     "step": "STEP 03",
-                    "title": "お振込み",
-                    "chats": [
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/20240726_.jpg"
-                            ],
-                            "message": "こちら請求書になります"
-                        },
-                        { "speaker": "client", "message": "振り込み完了しました。確認お願いします！" },
-                        { "speaker": "illustrator", "message": "お振込みの確認が取れました。\nそれでは清書の制作を進めていきますね！" }
-                    ]
-                },
-
-
-                {
-                    "step": "STEP 04",
                     "title": "清書・納品",
                     "chats": [
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/20240726_.jpg"
-                            ],
-                            "message": "清書が完了しました！\n確認お願いします！"
-                        },
-                        { "speaker": "client", "message": "すごい素敵です！\nありがとうございます！" },
-                        { "speaker": "illustrator", "message": "こちら納品データです。\nまた機会がありましたらよろしくお願いします！" },
+                        { "speaker": "illustrator", "message": "清書が終わりました、確認をお願いします！" },
+                        { "speaker": "client", "message": "すごく素敵です！…あ、すみません、やっぱり目の色を少し明るくすることって可能でしょうか…？" },
+                        { "speaker": "illustrator", "message": "大丈夫ですよ、修正しますね！\nこれくらいの明るさでいかがでしょうか？" },
+                        { "speaker": "client", "message": "ばっちりです！理想通りになりました。ありがとうございます！" },
+                        { "speaker": "illustrator", "message": "よかったです！それでは完成データを納品させていただきますね。\nまた何かあればお気軽にご相談ください！" }
                     ]
                 }
             ]
@@ -1060,13 +1011,11 @@ const SITE_DATA = {
             "steps": [
                 {
                     "step": "STEP 01",
-                    "title": "ヒアリング・お見積り",
+                    "title": "ヒアリング",
                     "chats": [
-                        { "speaker": "client", "message": "はじめまして〇〇と言います！\n立ち絵の制作をお願いしたいです。\nフォームを送りましたので確認お願いします！" },
-                        { "speaker": "illustrator", "message": "ご連絡ありがとうございます！ お送りいただいた内容を元に、詳細をまとめました。 記載内容にお間違いがないか、ご確認いただけますでしょうか？" },
-                        { "speaker": "client", "message": "問題無いです！" },
-                        { "speaker": "illustrator", "message": "ありがとうございます！\nそれでは早速、大ラフの制作に取り掛かりますね。\nだいたい〇日以内にはお見せ出来るかと思います。\n気になる点などあればいつでも遠慮なくお知らせ下さい！" },
-                        { "speaker": "client", "message": "ありがとうございます！よろしくお願い致します！" }
+                        { "speaker": "client", "message": "こんにちは！立ち絵の制作をお願いしたくてフォームを送ってみました。" },
+                        { "speaker": "illustrator", "message": "ご連絡ありがとうございます！内容の方、確認しました。\nプランに合わせた詳細をまとめたので、お間違いがないかチェックをお願いします！" },
+                        { "speaker": "client", "message": "ばっちりです。よろしくお願いします！" }
                     ]
                 },
                 {
@@ -1080,92 +1029,45 @@ const SITE_DATA = {
                                 "./images/gallery/2025-12-10_01_AsagiMuu_01.png",
                                 "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
                             ],
-                            "message": "大ラフを3案作成しました！ イメージに近いものをお選びください。\n\nベーシックプラン特典として、リテイク1案・修正1回まで無料です。\n気になる点があれば、お気軽に修正のご相談をください！"
+                            "message": "大ラフを3案作ってみました！イメージに近いものはありますか？\nベーシックプランはリテイク1案、修正1回まで無料ですので、気になるところがあれば教えてくださいね。"
                         },
-                        { "speaker": "client", "message": "②案がイメージに一番近いです！こちらで進めて頂きたいです。" },
-                        { "speaker": "illustrator", "message": "承知いたしました！\nそれではラフの制作を進めていきます。\n今回の依頼内容はキャラデザも含まれていますので、3案ほど考えさせて頂きますね！" }
+                        { "speaker": "client", "message": "2案目がイメージに一番近いです！これで進めてもらえますか？" },
+                        { "speaker": "illustrator", "message": "承知いたしました！それでは、この案をベースにラフ（色付き）の制作に進みますね。" }
                     ]
                 },
                 {
                     "step": "STEP 03",
-                    "title": "ラフの確認・修正",
+                    "title": "ラフの確認",
                     "chats": [
                         {
                             "speaker": "illustrator",
                             "images": [
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png",
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png",
                                 "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
                             ],
-                            "message": "②案をベースに、ラフを3案作成しました！\nイメージに近いものをお選びください。\n\n ベーシックプラン特典として、リテイク1案・修正1回まで無料です。\n気になる点があれば、お気軽に修正のご相談をください！"
+                            "message": "ラフを作成しました！全体の雰囲気はいかがでしょうか？"
                         },
-                        { "speaker": "client", "message": "①案でお願いします！\n表情だけもう少し笑顔にすることは可能ですか？" },
-                        { "speaker": "illustrator", "message": "承知いたしました。表情を修正しますね！" },
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
-                            ],
-                            "message": "表情修正しました！問題ないかご確認下さい！"
-                        },
-                        { "speaker": "client", "message": "問題ないです！ありがとうございます！" },
-                        { "speaker": "illustrator", "message": "それではエフェクトの制作を進めていきますね！" }
+                        { "speaker": "client", "message": "いい感じです！一つだけ、表情をもう少しだけ笑顔にしてもらうことはできますか？" },
+                        { "speaker": "illustrator", "message": "もちろんです！表情を修正しますね。" },
+                        { "speaker": "illustrator", "message": "表情を修正しました！こちらでいかがでしょうか？" },
+                        { "speaker": "client", "message": "ありがとうございます、可愛くなりました！これで進めてください。" }
                     ]
                 },
                 {
                     "step": "STEP 04",
-                    "title": "エフェクトの確認・お振込み",
+                    "title": "お振込み",
                     "chats": [
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
-                            ],
-                            "message": "エフェクトを3案作成しました！\nイメージに近いものをお選びください。\n\n ベーシックプラン特典として、リテイク1案・修正1回まで無料です。\n気になる点があれば、お気軽に修正のご相談をください！"
-                        },
-                        { "speaker": "client", "message": "①の案でお願いします！" },
-                        { "speaker": "illustrator", "message": "承知いたしました！" }
+                        { "speaker": "illustrator", "message": "ご確認ありがとうございます！それでは仕上げ作業に入らせていただきますね。\nお振込みの確認が取れ次第、清書を進めますのでよろしくお願いします！" },
+                        { "speaker": "client", "message": "振り込み完了しました、確認お願いします！" },
+                        { "speaker": "illustrator", "message": "お振込み確認できました！ありがとうございます。\n完成まで今しばらくお待ちください。" }
                     ]
                 },
                 {
                     "step": "STEP 05",
-                    "title": "お振込み",
+                    "title": "清書・納品",
                     "chats": [
-                        { "speaker": "illustrator", "message": "振り込みが確認取れ次第、清書の制作を進めていきますね！" },
-                        { "speaker": "client", "message": "振り込み完了しました。確認お願いします！" },
-                        { "speaker": "illustrator", "message": "お振込みの確認が取れました！\nそれでは清書の制作を進めていきますね。\nだいたい〇日以内にはお見せ出来るかと思います！" },
-                        { "speaker": "client", "message": "よろしくお願い致します！" }
-                    ]
-                },
-                {
-                    "step": "STEP 06",
-                    "title": "清書の確認",
-                    "chats": [
-                        {
-                            "speaker": "illustrator",
-                            "images": [
-                                "./images/gallery/2025-12-30_01_AsagiMuu_01.png"
-                            ],
-                            "message": "お振込みありがとうございます。清書が完了しました。\n最終のご確認をお願いいたします。"
-                        },
-                        { "speaker": "client", "message": "完璧です！ありがとうございます。\n…すみません、やっぱり髪飾りをもう一つ追加って可能ですか…？" }
-                    ]
-                },
-                {
-                    "step": "STEP 07",
-                    "title": "修正料の追加振込",
-                    "chats": [
-                        { "speaker": "illustrator", "message": "ご連絡ありがとうございます。\n清書後の修正となりますので、追加料金（+1,000円）が発生しますが、よろしいでしょうか？" },
-                        { "speaker": "client", "message": "はい、問題ありません！お願いします。" },
-                        { "speaker": "illustrator", "message": "修正が完了しました。追加料金のお振込み確認後、正式なデータを納品させていただきます。" }
-                    ]
-                },
-                {
-                    "step": "STEP 08",
-                    "title": "納品",
-                    "chats": [
-                        { "speaker": "illustrator", "message": "お振込みの確認が取れました。\n完成データを納品させていただきます！\nこの度はご依頼ありがとうございました。" },
-                        { "speaker": "client", "message": "ありがとうございました！また機会がありましたらよろしくお願いします。" }
+                        { "speaker": "illustrator", "message": "清書が完了しました！最終チェックをお願いします。" },
+                        { "speaker": "client", "message": "完璧です！イメージ以上の仕上がりで嬉しいです。" },
+                        { "speaker": "illustrator", "message": "喜んでいただけて何よりです！それでは完成データを納品させていただきますね。\nこの度はご依頼ありがとうございました！" }
                     ]
                 }
             ]
@@ -1175,28 +1077,28 @@ const SITE_DATA = {
             "steps": [
                 {
                     "step": "STEP 01",
-                    "title": "ヒアリング・お見積り",
+                    "title": "ヒアリング",
                     "chats": [
-                        { "speaker": "client", "message": "プレミアムプランでこだわって制作をお願いしたいです。" },
-                        { "speaker": "illustrator", "message": "ありがとうございます！\nお客様のこだわりを最大限形にできるよう尽力いたします。\nまずは詳細をお聞かせください。" }
+                        { "speaker": "client", "message": "プレミアムプランで、細かいこだわりまで形にしていただきたいです！" },
+                        { "speaker": "illustrator", "message": "ありがとうございます！お客様の想いを最大限表現できるよう尽力しますね。\nまずは、ぜひ熱い想いや詳細をお聞かせください！" }
                     ]
                 },
                 {
                     "step": "STEP 02",
-                    "title": "ラフ・エフェクトの入念な確認",
+                    "title": "ラフ・エフェクトの確認",
                     "chats": [
-                        { "speaker": "illustrator", "message": "ラフ案を複数作成しました。\n修正は気兼ねなくお申し付けください。" },
-                        { "speaker": "client", "message": "C案の雰囲気が好きですが、背景のエフェクトをもっと派手にしたいです。" },
-                        { "speaker": "illustrator", "message": "承知いたしました。エフェクトを強化したパターンを数種類作成して再度提出しますね。" }
+                        { "speaker": "illustrator", "message": "ラフ案と、ライティングのパターンをいくつか作成して提出しました。\nプレミアムプランは納得いただけるまで修正・リテイク可能ですので、気兼ねなくおっしゃってくださいね！" },
+                        { "speaker": "client", "message": "この案の雰囲気がすごく好きです！ただ、もう少しかっこいい系のエフェクトに寄せてもらうことはできますか？" },
+                        { "speaker": "illustrator", "message": "承知いたしました。エフェクトを強化したパターンをいくつか試して、再度お見せしますね！" }
                     ]
                 },
                 {
                     "step": "STEP 03",
                     "title": "清書・納品",
                     "chats": [
-                        { "speaker": "illustrator", "message": "修正を反映し、清書が完了しました。\n最終確認をお願いいたします。" },
-                        { "speaker": "client", "message": "完璧です！イメージ以上の仕上がりで感動しました。" },
-                        { "speaker": "illustrator", "message": "喜んでいただけて光栄です！\n高解像度データを納品いたします。" }
+                        { "speaker": "illustrator", "message": "修正を反映して、清書が完了しました！最終チェックをお願いします。" },
+                        { "speaker": "client", "message": "完璧です…！イメージ以上の仕上がりで感動しました。" },
+                        { "speaker": "illustrator", "message": "喜んでいただけて、私もとても嬉しいです！\nそれでは、高解像度の完成データを納品させていただきますね。" }
                     ]
                 }
             ]
@@ -1206,16 +1108,16 @@ const SITE_DATA = {
                 "step": "STEP 01",
                 "title": "ヒアリング",
                 "chats": [
-                    { "speaker": "client", "message": "イラストの制作をお願いしたいのですが。" },
-                    { "speaker": "illustrator", "message": "ご相談ありがとうございます！\nまずはご希望の内容をお聞かせください。" }
+                    { "speaker": "client", "message": "こんにちは！イラストの制作をお願いしたいのですが、まずは相談からでも大丈夫ですか？" },
+                    { "speaker": "illustrator", "message": "もちろんです！ご相談ありがとうございます。\nまずはどのようなイラストをご希望か、お気軽にお聞かせください！" }
                 ]
             },
             {
                 "step": "STEP 02",
                 "title": "制作・納品",
                 "chats": [
-                    { "speaker": "illustrator", "message": "制作が完了しました。ご確認をお願いします。" },
-                    { "speaker": "client", "message": "確認しました。ありがとうございました！" }
+                    { "speaker": "illustrator", "message": "清書が完了しました！内容に問題がないかご確認をお願いします。" },
+                    { "speaker": "client", "message": "確認しました。素敵なイラストをありがとうございます！" }
                 ]
             }
         ]

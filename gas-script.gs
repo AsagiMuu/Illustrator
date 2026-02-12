@@ -11,8 +11,17 @@ function doGet(e) {
  */
 function doPost(e) {
   try {
-    // 1. データの解析
-    var params = JSON.parse(e.postData.contents);
+    // 1. データの解析 (JSON形式またはフォーム形式の両方をサポート)
+    var params;
+    if (e.postData && e.postData.contents) {
+      // fetch(..., {body: JSON.stringify(data)}) の場合
+      params = JSON.parse(e.postData.contents);
+    } else if (e.parameter && e.parameter.payload) {
+      // 隠しiframeフォーム送信の場合
+      params = JSON.parse(e.parameter.payload);
+    } else {
+      throw new Error("Invalid request: No data received.");
+    }
     
     // スプレッドシートへの記録（シートがある場合）
     try {
@@ -27,17 +36,17 @@ function doPost(e) {
     // 3. 相手宛ての自動返信（任意）
     // sendAutoReply(params);
 
-    // 成功レスポンス
-    return ContentService.createTextOutput(JSON.stringify({
-      "result": "success"
-    })).setMimeType(ContentService.MimeType.JSON);
+    // 成功時：親ウィンドウ（form.html）に成功を通知するHTMLを返す
+    return HtmlService.createHtmlOutput(
+      "<script>window.parent.postMessage({target: 'gas_form', result: 'success'}, '*');</script>"
+    );
 
   } catch (err) {
-    // 失敗レスポンス
-    return ContentService.createTextOutput(JSON.stringify({
-      "result": "error",
-      "error": err.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
+    console.error("Critical error: " + err.toString());
+    // 失敗時：親ウィンドウに失敗を通知するHTMLを返す
+    return HtmlService.createHtmlOutput(
+      "<script>window.parent.postMessage({target: 'gas_form', result: 'error', message: '" + err.toString().replace(/'/g, "\\'") + "'}, '*');</script>"
+    );
   }
 }
 
@@ -74,6 +83,14 @@ function sendAdminEmail(p) {
       body += "  - 詳細: " + item.details + "\n";
       body += "  - カラー: " + item.color_mode + "\n";
       body += "  - サイズ: " + item.canvas_size + (item.orientation ? " (" + item.orientation + ")" : "") + (item.other_size ? " (" + item.other_size + ")" : "") + "\n";
+      body += "  - 参考画像URL: " + (item.image_reference_url || "なし") + "\n";
+      body += "  - イメージ説明: " + (item.image_reference_text || "なし") + "\n";
+      if (item.background_option) {
+        body += "  - 背景: " + item.background_option + "\n";
+        if (item.background_option === '有り' && item.background_text) {
+             body += "  - 背景詳細: " + item.background_text + "\n";
+        }
+      }
       body += "  - 形式: " + item.file_format.join(", ") + (item.file_format_other ? " (" + item.file_format_other + ")" : "") + "\n\n";
     });
 
@@ -83,10 +100,22 @@ function sendAdminEmail(p) {
     body += "【参考URL】: " + (p.reference || "なし") + "\n";
     body += "【希望納期】: " + p.deadline + "\n";
     body += "【支払方法】: " + p.payment_method + "\n";
-    body += "【実績公開】: " + p.publication + (p.publication_date ? " (公開可能日: " + p.publication_date + ")" : "") + (p.publication_other ? " (" + p.publication_other + ")" : "") + "\n";
+    var pubText = p.publication === 'Allow' ? '許可' : (p.publication === 'Prohibit' ? '禁止' : 'その他');
+    if (p.publication === 'Allow') {
+      if (p.publication_places && p.publication_places.length > 0) {
+        var placeMap = { 'SNS': 'SNS', 'Portfolio': 'ポートフォリオ', 'Homepage': 'ホームページ' };
+        var places = p.publication_places.map(function(pl) { return placeMap[pl] || pl; });
+        pubText += " [場所: " + places.join(", ") + "]";
+      }
+      pubText += " [公開日: " + (p.publication_date || "未定") + "]";
+    } else if (p.publication === 'Other' && p.publication_other) {
+      pubText += " (" + p.publication_other + ")";
+    }
+    body += "【実績公開】: " + pubText + "\n";
     body += "【著作権譲渡】: " + (p.copyright_transfer === "Yes" ? "希望する" : "希望しない") + "\n";
     body += "【備考・質問】: \n" + (p.remarks || "なし") + "\n";
 
+    // メール送信（PDF添付なし）
     MailApp.sendEmail({
       to: myEmail,
       subject: subject,
@@ -125,4 +154,40 @@ function recordToSheet(p) {
   ];
   
   sheet.appendRow(row);
+}
+
+/**
+ * 日付を指定されたフォーマットで整形します。
+ */
+function formatDate(date, format) {
+  if (!date) {
+    date = new Date();
+  }
+  return Utilities.formatDate(date, "JST", format || "yyyy年MM月dd日");
+}
+
+/**
+ * 金額を計算します（仮実装）
+ * 実際のプランに基づく料金計算ロジックをここに実装してください。
+ */
+function calculatePrice(planLabel, requestCount, usage) {
+  // 仮の料金設定
+  var basePrice = 50000; // 基本料金
+  
+  // 使用用途による調整（商用利用の場合は2倍）
+  if (usage && (usage.includes("法人") || usage.includes("商用"))) {
+    basePrice = basePrice * 2;
+  }
+  
+  // 枚数による計算
+  var subtotal = basePrice * (requestCount || 1);
+  var tax = Math.floor(subtotal * 0.1); // 消費税10%
+  var total = subtotal + tax;
+  
+  return {
+    subtotal: subtotal.toLocaleString(),
+    tax: tax.toLocaleString(),
+    total: total.toLocaleString(),
+    estimatedPrice: total.toLocaleString()
+  };
 }
